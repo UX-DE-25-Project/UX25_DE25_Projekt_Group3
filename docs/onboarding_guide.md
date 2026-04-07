@@ -12,6 +12,10 @@ cd REPO-NAMN
 
 git checkout -b featur/ditt-namn-beskrivning
 
+## Dubbel kolla att du är på rätt branch:
+
+git branch
+
 
 ## Spara dina ändringar:
 
