@@ -1,0 +1,32 @@
+cat > .gitignore << 'EOF'
+# Miljövariabler och API-nycklar — ALDRIG pusha dessa
+.env
+*.env
+
+# Rådata — kan vara stor och känslig
+data/raw/
+data/processed/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+*.egg-info/
+dist/
+build/
+venv/
+.venv/
+
+# Mac-systemfiler
+.DS_Store
+.AppleDouble
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Loggar
+*.log
+logs/
+EOF
