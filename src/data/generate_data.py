@@ -20,6 +20,12 @@ städer = {
     ]
 }
 
+bas_pris_per_kvm = {
+    "Stockholm": 9500,
+    "Göteborg": 6500,
+    "Malmö": 4500
+}
+
 gatunamn = [
     "Storgatan", "Parkvägen", "Björkgatan", "Lindvägen",
     "Skolvägen", "Kyrkogatan", "Strandvägen", "Bergsgatan",
