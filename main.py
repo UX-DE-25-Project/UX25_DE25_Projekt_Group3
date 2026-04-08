@@ -1,12 +1,12 @@
 # main.py
-from extract import extract 
+from ETL_Pipline.extract import extract 
 
 
 def main():
     print("Startar RightHome ETL-pipeline...\n")
     
     # STEG 1: EXTRACT
-    df_raw = extract("data/bostader.json")
+    df_raw = extract("src/data/bostader.json")
     print(f"   Antal rader inlästa: {len(df_raw)}")
     print(f"   Kolumner: {list(df_raw.columns)}\n")
     
