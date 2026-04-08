@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 load_dotenv()  # läser in .env-filen
 
 def main():
-    print("🚀 Startar RightHome ETL-pipeline...\n")
+    print("Startar RightHome ETL-pipeline...\n")
 
     df_raw   = extract("data/bostader.json")
     df_clean = transform(df_raw)
