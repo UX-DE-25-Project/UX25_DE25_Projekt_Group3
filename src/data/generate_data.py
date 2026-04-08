@@ -20,6 +20,12 @@ städer = {
     ]
 }
 
+bas_pris_per_kvm = {
+    "Stockholm": 9500,
+    "Göteborg": 6500,
+    "Malmö": 4500
+}
+
 gatunamn = [
     "Storgatan", "Parkvägen", "Björkgatan", "Lindvägen",
     "Skolvägen", "Kyrkogatan", "Strandvägen", "Bergsgatan",
@@ -50,27 +56,29 @@ koordinater = {
     "Hyllie":      {"lat": 55.5620, "lon": 12.9750},
 }
 
-def slumpa_koordinat(område):
-    bas = koordinater[område]
-    return {
-        "lat": round(bas["lat"] + random.uniform(-0.01, 0.01), 5),
-        "lon": round(bas["lon"] + random.uniform(-0.01, 0.01), 5)
-    }
-
 def generera_bostad(id):
     typ = random.choice(["lägenhet", "hus"])
     upplåtelseform = random.choice(["hyra", "köpa"])
     stad = random.choice(list(städer.keys()))
     område = random.choice(städer[stad]) # väljer område baserat på stad
+    
     rum = random.randint(1, 6)
     boyta = rum * random.randint(18, 28)
-    random_days = random.randint(0, 10)
-    created_at = (datetime.now() - timedelta(days=random_days)).strftime("%Y-%m-%d")
+    
+    dagar_sen = random.randint(0, 365)
+    created_at = (datetime.now() - timedelta(days=dagar_sen)).strftime("%Y-%m-%d")
 
     if upplåtelseform == "hyra":
-        pris = random.randint(6000, 20000)
+        pris = int((boyta * 150) * random.uniform(0.8, 1.2))
+        avgift = 0
     else:
-        pris = random.randint(1000000, 5000000)
+        m2_pris = bas_pris_per_kvm[stad] * random.uniform(0.8, 1.4)
+        pris = int(boyta * m2_pris)
+        avgift = int((boyta * 60) * random.uniform(0.7, 1.3)) if typ == "lägenhet" else random.randint(1500, 3000)
+
+    bas_koords = koordinater[område]
+    lat = round(bas_koords["lat"] + random.uniform(-0.01, 0.01), 5)
+    lon = round(bas_koords["lon"] + random.uniform(-0.01, 0.01), 5)
 
     gata = random.choice(gatunamn)
     nummer = random.randint(1, 120)
@@ -80,12 +88,15 @@ def generera_bostad(id):
         "typ": typ,
         "upplåtelseform": upplåtelseform,
         "pris": pris,
+        "avgift": avgift,
         "rum": rum,
         "boyta": boyta,
+        "kvadratmeterpris": int(pris/boyta) if upplåtelseform == "köpa" else 0,
         "område": område,
         "stad": stad,
         "adress": f"{gata} {nummer}",
-        "koordinater": slumpa_koordinat(område),
+        "latitude": lat,
+        "longitude": lon,
         "tillgänglig": random.choice([True, True, True, False]),
         "created_at": created_at
     }
@@ -96,3 +107,4 @@ with open("src/data/bostader.json", "w", encoding="utf-8") as f:
     json.dump(bostäder, f, ensure_ascii=False, indent=2)
 
 print("1000 bostäder genererade och sparade i src/data/bostader.json")
+print(f"Data redo för Supabase, inkluderar 'avgift', 365 dagars historik mm.")
