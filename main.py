@@ -1,19 +1,24 @@
 # main.py
-from extract import extract
-from transform import transform
-from load import load
-from dotenv import load_dotenv
+from ETL_Pipline.extract import extract 
 
-load_dotenv()  # läser in .env-filen
 
 def main():
     print("Startar RightHome ETL-pipeline...\n")
-
-    df_raw   = extract("data/bostader.json")
-    df_clean = transform(df_raw)
-    load(df_clean)
-
-    print("\nPipeline klar! Datan är live i Supabase.")
+    
+    # STEG 1: EXTRACT
+    df_raw = extract("src/data/bostader.json")
+    print(f"   Antal rader inlästa: {len(df_raw)}")
+    print(f"   Kolumner: {list(df_raw.columns)}\n")
+    
+    #  STEG 2: TRANSFORM (kommer snart)
+    # df_clean = transform(df_raw)
+    
+    #  STEG 3: LOAD till Supabase (efter Supabase är uppsatt)
+    # load(df_clean)
+    
+    print("Extract klar! Nästa steg: Transform")
 
 if __name__ == "__main__":
     main()
+
+
