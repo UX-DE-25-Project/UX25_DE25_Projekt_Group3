@@ -1,5 +1,6 @@
 # main.py
 from ETL_Pipline.extract import extract 
+from ETL_Pipline.transform import transform
 
 
 def main():
@@ -10,13 +11,13 @@ def main():
     print(f"   Antal rader inlästa: {len(df_raw)}")
     print(f"   Kolumner: {list(df_raw.columns)}\n")
     
-    #  STEG 2: TRANSFORM (kommer snart)
-    # df_clean = transform(df_raw)
+    #  STEG 2: TRANSFORM 
+    df_clean = transform(df_raw)
     
     #  STEG 3: LOAD till Supabase (efter Supabase är uppsatt)
     # load(df_clean)
     
-    print("Extract klar! Nästa steg: Transform")
+    print("Extract + transform klar! Nästa steg: Load")
 
 if __name__ == "__main__":
     main()
