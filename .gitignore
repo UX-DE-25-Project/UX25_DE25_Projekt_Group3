@@ -1,4 +1,3 @@
-cat > .gitignore << 'EOF'
 # Miljövariabler och API-nycklar — ALDRIG pusha dessa
 .env
 *.env
@@ -21,10 +20,6 @@ venv/
 # Mac-systemfiler
 .DS_Store
 .AppleDouble
-
-# Jupyter
-.ipynb_checkpoints/
-*.ipynb
 
 # Loggar
 *.log
