@@ -47,3 +47,10 @@ def transform(df: pd.DataFrame) -> pd.DataFrame:
     print(f"   Datum från: {df['created_at'].min().date()} till {df['created_at'].max().date()}")
 
     return df
+
+if __name__ == "__main__":
+    from extract import extract
+    df_raw = extract("../src/data/bostader.json")
+    df_clean = transform(df_raw)
+    df_clean.to_csv("right_home_cleaned.csv", index=False)
+    print("CSV sparad: right_home_cleaned.csv")
