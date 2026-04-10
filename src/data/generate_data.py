@@ -107,4 +107,4 @@ with open("src/data/bostader.json", "w", encoding="utf-8") as f:
     json.dump(bostäder, f, ensure_ascii=False, indent=2)
 
 print("1000 bostäder genererade och sparade i src/data/bostader.json")
-print(f"Data redo för Supabase, inkluderar 'avgift', 365 dagars historik mm.")
+print(f"Data redo för Supabase, inkluderar 'avgift', 365 dagars historik mm.") 
