@@ -10,7 +10,9 @@ områden = [
 
 städer = {
     "Stockholm": [
-        "Södermalm", "Östermalm", "Vasastan", "Kungsholmen"
+        "Södermalm", "Östermalm", "Vasastan", "Kungsholmen", 
+        "Lidingö", "Solna", "Nacka", "Sundbyberg", 
+        "Hägersten", "Bromma", "Farsta", "Spånga"
     ],
     "Göteborg": [
         "Centrum", "Hisingen", "Majorna", "Linnéstaden"
@@ -21,9 +23,9 @@ städer = {
 }
 
 bas_pris_per_kvm = {
-    "Stockholm": 9500,
-    "Göteborg": 6500,
-    "Malmö": 4500
+    "Stockholm": 95000,
+    "Göteborg": 55000,
+    "Malmö": 38000
 }
 
 gatunamn = [
@@ -58,7 +60,15 @@ koordinater = {
 
 def generera_bostad(id):
     typ = random.choice(["lägenhet", "hus"])
-    upplåtelseform = random.choice(["hyra", "köpa"])
+
+    # Uppdatering av upplåtelseform då hus hyrs sällan ut, realistisk touch
+    chans = random.random()
+    # Ersatt tidigare block, förenklat, med färre outliers
+    if typ == "hus":
+        upplåtelseform = "hyra" if chans < 0.05 else "köpa"  # 5% chans att ett hus är till salu, 95% att det är till hyra
+    else:
+        upplåtelseform = "hyra" if chans < 0.40 else "köpa"  # 40% chans för hyra, annars köpa
+    
     stad = random.choice(list(städer.keys()))
     område = random.choice(städer[stad]) # väljer område baserat på stad
     
@@ -74,7 +84,7 @@ def generera_bostad(id):
     else:
         m2_pris = bas_pris_per_kvm[stad] * random.uniform(0.8, 1.4)
         pris = int(boyta * m2_pris)
-        avgift = int((boyta * 60) * random.uniform(0.7, 1.3)) if typ == "lägenhet" else random.randint(1500, 3000)
+        avgift = int((boyta * 60) * random.uniform(0.7, 1.3)) if typ == "lägenhet" else random.randint(1500, 4500)
 
     bas_koords = koordinater[område]
     lat = round(bas_koords["lat"] + random.uniform(-0.01, 0.01), 5)
@@ -103,6 +113,8 @@ def generera_bostad(id):
 
 bostäder = [generera_bostad(i) for i in range(1, 1001)]
 
+import os
+os.makedirs("src/data", exist_ok=True)
 with open("src/data/bostader.json", "w", encoding="utf-8") as f:
     json.dump(bostäder, f, ensure_ascii=False, indent=2)
 
