@@ -1,6 +1,9 @@
 ## ----- OBS!-----När ni har clonat repot kör bara:
     uv sync
 
+# För att installera Supabase-biblioteket:
+
+- pip install supabase python-dotenv
 
 ## uv installatione:
 
@@ -13,6 +16,7 @@ uv --version
 ####  initierar projektet i repot:
 
 uv init
+
 
 
 
