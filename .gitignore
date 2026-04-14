@@ -24,7 +24,7 @@ venv/
 
 # Jupyter
 .ipynb_checkpoints/
-*.ipynb
+
 
 # Loggar
 *.log
