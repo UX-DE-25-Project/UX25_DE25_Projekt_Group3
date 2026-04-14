@@ -1,0 +1,1001 @@
+id,typ,upplåtelseform,pris,avgift,rum,boyta,kvadratmeterpris,område,stad,adress,lat,lon,tillgänglig,created_at,valuta,boyta_enhet,pris_per_kvm
+1,lägenhet,köpa,620826,6808,5,135,4598,Rosengård,Malmö,Parkvägen 103,55.58769,13.03032,False,2025-08-19,SEK,m²,4599.0
+2,hus,köpa,691557,2078,4,100,6915,Majorna,Göteborg,Kyrkogatan 91,57.69776,11.92771,True,2026-02-02,SEK,m²,6916.0
+3,hus,köpa,192646,2399,1,28,6880,Linnéstaden,Göteborg,Hornsgatan 76,57.70313,11.95268,True,2025-12-19,SEK,m²,6880.0
+4,hus,hyra,19804,0,6,150,0,Hyllie,Malmö,Drottninggatan 72,55.57193,12.96539,False,2025-10-22,SEK,m²,132.0
+5,lägenhet,hyra,5147,0,2,42,0,Linnéstaden,Göteborg,Kyrkogatan 79,57.69152,11.96112,True,2026-04-08,SEK,m²,123.0
+6,hus,köpa,1266425,1579,5,130,9741,Östermalm,Stockholm,Kyrkogatan 30,59.3373,18.07502,True,2025-12-13,SEK,m²,9742.0
+7,hus,köpa,263376,1879,1,21,12541,Östermalm,Stockholm,Lindvägen 42,59.32999,18.07858,True,2025-10-25,SEK,m²,12542.0
+8,hus,hyra,24818,0,6,156,0,Hisingen,Göteborg,Lindvägen 32,57.73168,11.90665,False,2025-06-07,SEK,m²,159.0
+9,hus,hyra,3994,0,1,27,0,Kungsholmen,Stockholm,Sveavägen 88,59.33732,18.03296,True,2026-02-22,SEK,m²,148.0
+10,lägenhet,köpa,235694,2050,2,48,4910,Limhamn,Malmö,Kyrkogatan 40,55.57879,12.92102,True,2025-05-01,SEK,m²,4910.0
+11,hus,köpa,462657,2000,5,115,4023,Västra Hamnen,Malmö,Parkvägen 106,55.61606,12.9703,True,2025-05-24,SEK,m²,4023.0
+12,lägenhet,hyra,4504,0,1,26,0,Hyllie,Malmö,Skolvägen 2,55.5555,12.97984,False,2025-06-30,SEK,m²,173.0
+13,lägenhet,köpa,698993,3575,4,84,8321,Linnéstaden,Göteborg,Hornsgatan 39,57.69038,11.94463,True,2026-03-22,SEK,m²,8321.0
+14,lägenhet,köpa,462449,3586,3,66,7006,Hisingen,Göteborg,Skolvägen 81,57.73973,11.89766,False,2025-10-02,SEK,m²,7007.0
+15,lägenhet,köpa,331830,5440,4,92,3606,Västra Hamnen,Malmö,Björkgatan 67,55.61793,12.96891,True,2025-10-29,SEK,m²,3607.0
+16,hus,köpa,235292,2584,1,26,9049,Linnéstaden,Göteborg,Storgatan 52,57.70634,11.94822,True,2025-07-17,SEK,m²,9050.0
+17,hus,hyra,23216,0,5,140,0,Hisingen,Göteborg,Skolvägen 12,57.72031,11.89135,True,2025-08-20,SEK,m²,166.0
+18,lägenhet,köpa,827412,10617,6,138,5995,Västra Hamnen,Malmö,Hornsgatan 13,55.61265,12.9784,True,2026-03-28,SEK,m²,5996.0
+19,lägenhet,hyra,13509,0,4,76,0,Majorna,Göteborg,Björkgatan 113,57.69743,11.94175,True,2026-01-19,SEK,m²,178.0
+20,hus,hyra,15893,0,5,110,0,Hyllie,Malmö,Strandvägen 4,55.56417,12.97288,True,2026-02-26,SEK,m²,144.0
+21,hus,köpa,841890,1834,4,112,7516,Hisingen,Göteborg,Bergsgatan 55,57.72866,11.90517,True,2025-05-21,SEK,m²,7517.0
+22,hus,hyra,15131,0,4,104,0,Kungsholmen,Stockholm,Storgatan 20,59.33832,18.02819,True,2025-11-06,SEK,m²,145.0
+23,lägenhet,köpa,1331265,6080,6,108,12326,Östermalm,Stockholm,Skolvägen 62,59.33721,18.07648,True,2025-07-17,SEK,m²,12327.0
+24,lägenhet,hyra,2238,0,1,18,0,Kungsholmen,Stockholm,Skolvägen 42,59.33046,18.02808,True,2025-05-10,SEK,m²,124.0
+25,hus,hyra,8555,0,3,69,0,Linnéstaden,Göteborg,Hornsgatan 70,57.69136,11.95017,True,2026-02-10,SEK,m²,124.0
+26,lägenhet,köpa,324176,3599,4,80,4052,Västra Hamnen,Malmö,Parkvägen 34,55.61807,12.98181,False,2026-02-19,SEK,m²,4052.0
+27,hus,köpa,1735485,1635,6,162,10712,Vasastan,Stockholm,Storgatan 79,59.33636,18.04422,False,2026-01-13,SEK,m²,10713.0
+28,hus,köpa,1120321,2309,6,132,8487,Majorna,Göteborg,Hornsgatan 61,57.69047,11.94032,True,2025-06-04,SEK,m²,8487.0
+29,hus,köpa,171124,2047,2,40,4278,Limhamn,Malmö,Hornsgatan 115,55.58192,12.92968,True,2026-03-24,SEK,m²,4278.0
+30,hus,hyra,3294,0,1,26,0,Centrum,Göteborg,Skolvägen 81,57.71873,11.98343,True,2025-06-25,SEK,m²,127.0
+31,hus,hyra,9034,0,3,72,0,Centrum,Göteborg,Kungsgatan 67,57.69992,11.96479,True,2025-05-25,SEK,m²,125.0
+32,hus,köpa,816166,2329,5,140,5829,Limhamn,Malmö,Bergsgatan 108,55.58826,12.93685,True,2025-04-28,SEK,m²,5830.0
+33,lägenhet,hyra,12916,0,4,104,0,Södermalm,Stockholm,Bergsgatan 117,59.3135,18.06898,True,2025-09-08,SEK,m²,124.0
+34,hus,hyra,23754,0,6,156,0,Vasastan,Stockholm,Björkgatan 50,59.33972,18.057,True,2025-07-19,SEK,m²,152.0
+35,hus,köpa,1171129,2613,5,115,10183,Södermalm,Stockholm,Skolvägen 70,59.30901,18.06249,False,2025-09-02,SEK,m²,10184.0
+36,hus,hyra,14442,0,3,84,0,Centrum,Göteborg,Sveavägen 97,57.71409,11.98276,True,2025-12-22,SEK,m²,172.0
+37,lägenhet,hyra,4236,0,1,27,0,Rosengård,Malmö,Lindvägen 30,55.59774,13.03482,True,2025-08-21,SEK,m²,157.0
+38,lägenhet,hyra,23573,0,6,156,0,Kungsholmen,Stockholm,Lindvägen 120,59.32853,18.03842,True,2026-03-12,SEK,m²,151.0
+39,hus,hyra,7092,0,2,42,0,Hisingen,Göteborg,Parkvägen 113,57.72212,11.8969,False,2025-07-22,SEK,m²,169.0
+40,lägenhet,hyra,12844,0,4,88,0,Östermalm,Stockholm,Kungsgatan 20,59.3355,18.08853,True,2026-04-05,SEK,m²,146.0
+41,hus,köpa,335632,2533,4,84,3995,Limhamn,Malmö,Lindvägen 14,55.59557,12.92224,True,2025-08-14,SEK,m²,3996.0
+42,hus,hyra,3375,0,1,27,0,Centrum,Göteborg,Parkvägen 116,57.70956,11.97589,True,2026-03-26,SEK,m²,125.0
+43,lägenhet,hyra,22179,0,5,125,0,Rosengård,Malmö,Strandvägen 108,55.58275,13.04145,True,2026-03-08,SEK,m²,177.0
+44,lägenhet,köpa,681151,4788,3,84,8108,Centrum,Göteborg,Bergsgatan 69,57.70641,11.97114,True,2026-01-27,SEK,m²,8109.0
+45,lägenhet,köpa,685656,5576,4,108,6348,Centrum,Göteborg,Bergsgatan 111,57.71351,11.97264,True,2025-06-04,SEK,m²,6349.0
+46,hus,köpa,306955,2786,2,56,5481,Rosengård,Malmö,Storgatan 35,55.58356,13.02318,False,2025-10-03,SEK,m²,5481.0
+47,hus,hyra,2557,0,1,18,0,Östermalm,Stockholm,Parkvägen 56,59.34553,18.0866,True,2025-09-04,SEK,m²,142.0
+48,hus,köpa,532291,2573,4,76,7003,Centrum,Göteborg,Björkgatan 89,57.71856,11.98251,True,2026-02-02,SEK,m²,7004.0
+49,hus,köpa,1228248,1589,6,120,10235,Vasastan,Stockholm,Storgatan 105,59.33417,18.04741,False,2026-01-31,SEK,m²,10235.0
+50,lägenhet,hyra,15973,0,6,126,0,Centrum,Göteborg,Strandvägen 72,57.71325,11.97988,True,2026-02-25,SEK,m²,127.0
+51,hus,hyra,3623,0,1,28,0,Centrum,Göteborg,Kyrkogatan 107,57.70194,11.9749,False,2025-10-11,SEK,m²,129.0
+52,hus,köpa,193163,2508,2,46,4199,Limhamn,Malmö,Skolvägen 31,55.57742,12.9383,False,2025-09-06,SEK,m²,4199.0
+53,lägenhet,köpa,956853,7732,6,108,8859,Södermalm,Stockholm,Kyrkogatan 111,59.30542,18.07064,False,2026-02-12,SEK,m²,8860.0
+54,hus,köpa,330239,2764,2,54,6115,Limhamn,Malmö,Parkvägen 56,55.59481,12.93701,True,2025-07-26,SEK,m²,6116.0
+55,lägenhet,hyra,11751,0,4,96,0,Östermalm,Stockholm,Kyrkogatan 16,59.33225,18.07093,True,2025-11-21,SEK,m²,122.0
+56,lägenhet,hyra,11888,0,3,69,0,Limhamn,Malmö,Strandvägen 92,55.57864,12.92965,True,2025-06-13,SEK,m²,172.0
+57,hus,hyra,12590,0,4,92,0,Majorna,Göteborg,Skolvägen 37,57.70644,11.93337,True,2025-07-30,SEK,m²,137.0
+58,hus,köpa,848084,2830,6,150,5653,Västra Hamnen,Malmö,Storgatan 41,55.60334,12.9764,False,2025-09-03,SEK,m²,5654.0
+59,hus,köpa,648467,2513,3,81,8005,Centrum,Göteborg,Drottninggatan 16,57.70229,11.96683,False,2025-09-06,SEK,m²,8006.0
+60,lägenhet,köpa,299547,3071,3,57,5255,Rosengård,Malmö,Skolvägen 82,55.58611,13.04011,True,2026-03-31,SEK,m²,5255.0
+61,lägenhet,köpa,179625,2753,2,36,4989,Västra Hamnen,Malmö,Strandvägen 86,55.60503,12.96725,True,2025-08-13,SEK,m²,4990.0
+62,lägenhet,hyra,17766,0,5,105,0,Centrum,Göteborg,Kungsgatan 86,57.70101,11.98129,True,2025-06-01,SEK,m²,169.0
+63,lägenhet,hyra,14501,0,4,108,0,Centrum,Göteborg,Kyrkogatan 12,57.71336,11.97163,True,2025-08-26,SEK,m²,134.0
+64,hus,köpa,969478,2182,3,75,12926,Vasastan,Stockholm,Lindvägen 102,59.3514,18.05336,True,2025-07-21,SEK,m²,12926.0
+65,hus,köpa,483465,2438,3,78,6198,Västra Hamnen,Malmö,Kungsgatan 116,55.6054,12.97871,True,2025-11-03,SEK,m²,6198.0
+66,lägenhet,hyra,15892,0,5,90,0,Linnéstaden,Göteborg,Drottninggatan 93,57.69862,11.94379,True,2025-06-20,SEK,m²,177.0
+67,lägenhet,köpa,506253,6818,4,88,5752,Linnéstaden,Göteborg,Storgatan 87,57.69744,11.95065,True,2025-12-30,SEK,m²,5753.0
+68,hus,köpa,611817,2501,6,108,5664,Linnéstaden,Göteborg,Drottninggatan 110,57.70241,11.94719,True,2025-07-10,SEK,m²,5665.0
+69,hus,köpa,722433,2468,5,105,6880,Hisingen,Göteborg,Kungsgatan 43,57.72411,11.90214,True,2026-01-04,SEK,m²,6880.0
+70,lägenhet,hyra,21841,0,5,130,0,Kungsholmen,Stockholm,Storgatan 108,59.33371,18.02318,True,2026-02-14,SEK,m²,168.0
+71,hus,hyra,19788,0,5,130,0,Hyllie,Malmö,Kyrkogatan 60,55.56312,12.965,True,2025-07-02,SEK,m²,152.0
+72,hus,köpa,548966,2739,6,120,4574,Västra Hamnen,Malmö,Storgatan 18,55.60482,12.97174,True,2025-04-20,SEK,m²,4575.0
+73,lägenhet,köpa,540570,3314,3,60,9009,Hisingen,Göteborg,Skolvägen 26,57.73127,11.90944,False,2025-09-30,SEK,m²,9010.0
+74,lägenhet,hyra,9872,0,4,72,0,Hyllie,Malmö,Drottninggatan 53,55.57013,12.96628,True,2025-06-08,SEK,m²,137.0
+75,hus,köpa,169482,2801,2,36,4707,Hyllie,Malmö,Hornsgatan 21,55.57062,12.96861,False,2025-08-28,SEK,m²,4708.0
+76,hus,hyra,10021,0,4,72,0,Västra Hamnen,Malmö,Strandvägen 59,55.61142,12.97012,True,2026-01-19,SEK,m²,139.0
+77,lägenhet,hyra,10427,0,4,76,0,Majorna,Göteborg,Lindvägen 107,57.69638,11.94225,False,2026-03-02,SEK,m²,137.0
+78,hus,hyra,16705,0,4,112,0,Hyllie,Malmö,Parkvägen 7,55.5706,12.97861,True,2025-07-13,SEK,m²,149.0
+79,lägenhet,hyra,8485,0,2,52,0,Västra Hamnen,Malmö,Björkgatan 40,55.6111,12.97091,False,2025-04-21,SEK,m²,163.0
+80,hus,köpa,89256,1867,1,23,3880,Limhamn,Malmö,Parkvägen 118,55.57673,12.93505,True,2025-12-18,SEK,m²,3881.0
+81,hus,hyra,11198,0,3,63,0,Linnéstaden,Göteborg,Lindvägen 1,57.70207,11.95258,True,2025-10-06,SEK,m²,178.0
+82,hus,köpa,1373673,2647,5,115,11944,Kungsholmen,Stockholm,Hornsgatan 83,59.32926,18.033,True,2026-01-28,SEK,m²,11945.0
+83,hus,hyra,14867,0,5,115,0,Majorna,Göteborg,Parkvägen 113,57.69212,11.94149,True,2025-07-06,SEK,m²,129.0
+84,hus,hyra,20192,0,6,156,0,Hyllie,Malmö,Lindvägen 107,55.5556,12.96918,True,2025-09-25,SEK,m²,129.0
+85,lägenhet,hyra,12875,0,3,78,0,Västra Hamnen,Malmö,Björkgatan 19,55.61761,12.9669,True,2026-01-20,SEK,m²,165.0
+86,lägenhet,köpa,869063,4050,3,72,12070,Södermalm,Stockholm,Sveavägen 13,59.3114,18.07822,False,2025-05-25,SEK,m²,12070.0
+87,lägenhet,hyra,6023,0,2,40,0,Östermalm,Stockholm,Lindvägen 35,59.34557,18.0728,True,2026-03-19,SEK,m²,151.0
+88,hus,hyra,18469,0,5,105,0,Kungsholmen,Stockholm,Strandvägen 79,59.33149,18.02587,True,2025-07-02,SEK,m²,176.0
+89,lägenhet,köpa,1290767,5025,5,115,11224,Östermalm,Stockholm,Kyrkogatan 67,59.33267,18.08623,True,2025-04-13,SEK,m²,11224.0
+90,lägenhet,köpa,596454,5037,4,76,7848,Linnéstaden,Göteborg,Hornsgatan 83,57.69836,11.95337,False,2025-08-07,SEK,m²,7848.0
+91,lägenhet,hyra,15304,0,6,126,0,Kungsholmen,Stockholm,Kungsgatan 54,59.32824,18.03651,True,2026-01-15,SEK,m²,121.0
+92,hus,hyra,9526,0,3,54,0,Västra Hamnen,Malmö,Kungsgatan 99,55.60802,12.96809,True,2025-10-25,SEK,m²,176.0
+93,lägenhet,hyra,25446,0,6,156,0,Västra Hamnen,Malmö,Hornsgatan 111,55.60568,12.97636,False,2025-09-23,SEK,m²,163.0
+94,hus,köpa,870967,1572,5,100,8709,Centrum,Göteborg,Parkvägen 100,57.71161,11.97983,False,2026-02-21,SEK,m²,8710.0
+95,hus,hyra,9387,0,4,76,0,Västra Hamnen,Malmö,Sveavägen 32,55.62291,12.976,True,2025-06-27,SEK,m²,124.0
+96,lägenhet,hyra,3205,0,1,22,0,Centrum,Göteborg,Kyrkogatan 26,57.71686,11.98286,True,2025-12-14,SEK,m²,146.0
+97,hus,köpa,176243,2381,2,42,4196,Västra Hamnen,Malmö,Strandvägen 67,55.60341,12.97415,True,2026-04-05,SEK,m²,4196.0
+98,hus,köpa,1311625,2150,6,156,8407,Vasastan,Stockholm,Skolvägen 26,59.33953,18.0521,False,2025-07-07,SEK,m²,8408.0
+99,hus,köpa,143754,2677,1,20,7187,Hisingen,Göteborg,Hornsgatan 80,57.73607,11.90482,True,2025-10-26,SEK,m²,7188.0
+100,hus,hyra,3106,0,1,22,0,Majorna,Göteborg,Björkgatan 12,57.69472,11.93132,True,2026-01-23,SEK,m²,141.0
+101,hus,hyra,14895,0,5,90,0,Östermalm,Stockholm,Sveavägen 2,59.33175,18.07975,True,2026-01-06,SEK,m²,166.0
+102,hus,köpa,324863,1914,3,72,4511,Västra Hamnen,Malmö,Lindvägen 18,55.6162,12.98013,True,2026-03-16,SEK,m²,4512.0
+103,lägenhet,hyra,8138,0,3,63,0,Västra Hamnen,Malmö,Kyrkogatan 67,55.61904,12.98075,True,2025-10-13,SEK,m²,129.0
+104,hus,köpa,1713001,1590,6,162,10574,Kungsholmen,Stockholm,Skolvägen 87,59.33447,18.02579,False,2025-04-20,SEK,m²,10574.0
+105,lägenhet,hyra,6402,0,2,48,0,Linnéstaden,Göteborg,Sveavägen 83,57.69918,11.95757,True,2025-04-12,SEK,m²,133.0
+106,lägenhet,hyra,8627,0,2,52,0,Vasastan,Stockholm,Sveavägen 21,59.33598,18.04121,True,2025-09-28,SEK,m²,166.0
+107,lägenhet,hyra,3872,0,1,22,0,Kungsholmen,Stockholm,Hornsgatan 110,59.3417,18.0321,True,2026-02-20,SEK,m²,176.0
+108,hus,köpa,160363,1694,1,23,6972,Centrum,Göteborg,Hornsgatan 30,57.70049,11.97296,True,2026-02-19,SEK,m²,6972.0
+109,lägenhet,köpa,886156,7231,6,108,8205,Kungsholmen,Stockholm,Skolvägen 18,59.32252,18.01975,True,2025-11-12,SEK,m²,8205.0
+110,lägenhet,köpa,722929,3284,3,75,9639,Östermalm,Stockholm,Sveavägen 77,59.34434,18.07164,True,2025-12-15,SEK,m²,9639.0
+111,lägenhet,hyra,26486,0,6,156,0,Rosengård,Malmö,Hornsgatan 79,55.58284,13.03266,True,2025-12-19,SEK,m²,170.0
+112,lägenhet,hyra,4860,0,2,40,0,Limhamn,Malmö,Sveavägen 101,55.59191,12.93351,True,2025-10-24,SEK,m²,122.0
+113,lägenhet,köpa,305353,4185,4,76,4017,Hyllie,Malmö,Kyrkogatan 65,55.5535,12.96595,True,2025-08-30,SEK,m²,4018.0
+114,hus,köpa,475327,2801,4,80,5941,Hisingen,Göteborg,Kungsgatan 120,57.72031,11.89117,True,2025-06-30,SEK,m²,5942.0
+115,lägenhet,köpa,129410,1327,1,21,6162,Västra Hamnen,Malmö,Skolvägen 88,55.60607,12.96954,False,2025-10-14,SEK,m²,6162.0
+116,lägenhet,köpa,446987,6379,4,108,4138,Rosengård,Malmö,Storgatan 60,55.59123,13.03678,True,2026-03-14,SEK,m²,4139.0
+117,lägenhet,hyra,2755,0,1,20,0,Södermalm,Stockholm,Kyrkogatan 99,59.32284,18.06888,True,2025-05-05,SEK,m²,138.0
+118,hus,hyra,10013,0,3,63,0,Västra Hamnen,Malmö,Kyrkogatan 100,55.61011,12.98228,True,2025-04-29,SEK,m²,159.0
+119,lägenhet,hyra,3679,0,1,26,0,Kungsholmen,Stockholm,Lindvägen 1,59.32435,18.02068,True,2026-01-15,SEK,m²,142.0
+120,lägenhet,hyra,11107,0,4,84,0,Östermalm,Stockholm,Skolvägen 9,59.34072,18.0799,True,2025-07-18,SEK,m²,132.0
+121,hus,hyra,23897,0,6,144,0,Rosengård,Malmö,Strandvägen 10,55.5895,13.02275,True,2025-11-03,SEK,m²,166.0
+122,lägenhet,hyra,17506,0,6,108,0,Södermalm,Stockholm,Björkgatan 84,59.32246,18.06232,True,2025-08-18,SEK,m²,162.0
+123,hus,köpa,497866,1887,3,81,6146,Centrum,Göteborg,Sveavägen 14,57.71172,11.97151,True,2025-10-27,SEK,m²,6146.0
+124,hus,köpa,1765589,2118,6,144,12261,Södermalm,Stockholm,Strandvägen 19,59.31453,18.07822,True,2025-10-28,SEK,m²,12261.0
+125,lägenhet,hyra,3415,0,1,26,0,Rosengård,Malmö,Kungsgatan 68,55.58252,13.03318,True,2025-08-26,SEK,m²,131.0
+126,lägenhet,hyra,13335,0,6,108,0,Östermalm,Stockholm,Skolvägen 28,59.33097,18.07393,True,2025-12-20,SEK,m²,123.0
+127,lägenhet,hyra,5298,0,2,38,0,Västra Hamnen,Malmö,Strandvägen 100,55.60879,12.97542,True,2026-04-01,SEK,m²,139.0
+128,lägenhet,hyra,4440,0,1,28,0,Kungsholmen,Stockholm,Kungsgatan 11,59.33137,18.02964,False,2025-08-21,SEK,m²,159.0
+129,hus,köpa,693701,1638,3,57,12170,Södermalm,Stockholm,Strandvägen 81,59.31884,18.06783,True,2026-02-28,SEK,m²,12170.0
+130,hus,köpa,181742,1546,2,44,4130,Rosengård,Malmö,Björkgatan 90,55.58741,13.02852,True,2026-01-09,SEK,m²,4130.0
+131,hus,köpa,892997,2243,5,130,6869,Linnéstaden,Göteborg,Hornsgatan 111,57.69535,11.9474,False,2025-06-17,SEK,m²,6869.0
+132,lägenhet,köpa,551101,7984,4,108,5102,Limhamn,Malmö,Kyrkogatan 45,55.58444,12.93992,True,2025-04-12,SEK,m²,5103.0
+133,lägenhet,hyra,3977,0,1,25,0,Vasastan,Stockholm,Hornsgatan 52,59.34446,18.048,False,2025-06-02,SEK,m²,159.0
+134,hus,hyra,8783,0,3,66,0,Limhamn,Malmö,Kungsgatan 72,55.57801,12.92194,False,2025-09-05,SEK,m²,133.0
+135,hus,köpa,175022,2887,2,36,4861,Rosengård,Malmö,Storgatan 45,55.58947,13.03135,True,2025-06-30,SEK,m²,4862.0
+136,hus,hyra,6243,0,2,48,0,Hisingen,Göteborg,Storgatan 9,57.73624,11.8937,True,2025-12-04,SEK,m²,130.0
+137,lägenhet,hyra,24214,0,6,150,0,Hisingen,Göteborg,Skolvägen 39,57.7399,11.9095,True,2025-10-15,SEK,m²,161.0
+138,hus,köpa,721533,2348,4,96,7515,Centrum,Göteborg,Kungsgatan 53,57.71034,11.96839,True,2026-02-18,SEK,m²,7516.0
+139,lägenhet,köpa,1329677,8635,6,120,11080,Kungsholmen,Stockholm,Kungsgatan 8,59.33006,18.03441,True,2026-02-01,SEK,m²,11081.0
+140,lägenhet,köpa,901782,4238,4,76,11865,Södermalm,Stockholm,Bergsgatan 41,59.31555,18.0802,True,2025-10-28,SEK,m²,11866.0
+141,hus,hyra,9539,0,3,75,0,Linnéstaden,Göteborg,Storgatan 41,57.69864,11.96178,False,2025-09-19,SEK,m²,127.0
+142,hus,köpa,305024,2892,2,46,6630,Hisingen,Göteborg,Björkgatan 108,57.72627,11.90972,False,2025-10-13,SEK,m²,6631.0
+143,hus,köpa,107870,2355,1,26,4148,Rosengård,Malmö,Drottninggatan 84,55.58833,13.03287,False,2026-04-02,SEK,m²,4149.0
+144,hus,hyra,16410,0,5,110,0,Västra Hamnen,Malmö,Parkvägen 60,55.6134,12.97688,True,2026-02-02,SEK,m²,149.0
+145,lägenhet,köpa,265303,3414,2,44,6029,Hyllie,Malmö,Storgatan 47,55.55544,12.98143,True,2025-04-10,SEK,m²,6030.0
+146,lägenhet,hyra,18018,0,5,140,0,Rosengård,Malmö,Kungsgatan 21,55.58881,13.03276,True,2025-12-25,SEK,m²,129.0
+147,lägenhet,hyra,24572,0,6,168,0,Östermalm,Stockholm,Strandvägen 23,59.33375,18.07067,True,2025-12-27,SEK,m²,146.0
+148,lägenhet,köpa,261464,3886,3,54,4841,Rosengård,Malmö,Hornsgatan 118,55.5975,13.03093,True,2025-05-16,SEK,m²,4842.0
+149,hus,hyra,15341,0,5,110,0,Östermalm,Stockholm,Kungsgatan 2,59.34765,18.07851,False,2025-09-09,SEK,m²,139.0
+150,hus,hyra,10942,0,5,90,0,Limhamn,Malmö,Drottninggatan 36,55.57617,12.92146,False,2025-10-07,SEK,m²,122.0
+151,lägenhet,hyra,18926,0,5,115,0,Västra Hamnen,Malmö,Parkvägen 118,55.61816,12.98439,True,2025-07-02,SEK,m²,165.0
+152,lägenhet,köpa,256075,2314,2,42,6097,Linnéstaden,Göteborg,Strandvägen 107,57.68723,11.94606,True,2025-05-30,SEK,m²,6097.0
+153,lägenhet,hyra,4489,0,1,28,0,Hyllie,Malmö,Skolvägen 100,55.56052,12.97032,True,2025-07-21,SEK,m²,160.0
+154,lägenhet,köpa,456847,4870,3,66,6921,Majorna,Göteborg,Björkgatan 17,57.69226,11.929,True,2025-09-02,SEK,m²,6922.0
+155,hus,hyra,21229,0,6,120,0,Linnéstaden,Göteborg,Parkvägen 53,57.69395,11.95329,True,2025-06-01,SEK,m²,177.0
+156,lägenhet,hyra,12719,0,3,81,0,Hyllie,Malmö,Bergsgatan 69,55.55404,12.98238,True,2025-04-21,SEK,m²,157.0
+157,hus,hyra,15394,0,5,105,0,Linnéstaden,Göteborg,Skolvägen 39,57.69439,11.95035,True,2026-02-12,SEK,m²,147.0
+158,hus,köpa,196696,1796,2,46,4276,Limhamn,Malmö,Sveavägen 21,55.58487,12.93626,True,2025-06-24,SEK,m²,4276.0
+159,lägenhet,hyra,7035,0,3,54,0,Hyllie,Malmö,Lindvägen 24,55.55574,12.97872,True,2025-05-26,SEK,m²,130.0
+160,lägenhet,köpa,366612,4897,3,75,4888,Hyllie,Malmö,Skolvägen 62,55.55622,12.96873,False,2025-05-31,SEK,m²,4888.0
+161,hus,köpa,512873,1874,2,56,9158,Östermalm,Stockholm,Parkvägen 27,59.32921,18.0809,True,2025-11-29,SEK,m²,9158.0
+162,hus,hyra,23279,0,5,140,0,Östermalm,Stockholm,Strandvägen 28,59.34327,18.07348,True,2025-07-29,SEK,m²,166.0
+163,hus,hyra,17797,0,6,132,0,Hyllie,Malmö,Björkgatan 9,55.55867,12.97375,True,2025-11-13,SEK,m²,135.0
+164,hus,köpa,230966,2834,3,57,4052,Limhamn,Malmö,Parkvägen 104,55.58624,12.92624,True,2025-06-15,SEK,m²,4052.0
+165,lägenhet,hyra,12107,0,3,78,0,Västra Hamnen,Malmö,Drottninggatan 13,55.60472,12.97884,True,2025-07-30,SEK,m²,155.0
+166,hus,hyra,7386,0,2,42,0,Vasastan,Stockholm,Parkvägen 78,59.33807,18.04553,True,2025-10-31,SEK,m²,176.0
+167,hus,hyra,9838,0,3,69,0,Vasastan,Stockholm,Hornsgatan 103,59.34351,18.04395,False,2026-03-17,SEK,m²,143.0
+168,hus,hyra,17750,0,6,138,0,Södermalm,Stockholm,Parkvägen 60,59.32068,18.07827,True,2026-02-23,SEK,m²,129.0
+169,lägenhet,köpa,881796,5594,5,110,8016,Hisingen,Göteborg,Björkgatan 34,57.72051,11.89882,True,2025-05-25,SEK,m²,8016.0
+170,hus,hyra,11997,0,3,78,0,Hisingen,Göteborg,Drottninggatan 23,57.72855,11.90706,True,2025-05-11,SEK,m²,154.0
+171,hus,köpa,447816,1693,4,76,5892,Rosengård,Malmö,Björkgatan 78,55.60051,13.0384,True,2026-01-27,SEK,m²,5892.0
+172,lägenhet,köpa,181394,2307,2,44,4122,Limhamn,Malmö,Strandvägen 58,55.5897,12.9289,False,2025-11-01,SEK,m²,4123.0
+173,hus,hyra,17871,0,4,104,0,Vasastan,Stockholm,Lindvägen 119,59.34864,18.05385,False,2025-07-17,SEK,m²,172.0
+174,hus,hyra,21707,0,6,156,0,Kungsholmen,Stockholm,Bergsgatan 2,59.33007,18.02856,True,2025-09-21,SEK,m²,139.0
+175,lägenhet,köpa,705548,6962,5,140,5039,Västra Hamnen,Malmö,Skolvägen 70,55.61233,12.96815,True,2025-12-09,SEK,m²,5040.0
+176,hus,köpa,975901,2676,4,100,9759,Vasastan,Stockholm,Strandvägen 43,59.34338,18.05889,True,2026-01-25,SEK,m²,9759.0
+177,lägenhet,hyra,11520,0,4,84,0,Västra Hamnen,Malmö,Drottninggatan 14,55.61168,12.97353,False,2025-07-19,SEK,m²,137.0
+178,lägenhet,köpa,898081,7043,6,156,5756,Hyllie,Malmö,Bergsgatan 41,55.55257,12.96831,False,2025-04-09,SEK,m²,5757.0
+179,lägenhet,köpa,578585,10019,6,138,4192,Rosengård,Malmö,Sveavägen 116,55.59956,13.03198,True,2026-02-18,SEK,m²,4193.0
+180,hus,köpa,874451,2513,4,72,12145,Östermalm,Stockholm,Parkvägen 79,59.33658,18.07898,True,2025-05-13,SEK,m²,12145.0
+181,lägenhet,hyra,17253,0,4,104,0,Centrum,Göteborg,Drottninggatan 83,57.70217,11.96858,True,2025-07-13,SEK,m²,166.0
+182,lägenhet,köpa,355757,3525,3,54,6588,Hisingen,Göteborg,Lindvägen 28,57.72494,11.89249,True,2025-10-08,SEK,m²,6588.0
+183,hus,hyra,7678,0,2,46,0,Linnéstaden,Göteborg,Skolvägen 49,57.70604,11.94518,True,2025-09-13,SEK,m²,167.0
+184,hus,hyra,12659,0,3,78,0,Hisingen,Göteborg,Hornsgatan 16,57.73468,11.89704,False,2025-04-09,SEK,m²,162.0
+185,lägenhet,hyra,6961,0,2,42,0,Linnéstaden,Göteborg,Drottninggatan 2,57.704,11.94244,True,2026-01-02,SEK,m²,166.0
+186,lägenhet,köpa,314503,1851,1,27,11648,Kungsholmen,Stockholm,Drottninggatan 13,59.32429,18.02498,False,2025-12-24,SEK,m²,11648.0
+187,lägenhet,hyra,10025,0,3,72,0,Hyllie,Malmö,Björkgatan 59,55.56146,12.97282,True,2026-03-12,SEK,m²,139.0
+188,hus,köpa,999681,1740,5,95,10522,Östermalm,Stockholm,Lindvägen 94,59.33185,18.075,True,2025-11-26,SEK,m²,10523.0
+189,lägenhet,hyra,3209,0,1,18,0,Södermalm,Stockholm,Skolvägen 49,59.30656,18.07068,False,2025-07-05,SEK,m²,178.0
+190,lägenhet,hyra,18016,0,4,108,0,Majorna,Göteborg,Skolvägen 110,57.69779,11.93105,True,2025-12-11,SEK,m²,167.0
+191,hus,hyra,3120,0,1,18,0,Östermalm,Stockholm,Drottninggatan 78,59.33998,18.08419,True,2026-01-16,SEK,m²,173.0
+192,lägenhet,hyra,2617,0,1,19,0,Södermalm,Stockholm,Skolvägen 11,59.31044,18.07773,True,2026-02-19,SEK,m²,138.0
+193,lägenhet,köpa,812045,11863,6,156,5205,Centrum,Göteborg,Kyrkogatan 28,57.71324,11.97968,True,2025-07-19,SEK,m²,5205.0
+194,hus,hyra,8888,0,2,52,0,Västra Hamnen,Malmö,Hornsgatan 81,55.61789,12.97627,True,2026-04-04,SEK,m²,171.0
+195,lägenhet,köpa,326481,2510,3,54,6045,Centrum,Göteborg,Kyrkogatan 11,57.70285,11.97153,True,2026-02-10,SEK,m²,6046.0
+196,lägenhet,köpa,335975,3975,3,60,5599,Linnéstaden,Göteborg,Hornsgatan 47,57.68705,11.95477,False,2026-02-27,SEK,m²,5600.0
+197,hus,hyra,9438,0,3,57,0,Västra Hamnen,Malmö,Hornsgatan 1,55.62051,12.97356,True,2026-02-19,SEK,m²,166.0
+198,hus,hyra,24904,0,6,168,0,Hyllie,Malmö,Lindvägen 5,55.56084,12.97027,True,2025-05-08,SEK,m²,148.0
+199,lägenhet,köpa,390707,5084,3,69,5662,Västra Hamnen,Malmö,Kungsgatan 78,55.61291,12.98275,False,2025-04-08,SEK,m²,5662.0
+200,hus,köpa,323590,1833,2,36,8988,Linnéstaden,Göteborg,Sveavägen 35,57.69965,11.94755,True,2026-02-12,SEK,m²,8989.0
+201,lägenhet,hyra,11535,0,4,72,0,Västra Hamnen,Malmö,Hornsgatan 18,55.61547,12.96859,False,2026-03-19,SEK,m²,160.0
+202,hus,köpa,189558,2681,1,22,8616,Majorna,Göteborg,Skolvägen 102,57.69246,11.92957,True,2026-02-01,SEK,m²,8616.0
+203,hus,köpa,774044,1921,4,88,8795,Kungsholmen,Stockholm,Skolvägen 8,59.32761,18.03171,True,2025-09-26,SEK,m²,8796.0
+204,hus,hyra,10761,0,3,78,0,Västra Hamnen,Malmö,Lindvägen 117,55.60729,12.98152,False,2026-01-17,SEK,m²,138.0
+205,lägenhet,köpa,1256691,5295,5,95,13228,Östermalm,Stockholm,Lindvägen 75,59.34485,18.07982,True,2025-07-04,SEK,m²,13228.0
+206,lägenhet,köpa,462812,2348,2,52,8900,Hisingen,Göteborg,Bergsgatan 55,57.7302,11.89276,True,2026-02-28,SEK,m²,8900.0
+207,hus,hyra,3239,0,1,26,0,Limhamn,Malmö,Hornsgatan 14,55.59493,12.93676,True,2026-01-29,SEK,m²,125.0
+208,lägenhet,hyra,16199,0,4,104,0,Hyllie,Malmö,Bergsgatan 73,55.56329,12.96921,False,2025-06-15,SEK,m²,156.0
+209,hus,köpa,467721,2087,4,80,5846,Hisingen,Göteborg,Parkvägen 114,57.72319,11.89746,True,2025-10-17,SEK,m²,5847.0
+210,hus,hyra,6027,0,2,44,0,Centrum,Göteborg,Lindvägen 118,57.71652,11.98113,False,2025-08-08,SEK,m²,137.0
+211,lägenhet,hyra,4991,0,2,40,0,Hisingen,Göteborg,Bergsgatan 41,57.73819,11.89735,True,2025-11-02,SEK,m²,125.0
+212,hus,hyra,22144,0,5,140,0,Hyllie,Malmö,Skolvägen 28,55.56245,12.96809,True,2026-03-11,SEK,m²,158.0
+213,lägenhet,köpa,328993,4147,3,66,4984,Hyllie,Malmö,Skolvägen 36,55.56682,12.97846,True,2025-08-09,SEK,m²,4985.0
+214,lägenhet,hyra,6805,0,2,40,0,Vasastan,Stockholm,Bergsgatan 114,59.33805,18.05329,True,2025-10-25,SEK,m²,170.0
+215,hus,hyra,12481,0,4,88,0,Kungsholmen,Stockholm,Björkgatan 40,59.3323,18.032,False,2025-08-26,SEK,m²,142.0
+216,lägenhet,hyra,14292,0,4,80,0,Västra Hamnen,Malmö,Parkvägen 7,55.60667,12.96961,True,2025-05-19,SEK,m²,179.0
+217,hus,köpa,243050,2040,2,54,4500,Rosengård,Malmö,Hornsgatan 22,55.59882,13.03026,False,2026-02-25,SEK,m²,4501.0
+218,lägenhet,hyra,18175,0,5,120,0,Limhamn,Malmö,Hornsgatan 27,55.58043,12.93141,True,2026-02-17,SEK,m²,151.0
+219,lägenhet,köpa,741992,7786,5,100,7419,Centrum,Göteborg,Hornsgatan 66,57.70103,11.98325,True,2025-12-21,SEK,m²,7420.0
+220,lägenhet,hyra,11765,0,3,81,0,Rosengård,Malmö,Parkvägen 64,55.59725,13.03135,True,2026-02-19,SEK,m²,145.0
+221,hus,hyra,24486,0,6,138,0,Hisingen,Göteborg,Hornsgatan 112,57.73493,11.90029,True,2025-11-10,SEK,m²,177.0
+222,hus,hyra,7759,0,2,54,0,Hyllie,Malmö,Lindvägen 53,55.57173,12.97294,True,2026-03-15,SEK,m²,144.0
+223,lägenhet,köpa,330381,1673,1,25,13215,Kungsholmen,Stockholm,Kyrkogatan 102,59.3304,18.03821,False,2025-06-16,SEK,m²,13215.0
+224,lägenhet,hyra,15553,0,6,120,0,Centrum,Göteborg,Sveavägen 87,57.71803,11.98276,True,2025-08-26,SEK,m²,130.0
+225,hus,köpa,621208,2398,6,156,3982,Hyllie,Malmö,Sveavägen 12,55.56344,12.96871,True,2025-11-03,SEK,m²,3982.0
+226,hus,köpa,619831,1854,2,54,11478,Kungsholmen,Stockholm,Strandvägen 32,59.33281,18.02648,False,2026-03-23,SEK,m²,11478.0
+227,lägenhet,hyra,19491,0,5,140,0,Hisingen,Göteborg,Parkvägen 76,57.73862,11.89582,False,2025-05-28,SEK,m²,139.0
+228,hus,hyra,23827,0,5,135,0,Östermalm,Stockholm,Bergsgatan 92,59.33667,18.07809,True,2025-08-02,SEK,m²,176.0
+229,hus,hyra,7492,0,3,57,0,Linnéstaden,Göteborg,Kungsgatan 83,57.69493,11.95942,True,2025-08-31,SEK,m²,131.0
+230,lägenhet,köpa,1026304,4859,5,95,10803,Södermalm,Stockholm,Sveavägen 61,59.30813,18.07388,True,2025-05-18,SEK,m²,10803.0
+231,hus,hyra,21625,0,6,150,0,Vasastan,Stockholm,Hornsgatan 82,59.34602,18.04053,True,2025-08-07,SEK,m²,144.0
+232,lägenhet,köpa,304013,5201,3,78,3897,Västra Hamnen,Malmö,Hornsgatan 73,55.6214,12.97953,True,2025-07-28,SEK,m²,3898.0
+233,hus,hyra,14218,0,4,92,0,Hisingen,Göteborg,Hornsgatan 7,57.72614,11.89703,True,2025-10-17,SEK,m²,155.0
+234,lägenhet,köpa,1850828,7526,6,144,12852,Vasastan,Stockholm,Kungsgatan 83,59.34842,18.04072,True,2025-09-16,SEK,m²,12853.0
+235,hus,köpa,895371,2594,4,104,8609,Östermalm,Stockholm,Parkvägen 9,59.34303,18.07187,True,2025-12-06,SEK,m²,8609.0
+236,hus,köpa,1157298,1720,5,105,11021,Södermalm,Stockholm,Storgatan 12,59.30628,18.07205,False,2025-06-25,SEK,m²,11022.0
+237,lägenhet,köpa,385914,6263,5,105,3675,Västra Hamnen,Malmö,Sveavägen 36,55.60609,12.98009,False,2026-04-08,SEK,m²,3675.0
+238,hus,köpa,723394,2282,3,57,12691,Östermalm,Stockholm,Drottninggatan 119,59.33072,18.07758,True,2025-04-16,SEK,m²,12691.0
+239,lägenhet,köpa,341062,3611,4,84,4060,Västra Hamnen,Malmö,Drottninggatan 3,55.61069,12.97901,True,2026-02-19,SEK,m²,4060.0
+240,lägenhet,köpa,792070,5950,6,108,7333,Linnéstaden,Göteborg,Strandvägen 99,57.70682,11.96056,True,2025-07-05,SEK,m²,7334.0
+241,hus,köpa,144317,2891,1,18,8017,Hisingen,Göteborg,Kungsgatan 51,57.73199,11.89794,False,2026-01-12,SEK,m²,8018.0
+242,lägenhet,köpa,190182,3190,2,48,3962,Rosengård,Malmö,Strandvägen 69,55.58358,13.03866,True,2025-11-19,SEK,m²,3962.0
+243,hus,köpa,315780,2373,4,80,3947,Limhamn,Malmö,Storgatan 101,55.5821,12.93893,False,2026-03-05,SEK,m²,3947.0
+244,hus,köpa,619275,1967,6,162,3822,Rosengård,Malmö,Kyrkogatan 100,55.58577,13.03494,True,2025-05-03,SEK,m²,3823.0
+245,lägenhet,köpa,284183,2457,2,38,7478,Linnéstaden,Göteborg,Drottninggatan 25,57.69806,11.95548,True,2025-07-24,SEK,m²,7478.0
+246,lägenhet,hyra,3553,0,1,27,0,Linnéstaden,Göteborg,Parkvägen 33,57.68851,11.94953,False,2025-06-25,SEK,m²,132.0
+247,hus,hyra,17819,0,4,112,0,Kungsholmen,Stockholm,Sveavägen 31,59.32635,18.02976,True,2025-06-27,SEK,m²,159.0
+248,hus,hyra,22165,0,6,156,0,Majorna,Göteborg,Bergsgatan 40,57.69019,11.92544,True,2025-07-01,SEK,m²,142.0
+249,hus,köpa,743885,2318,6,138,5390,Hyllie,Malmö,Sveavägen 19,55.57089,12.96752,False,2026-02-08,SEK,m²,5390.0
+250,lägenhet,hyra,20754,0,6,144,0,Limhamn,Malmö,Parkvägen 42,55.58776,12.92675,True,2025-05-27,SEK,m²,144.0
+251,hus,hyra,8655,0,3,57,0,Västra Hamnen,Malmö,Sveavägen 37,55.61694,12.98479,True,2026-02-15,SEK,m²,152.0
+252,hus,hyra,15485,0,4,112,0,Västra Hamnen,Malmö,Kyrkogatan 7,55.6224,12.97488,True,2025-08-13,SEK,m²,138.0
+253,lägenhet,köpa,548838,2783,3,63,8711,Centrum,Göteborg,Parkvägen 8,57.71334,11.96712,True,2025-06-21,SEK,m²,8712.0
+254,hus,köpa,363288,1673,3,69,5265,Hyllie,Malmö,Lindvägen 26,55.55427,12.96709,True,2025-09-18,SEK,m²,5265.0
+255,lägenhet,köpa,1164759,8454,4,112,10399,Östermalm,Stockholm,Björkgatan 107,59.34519,18.08452,True,2025-11-03,SEK,m²,10400.0
+256,hus,hyra,4119,0,1,27,0,Linnéstaden,Göteborg,Skolvägen 84,57.69724,11.94727,False,2025-09-01,SEK,m²,153.0
+257,hus,köpa,937849,2126,4,108,8683,Östermalm,Stockholm,Björkgatan 68,59.33912,18.08562,True,2025-11-13,SEK,m²,8684.0
+258,lägenhet,hyra,7660,0,2,44,0,Södermalm,Stockholm,Hornsgatan 117,59.31339,18.0688,True,2026-04-08,SEK,m²,174.0
+259,lägenhet,hyra,20172,0,6,144,0,Södermalm,Stockholm,Drottninggatan 22,59.31098,18.06217,True,2026-02-06,SEK,m²,140.0
+260,lägenhet,hyra,9811,0,3,81,0,Majorna,Göteborg,Strandvägen 26,57.70465,11.94144,True,2025-11-28,SEK,m²,121.0
+261,hus,hyra,19832,0,5,140,0,Linnéstaden,Göteborg,Drottninggatan 59,57.69321,11.94651,True,2025-11-23,SEK,m²,142.0
+262,lägenhet,köpa,742448,4483,3,84,8838,Centrum,Göteborg,Parkvägen 103,57.71447,11.97989,False,2025-07-11,SEK,m²,8839.0
+263,hus,köpa,147944,2138,1,27,5479,Linnéstaden,Göteborg,Lindvägen 60,57.70683,11.95554,True,2026-02-16,SEK,m²,5479.0
+264,hus,köpa,433982,2537,4,72,6027,Västra Hamnen,Malmö,Strandvägen 58,55.60505,12.97002,False,2026-04-01,SEK,m²,6028.0
+265,hus,köpa,902796,2749,6,150,6018,Linnéstaden,Göteborg,Bergsgatan 59,57.70505,11.95052,True,2025-07-10,SEK,m²,6019.0
+266,hus,hyra,11718,0,3,81,0,Hisingen,Göteborg,Drottninggatan 23,57.72754,11.90266,True,2026-01-31,SEK,m²,145.0
+267,lägenhet,hyra,2658,0,1,20,0,Hyllie,Malmö,Storgatan 38,55.55955,12.97076,True,2025-11-17,SEK,m²,133.0
+268,hus,köpa,168486,2880,1,19,8867,Kungsholmen,Stockholm,Storgatan 119,59.33503,18.02672,True,2025-06-13,SEK,m²,8868.0
+269,lägenhet,hyra,14817,0,3,84,0,Hisingen,Göteborg,Storgatan 49,57.73347,11.89561,True,2025-05-06,SEK,m²,176.0
+270,hus,köpa,991604,1862,6,126,7869,Kungsholmen,Stockholm,Strandvägen 18,59.33096,18.02731,True,2025-07-09,SEK,m²,7870.0
+271,hus,hyra,24026,0,6,138,0,Kungsholmen,Stockholm,Björkgatan 64,59.33438,18.03554,True,2025-10-13,SEK,m²,174.0
+272,hus,köpa,199589,2083,2,46,4338,Rosengård,Malmö,Bergsgatan 120,55.59499,13.02539,True,2025-10-05,SEK,m²,4339.0
+273,lägenhet,köpa,745060,4624,6,108,6898,Linnéstaden,Göteborg,Parkvägen 82,57.68983,11.94519,True,2026-04-05,SEK,m²,6899.0
+274,lägenhet,köpa,1452244,8482,6,138,10523,Södermalm,Stockholm,Björkgatan 27,59.3095,18.06471,True,2025-11-24,SEK,m²,10524.0
+275,lägenhet,hyra,21844,0,6,126,0,Västra Hamnen,Malmö,Skolvägen 63,55.62266,12.96886,True,2025-12-01,SEK,m²,173.0
+276,hus,hyra,17347,0,5,140,0,Kungsholmen,Stockholm,Skolvägen 64,59.3419,18.03529,True,2025-07-13,SEK,m²,124.0
+277,hus,hyra,11187,0,3,63,0,Västra Hamnen,Malmö,Kyrkogatan 78,55.60981,12.96742,False,2025-10-08,SEK,m²,178.0
+278,lägenhet,hyra,15384,0,4,100,0,Hisingen,Göteborg,Drottninggatan 46,57.72631,11.89762,True,2025-04-14,SEK,m²,154.0
+279,hus,köpa,72837,2207,1,19,3833,Limhamn,Malmö,Parkvägen 41,55.58692,12.9384,True,2025-08-12,SEK,m²,3834.0
+280,lägenhet,hyra,3427,0,1,25,0,Vasastan,Stockholm,Parkvägen 39,59.35297,18.04553,True,2026-01-05,SEK,m²,137.0
+281,lägenhet,hyra,9337,0,3,54,0,Hisingen,Göteborg,Kungsgatan 25,57.73333,11.89153,False,2025-11-07,SEK,m²,173.0
+282,lägenhet,hyra,5737,0,2,42,0,Södermalm,Stockholm,Bergsgatan 87,59.32386,18.07865,True,2025-08-25,SEK,m²,137.0
+283,hus,hyra,7843,0,2,44,0,Limhamn,Malmö,Hornsgatan 64,55.59005,12.93431,True,2025-10-24,SEK,m²,178.0
+284,hus,hyra,10705,0,4,80,0,Västra Hamnen,Malmö,Strandvägen 6,55.61298,12.97731,True,2025-04-30,SEK,m²,134.0
+285,lägenhet,hyra,27949,0,6,162,0,Södermalm,Stockholm,Drottninggatan 47,59.30787,18.06192,True,2025-05-24,SEK,m²,173.0
+286,hus,hyra,3565,0,1,26,0,Södermalm,Stockholm,Storgatan 10,59.30751,18.07287,False,2025-12-09,SEK,m²,137.0
+287,lägenhet,hyra,10893,0,3,66,0,Södermalm,Stockholm,Drottninggatan 87,59.32054,18.07296,True,2026-02-12,SEK,m²,165.0
+288,lägenhet,hyra,7567,0,3,54,0,Östermalm,Stockholm,Lindvägen 94,59.34611,18.07624,True,2025-10-29,SEK,m²,140.0
+289,lägenhet,köpa,1173489,5305,5,110,10668,Vasastan,Stockholm,Lindvägen 2,59.34938,18.05289,True,2025-10-22,SEK,m²,10668.0
+290,lägenhet,köpa,747968,4060,4,88,8499,Hisingen,Göteborg,Sveavägen 73,57.72128,11.89941,False,2025-12-07,SEK,m²,8500.0
+291,lägenhet,hyra,9836,0,4,72,0,Vasastan,Stockholm,Parkvägen 15,59.33474,18.04667,True,2025-04-10,SEK,m²,137.0
+292,lägenhet,köpa,701739,3845,3,63,11138,Östermalm,Stockholm,Bergsgatan 14,59.34117,18.07141,True,2026-02-17,SEK,m²,11139.0
+293,hus,köpa,781820,2476,6,108,7239,Majorna,Göteborg,Lindvägen 76,57.69574,11.94244,True,2025-04-15,SEK,m²,7239.0
+294,lägenhet,hyra,8983,0,2,50,0,Hisingen,Göteborg,Bergsgatan 45,57.73439,11.90054,True,2025-08-28,SEK,m²,180.0
+295,lägenhet,köpa,1894463,8156,6,150,12629,Södermalm,Stockholm,Skolvägen 46,59.31389,18.06783,True,2026-03-04,SEK,m²,12630.0
+296,hus,hyra,20191,0,6,114,0,Hisingen,Göteborg,Lindvägen 43,57.72198,11.90222,True,2025-11-19,SEK,m²,177.0
+297,lägenhet,köpa,637292,5394,4,112,5690,Rosengård,Malmö,Bergsgatan 7,55.58262,13.02767,False,2025-12-19,SEK,m²,5690.0
+298,hus,köpa,504208,1604,5,125,4033,Rosengård,Malmö,Bergsgatan 17,55.58175,13.03521,True,2025-06-25,SEK,m²,4034.0
+299,hus,köpa,930114,1869,4,112,8304,Linnéstaden,Göteborg,Sveavägen 11,57.70635,11.95025,True,2025-05-08,SEK,m²,8305.0
+300,hus,köpa,185072,2319,2,44,4206,Hyllie,Malmö,Bergsgatan 40,55.57076,12.98424,True,2025-07-03,SEK,m²,4206.0
+301,hus,köpa,467675,1873,4,88,5314,Centrum,Göteborg,Lindvägen 87,57.70263,11.96537,False,2025-06-24,SEK,m²,5314.0
+302,hus,köpa,647104,2698,4,76,8514,Linnéstaden,Göteborg,Skolvägen 41,57.70483,11.95482,True,2025-06-17,SEK,m²,8515.0
+303,hus,köpa,1114958,2964,6,162,6882,Hisingen,Göteborg,Skolvägen 73,57.73732,11.89045,False,2025-11-08,SEK,m²,6882.0
+304,lägenhet,hyra,12786,0,4,104,0,Rosengård,Malmö,Lindvägen 16,55.59944,13.04057,True,2025-07-12,SEK,m²,123.0
+305,lägenhet,köpa,1614486,9213,6,162,9965,Östermalm,Stockholm,Björkgatan 71,59.33114,18.07316,True,2025-07-18,SEK,m²,9966.0
+306,lägenhet,hyra,9941,0,3,72,0,Rosengård,Malmö,Kungsgatan 38,55.58547,13.03923,False,2025-04-30,SEK,m²,138.0
+307,lägenhet,köpa,498986,9541,6,126,3960,Västra Hamnen,Malmö,Lindvägen 74,55.62088,12.98351,True,2025-04-29,SEK,m²,3960.0
+308,lägenhet,hyra,17643,0,5,130,0,Hisingen,Göteborg,Drottninggatan 101,57.73422,11.90633,True,2026-01-14,SEK,m²,136.0
+309,lägenhet,köpa,369848,2088,2,36,10273,Södermalm,Stockholm,Hornsgatan 101,59.32441,18.06165,False,2025-10-31,SEK,m²,10274.0
+310,lägenhet,köpa,1091379,6208,6,120,9094,Kungsholmen,Stockholm,Hornsgatan 99,59.33635,18.0315,True,2025-12-28,SEK,m²,9095.0
+311,hus,hyra,11752,0,4,80,0,Rosengård,Malmö,Strandvägen 39,55.58863,13.03395,True,2025-04-11,SEK,m²,147.0
+312,lägenhet,hyra,20004,0,5,135,0,Hyllie,Malmö,Sveavägen 84,55.56312,12.98391,False,2025-07-29,SEK,m²,148.0
+313,hus,köpa,232557,1737,1,28,8305,Linnéstaden,Göteborg,Strandvägen 118,57.6929,11.956,True,2026-03-09,SEK,m²,8306.0
+314,hus,köpa,805098,1511,5,130,6193,Centrum,Göteborg,Storgatan 32,57.70415,11.97738,False,2025-09-04,SEK,m²,6193.0
+315,hus,köpa,332123,1932,2,48,6919,Centrum,Göteborg,Sveavägen 15,57.7086,11.97628,True,2026-03-26,SEK,m²,6919.0
+316,lägenhet,köpa,1006863,11028,6,162,6215,Limhamn,Malmö,Drottninggatan 85,55.5888,12.93808,True,2025-11-14,SEK,m²,6215.0
+317,lägenhet,köpa,167627,1814,2,40,4190,Limhamn,Malmö,Parkvägen 50,55.58548,12.92336,True,2026-04-08,SEK,m²,4191.0
+318,lägenhet,köpa,227709,3503,3,60,3795,Rosengård,Malmö,Lindvägen 110,55.59738,13.03515,True,2025-10-22,SEK,m²,3795.0
+319,lägenhet,hyra,8250,0,2,54,0,Hisingen,Göteborg,Björkgatan 84,57.73523,11.90905,False,2025-06-24,SEK,m²,153.0
+320,hus,köpa,1072367,1530,5,95,11288,Södermalm,Stockholm,Kyrkogatan 106,59.32285,18.07541,False,2025-07-30,SEK,m²,11288.0
+321,lägenhet,hyra,17670,0,5,110,0,Kungsholmen,Stockholm,Kungsgatan 101,59.32588,18.0275,False,2025-06-06,SEK,m²,161.0
+322,lägenhet,hyra,3169,0,1,21,0,Hyllie,Malmö,Drottninggatan 17,55.55932,12.97783,True,2025-10-06,SEK,m²,151.0
+323,hus,köpa,606370,2806,3,69,8787,Linnéstaden,Göteborg,Strandvägen 23,57.69245,11.94605,False,2026-04-08,SEK,m²,8788.0
+324,lägenhet,hyra,5529,0,2,46,0,Kungsholmen,Stockholm,Hornsgatan 116,59.33068,18.03515,True,2025-11-02,SEK,m²,120.0
+325,hus,köpa,617471,2967,4,104,5937,Västra Hamnen,Malmö,Kyrkogatan 115,55.6139,12.96962,False,2025-08-24,SEK,m²,5937.0
+326,hus,köpa,159719,2381,1,28,5704,Rosengård,Malmö,Strandvägen 1,55.59765,13.03185,True,2026-03-30,SEK,m²,5704.0
+327,hus,hyra,14349,0,3,84,0,Limhamn,Malmö,Parkvägen 62,55.58936,12.92686,True,2026-03-23,SEK,m²,171.0
+328,lägenhet,köpa,832071,6234,5,105,7924,Hisingen,Göteborg,Kyrkogatan 65,57.73174,11.89628,True,2025-08-03,SEK,m²,7924.0
+329,lägenhet,hyra,8380,0,3,66,0,Rosengård,Malmö,Kyrkogatan 76,55.59547,13.02909,True,2025-08-02,SEK,m²,127.0
+330,lägenhet,hyra,8734,0,3,72,0,Hyllie,Malmö,Lindvägen 77,55.55313,12.96839,False,2025-12-02,SEK,m²,121.0
+331,hus,hyra,10790,0,3,60,0,Centrum,Göteborg,Kyrkogatan 59,57.71273,11.96569,False,2025-12-07,SEK,m²,180.0
+332,hus,hyra,13228,0,4,92,0,Södermalm,Stockholm,Skolvägen 26,59.31951,18.07565,True,2025-07-30,SEK,m²,144.0
+333,hus,hyra,14778,0,5,105,0,Östermalm,Stockholm,Björkgatan 73,59.32806,18.08857,True,2025-06-17,SEK,m²,141.0
+334,lägenhet,köpa,373550,3050,3,72,5188,Limhamn,Malmö,Drottninggatan 63,55.59336,12.93011,True,2026-02-08,SEK,m²,5188.0
+335,hus,köpa,123832,2223,1,21,5896,Rosengård,Malmö,Lindvägen 31,55.59406,13.02355,True,2025-11-29,SEK,m²,5897.0
+336,lägenhet,köpa,367611,2282,2,44,8354,Södermalm,Stockholm,Strandvägen 79,59.30551,18.0643,True,2025-04-30,SEK,m²,8355.0
+337,hus,köpa,119270,2764,1,20,5963,Rosengård,Malmö,Drottninggatan 87,55.59615,13.02334,True,2026-01-09,SEK,m²,5964.0
+338,hus,köpa,1675915,2409,5,140,11970,Kungsholmen,Stockholm,Hornsgatan 64,59.33031,18.03794,True,2025-06-02,SEK,m²,11971.0
+339,hus,hyra,9098,0,3,57,0,Hyllie,Malmö,Skolvägen 33,55.55332,12.97245,True,2025-06-12,SEK,m²,160.0
+340,lägenhet,köpa,276596,3366,2,48,5762,Majorna,Göteborg,Hornsgatan 15,57.70316,11.93089,True,2026-01-10,SEK,m²,5762.0
+341,lägenhet,hyra,12152,0,4,72,0,Södermalm,Stockholm,Strandvägen 55,59.32325,18.07464,False,2026-02-27,SEK,m²,169.0
+342,lägenhet,köpa,484290,4663,4,88,5503,Rosengård,Malmö,Drottninggatan 70,55.59046,13.03513,True,2025-06-11,SEK,m²,5503.0
+343,hus,hyra,8535,0,2,48,0,Hyllie,Malmö,Sveavägen 72,55.5589,12.97163,False,2025-11-26,SEK,m²,178.0
+344,lägenhet,hyra,17368,0,6,138,0,Limhamn,Malmö,Hornsgatan 100,55.58644,12.93346,True,2025-05-26,SEK,m²,126.0
+345,hus,hyra,9945,0,3,69,0,Hisingen,Göteborg,Björkgatan 95,57.73127,11.89646,False,2025-10-07,SEK,m²,144.0
+346,lägenhet,hyra,20530,0,5,125,0,Kungsholmen,Stockholm,Björkgatan 19,59.34122,18.02735,True,2025-09-14,SEK,m²,164.0
+347,lägenhet,köpa,1043105,5830,6,132,7902,Hisingen,Göteborg,Hornsgatan 77,57.73036,11.89372,True,2026-04-02,SEK,m²,7902.0
+348,hus,köpa,1205047,2569,5,95,12684,Östermalm,Stockholm,Storgatan 15,59.34096,18.07332,True,2025-05-11,SEK,m²,12685.0
+349,lägenhet,köpa,837632,7361,6,156,5369,Västra Hamnen,Malmö,Strandvägen 99,55.60535,12.96684,True,2025-08-30,SEK,m²,5369.0
+350,hus,hyra,17110,0,6,132,0,Hyllie,Malmö,Hornsgatan 114,55.56363,12.97362,True,2025-07-07,SEK,m²,130.0
+351,hus,köpa,912735,2474,6,156,5850,Rosengård,Malmö,Kyrkogatan 52,55.58569,13.02536,False,2025-12-26,SEK,m²,5851.0
+352,lägenhet,köpa,482456,4278,3,75,6432,Linnéstaden,Göteborg,Kyrkogatan 74,57.69671,11.94948,True,2026-02-04,SEK,m²,6433.0
+353,lägenhet,hyra,12703,0,4,104,0,Centrum,Göteborg,Storgatan 18,57.70925,11.98153,True,2025-10-11,SEK,m²,122.0
+354,lägenhet,hyra,12697,0,4,72,0,Västra Hamnen,Malmö,Hornsgatan 14,55.61652,12.97997,True,2025-10-23,SEK,m²,176.0
+355,lägenhet,hyra,17657,0,4,104,0,Kungsholmen,Stockholm,Parkvägen 109,59.32331,18.03037,False,2025-11-04,SEK,m²,170.0
+356,hus,hyra,13853,0,6,108,0,Kungsholmen,Stockholm,Lindvägen 44,59.32809,18.03539,True,2026-03-03,SEK,m²,128.0
+357,hus,köpa,1372826,2438,5,120,11440,Vasastan,Stockholm,Drottninggatan 105,59.35014,18.05398,True,2025-05-24,SEK,m²,11440.0
+358,lägenhet,köpa,1492395,5582,5,120,12436,Kungsholmen,Stockholm,Hornsgatan 110,59.32425,18.0209,False,2025-12-29,SEK,m²,12437.0
+359,hus,hyra,3511,0,1,21,0,Södermalm,Stockholm,Hornsgatan 109,59.30861,18.06844,True,2025-05-22,SEK,m²,167.0
+360,hus,köpa,269266,2235,3,63,4274,Hyllie,Malmö,Parkvägen 83,55.55223,12.97062,True,2025-06-07,SEK,m²,4274.0
+361,hus,hyra,3377,0,1,24,0,Centrum,Göteborg,Lindvägen 69,57.71319,11.97991,True,2025-05-21,SEK,m²,141.0
+362,lägenhet,hyra,14798,0,4,96,0,Limhamn,Malmö,Strandvägen 86,55.5778,12.93157,True,2026-02-07,SEK,m²,154.0
+363,lägenhet,hyra,14766,0,6,120,0,Södermalm,Stockholm,Parkvägen 48,59.31369,18.07587,True,2025-12-11,SEK,m²,123.0
+364,lägenhet,köpa,715333,8867,5,115,6220,Västra Hamnen,Malmö,Hornsgatan 77,55.60915,12.98412,True,2025-09-05,SEK,m²,6220.0
+365,hus,köpa,282576,2455,3,78,3622,Rosengård,Malmö,Sveavägen 60,55.59411,13.03387,True,2026-02-05,SEK,m²,3623.0
+366,lägenhet,köpa,521867,9360,5,135,3865,Hyllie,Malmö,Drottninggatan 65,55.56654,12.98183,False,2025-12-05,SEK,m²,3866.0
+367,lägenhet,hyra,5952,0,2,48,0,Östermalm,Stockholm,Parkvägen 24,59.34095,18.07913,True,2026-02-17,SEK,m²,124.0
+368,lägenhet,hyra,16729,0,6,132,0,Centrum,Göteborg,Drottninggatan 71,57.71574,11.978,True,2025-06-20,SEK,m²,127.0
+369,lägenhet,hyra,14449,0,5,90,0,Centrum,Göteborg,Storgatan 31,57.70179,11.97556,True,2026-03-10,SEK,m²,161.0
+370,hus,hyra,24259,0,6,144,0,Hyllie,Malmö,Drottninggatan 116,55.56079,12.97759,True,2025-10-27,SEK,m²,168.0
+371,hus,hyra,24473,0,6,162,0,Västra Hamnen,Malmö,Strandvägen 47,55.62103,12.97147,True,2025-08-15,SEK,m²,151.0
+372,hus,köpa,286174,1857,2,50,5723,Rosengård,Malmö,Sveavägen 54,55.59159,13.0222,True,2025-09-13,SEK,m²,5723.0
+373,lägenhet,köpa,680096,5926,5,100,6800,Majorna,Göteborg,Kyrkogatan 97,57.70483,11.94155,False,2025-05-11,SEK,m²,6801.0
+374,hus,hyra,8749,0,3,69,0,Vasastan,Stockholm,Parkvägen 26,59.34096,18.05808,True,2025-08-25,SEK,m²,127.0
+375,hus,köpa,1639797,2818,6,162,10122,Östermalm,Stockholm,Bergsgatan 81,59.33153,18.07334,True,2026-04-02,SEK,m²,10122.0
+376,lägenhet,hyra,11048,0,4,76,0,Majorna,Göteborg,Kungsgatan 115,57.69128,11.92791,True,2025-10-11,SEK,m²,145.0
+377,lägenhet,hyra,10213,0,4,72,0,Kungsholmen,Stockholm,Hornsgatan 109,59.33553,18.03858,True,2025-04-15,SEK,m²,142.0
+378,lägenhet,köpa,258749,2777,2,48,5390,Rosengård,Malmö,Hornsgatan 89,55.58339,13.02652,True,2026-03-18,SEK,m²,5391.0
+379,hus,köpa,991490,2884,4,88,11266,Vasastan,Stockholm,Parkvägen 75,59.35112,18.04372,True,2025-05-31,SEK,m²,11267.0
+380,lägenhet,köpa,804272,5220,4,104,7733,Hisingen,Göteborg,Hornsgatan 99,57.72656,11.89706,True,2026-01-07,SEK,m²,7733.0
+381,hus,köpa,1011960,1506,6,156,6486,Centrum,Göteborg,Sveavägen 34,57.70937,11.97483,True,2025-04-20,SEK,m²,6487.0
+382,hus,hyra,3968,0,1,26,0,Vasastan,Stockholm,Lindvägen 10,59.3407,18.05372,True,2025-11-12,SEK,m²,153.0
+383,hus,hyra,17487,0,5,115,0,Rosengård,Malmö,Hornsgatan 83,55.5817,13.03095,True,2026-03-21,SEK,m²,152.0
+384,hus,köpa,1338351,2051,6,168,7966,Vasastan,Stockholm,Drottninggatan 63,59.34045,18.0502,True,2026-04-07,SEK,m²,7966.0
+385,lägenhet,hyra,3657,0,1,21,0,Västra Hamnen,Malmö,Björkgatan 6,55.62143,12.97863,True,2026-04-08,SEK,m²,174.0
+386,lägenhet,hyra,5430,0,2,36,0,Linnéstaden,Göteborg,Storgatan 51,57.69066,11.95738,True,2025-05-22,SEK,m²,151.0
+387,lägenhet,hyra,3525,0,1,21,0,Linnéstaden,Göteborg,Drottninggatan 72,57.69349,11.94576,False,2025-05-09,SEK,m²,168.0
+388,lägenhet,hyra,17265,0,5,110,0,Östermalm,Stockholm,Storgatan 58,59.33457,18.08391,False,2026-02-22,SEK,m²,157.0
+389,lägenhet,hyra,13606,0,5,90,0,Majorna,Göteborg,Lindvägen 81,57.69563,11.92671,True,2026-04-03,SEK,m²,151.0
+390,hus,hyra,12989,0,4,88,0,Vasastan,Stockholm,Strandvägen 1,59.3431,18.04374,True,2025-08-02,SEK,m²,148.0
+391,hus,hyra,7782,0,2,54,0,Västra Hamnen,Malmö,Kungsgatan 71,55.61285,12.98137,True,2025-09-23,SEK,m²,144.0
+392,hus,hyra,20449,0,6,138,0,Västra Hamnen,Malmö,Bergsgatan 46,55.6225,12.98229,True,2025-05-02,SEK,m²,148.0
+393,hus,köpa,138458,2447,1,25,5538,Hyllie,Malmö,Skolvägen 71,55.56434,12.96838,True,2026-03-20,SEK,m²,5538.0
+394,hus,köpa,345795,2165,3,57,6066,Västra Hamnen,Malmö,Kyrkogatan 100,55.61281,12.97543,False,2025-04-19,SEK,m²,6067.0
+395,lägenhet,hyra,18357,0,5,115,0,Vasastan,Stockholm,Kyrkogatan 112,59.33659,18.0459,True,2025-12-05,SEK,m²,160.0
+396,lägenhet,köpa,861352,8053,6,168,5127,Hyllie,Malmö,Strandvägen 20,55.56674,12.96655,True,2025-07-02,SEK,m²,5127.0
+397,lägenhet,hyra,16858,0,5,130,0,Majorna,Göteborg,Bergsgatan 98,57.70704,11.92624,True,2026-03-27,SEK,m²,130.0
+398,hus,köpa,243776,2771,2,40,6094,Hyllie,Malmö,Kyrkogatan 75,55.56195,12.97304,True,2025-12-15,SEK,m²,6094.0
+399,hus,köpa,938277,2682,4,80,11728,Östermalm,Stockholm,Sveavägen 48,59.33175,18.08475,True,2026-02-17,SEK,m²,11728.0
+400,hus,hyra,15179,0,5,120,0,Västra Hamnen,Malmö,Kyrkogatan 25,55.61281,12.97611,True,2025-06-19,SEK,m²,126.0
+401,hus,hyra,19627,0,5,110,0,Östermalm,Stockholm,Kungsgatan 117,59.33319,18.0887,True,2025-11-28,SEK,m²,178.0
+402,lägenhet,köpa,215237,2803,2,40,5380,Limhamn,Malmö,Strandvägen 67,55.59477,12.93854,False,2026-03-23,SEK,m²,5381.0
+403,lägenhet,köpa,1054909,5523,4,112,9418,Östermalm,Stockholm,Kungsgatan 57,59.34333,18.07554,True,2025-10-14,SEK,m²,9419.0
+404,lägenhet,köpa,860846,6291,3,81,10627,Kungsholmen,Stockholm,Skolvägen 107,59.3327,18.02433,True,2026-01-10,SEK,m²,10628.0
+405,lägenhet,hyra,9956,0,3,78,0,Majorna,Göteborg,Kungsgatan 31,57.70582,11.93754,False,2026-02-25,SEK,m²,128.0
+406,hus,köpa,996101,2180,3,78,12770,Vasastan,Stockholm,Hornsgatan 115,59.34165,18.05275,True,2025-07-20,SEK,m²,12771.0
+407,lägenhet,hyra,11735,0,4,76,0,Vasastan,Stockholm,Bergsgatan 49,59.3362,18.0414,True,2026-03-21,SEK,m²,154.0
+408,hus,köpa,489798,1888,4,92,5323,Hisingen,Göteborg,Drottninggatan 52,57.72159,11.89793,True,2026-01-21,SEK,m²,5324.0
+409,lägenhet,hyra,5727,0,2,42,0,Hyllie,Malmö,Lindvägen 29,55.56888,12.96729,True,2025-12-19,SEK,m²,136.0
+410,hus,hyra,16368,0,5,130,0,Linnéstaden,Göteborg,Kungsgatan 116,57.70241,11.95593,True,2026-02-13,SEK,m²,126.0
+411,hus,hyra,26553,0,6,168,0,Rosengård,Malmö,Strandvägen 91,55.59485,13.03049,False,2025-05-18,SEK,m²,158.0
+412,hus,hyra,2864,0,1,23,0,Rosengård,Malmö,Skolvägen 22,55.59201,13.04186,False,2025-08-17,SEK,m²,125.0
+413,lägenhet,hyra,17953,0,6,144,0,Hyllie,Malmö,Kyrkogatan 79,55.57164,12.98112,True,2025-10-11,SEK,m²,125.0
+414,lägenhet,köpa,201726,1051,1,23,8770,Majorna,Göteborg,Björkgatan 9,57.70899,11.92597,True,2025-06-10,SEK,m²,8771.0
+415,lägenhet,hyra,6327,0,2,36,0,Östermalm,Stockholm,Drottninggatan 115,59.34629,18.07779,False,2025-05-08,SEK,m²,176.0
+416,hus,köpa,679826,1816,4,96,7081,Majorna,Göteborg,Skolvägen 63,57.70037,11.9306,True,2025-07-27,SEK,m²,7082.0
+417,lägenhet,hyra,6342,0,2,48,0,Limhamn,Malmö,Strandvägen 23,55.58403,12.92554,False,2025-09-14,SEK,m²,132.0
+418,hus,köpa,806468,2445,4,104,7754,Hisingen,Göteborg,Skolvägen 116,57.73614,11.89856,False,2026-02-26,SEK,m²,7754.0
+419,hus,köpa,755230,1937,5,95,7949,Östermalm,Stockholm,Hornsgatan 106,59.34121,18.08976,True,2025-04-14,SEK,m²,7950.0
+420,hus,hyra,9078,0,3,60,0,Limhamn,Malmö,Hornsgatan 45,55.59316,12.9353,True,2025-06-04,SEK,m²,151.0
+421,hus,köpa,720930,2724,3,66,10923,Östermalm,Stockholm,Kungsgatan 1,59.34315,18.07718,True,2026-03-12,SEK,m²,10923.0
+422,hus,hyra,11844,0,4,84,0,Majorna,Göteborg,Kungsgatan 3,57.70891,11.94243,True,2025-12-19,SEK,m²,141.0
+423,lägenhet,köpa,228870,3404,2,48,4768,Hyllie,Malmö,Björkgatan 103,55.56643,12.97931,True,2025-08-15,SEK,m²,4768.0
+424,hus,hyra,6278,0,2,44,0,Centrum,Göteborg,Skolvägen 73,57.70689,11.97857,True,2025-12-09,SEK,m²,143.0
+425,lägenhet,köpa,933554,11756,6,162,5762,Hyllie,Malmö,Hornsgatan 1,55.56976,12.97999,True,2026-02-19,SEK,m²,5763.0
+426,lägenhet,hyra,17856,0,6,126,0,Limhamn,Malmö,Kyrkogatan 13,55.59537,12.93664,True,2025-06-27,SEK,m²,142.0
+427,hus,köpa,590282,2698,3,63,9369,Kungsholmen,Stockholm,Bergsgatan 29,59.32328,18.02771,True,2026-02-21,SEK,m²,9370.0
+428,hus,köpa,216602,2904,1,28,7735,Majorna,Göteborg,Kyrkogatan 58,57.70779,11.9411,False,2025-09-11,SEK,m²,7736.0
+429,hus,köpa,417233,2177,4,72,5794,Majorna,Göteborg,Hornsgatan 115,57.69461,11.9427,True,2026-03-04,SEK,m²,5795.0
+430,lägenhet,hyra,3722,0,1,24,0,Vasastan,Stockholm,Kungsgatan 117,59.34588,18.04635,True,2025-05-19,SEK,m²,155.0
+431,lägenhet,hyra,15613,0,4,104,0,Östermalm,Stockholm,Kungsgatan 75,59.3468,18.07165,True,2025-05-25,SEK,m²,150.0
+432,hus,köpa,405497,2146,3,75,5406,Rosengård,Malmö,Sveavägen 44,55.59313,13.02894,True,2026-03-08,SEK,m²,5407.0
+433,lägenhet,hyra,16307,0,4,92,0,Hyllie,Malmö,Bergsgatan 40,55.55561,12.97911,False,2025-09-27,SEK,m²,177.0
+434,hus,hyra,16713,0,6,132,0,Västra Hamnen,Malmö,Storgatan 22,55.60913,12.97804,True,2025-10-22,SEK,m²,127.0
+435,hus,hyra,27644,0,6,168,0,Kungsholmen,Stockholm,Kungsgatan 65,59.32604,18.03702,True,2025-06-16,SEK,m²,165.0
+436,hus,hyra,3814,0,1,25,0,Rosengård,Malmö,Kungsgatan 90,55.59404,13.03103,True,2025-04-15,SEK,m²,153.0
+437,hus,köpa,207777,1530,1,20,10388,Kungsholmen,Stockholm,Lindvägen 25,59.33222,18.0368,False,2025-09-09,SEK,m²,10389.0
+438,hus,köpa,674135,2950,3,78,8642,Linnéstaden,Göteborg,Björkgatan 76,57.69178,11.94518,True,2025-05-19,SEK,m²,8643.0
+439,lägenhet,hyra,8561,0,2,50,0,Linnéstaden,Göteborg,Strandvägen 9,57.70213,11.94292,True,2025-04-23,SEK,m²,171.0
+440,lägenhet,hyra,12148,0,3,72,0,Östermalm,Stockholm,Björkgatan 59,59.33448,18.07459,False,2025-09-11,SEK,m²,169.0
+441,hus,hyra,9431,0,3,72,0,Södermalm,Stockholm,Björkgatan 17,59.31751,18.07324,True,2025-11-22,SEK,m²,131.0
+442,lägenhet,köpa,1143013,8706,6,150,7620,Kungsholmen,Stockholm,Lindvägen 106,59.33353,18.02713,True,2026-03-25,SEK,m²,7620.0
+443,hus,hyra,6150,0,2,46,0,Västra Hamnen,Malmö,Lindvägen 51,55.61971,12.97522,True,2026-02-19,SEK,m²,134.0
+444,hus,hyra,16013,0,4,92,0,Västra Hamnen,Malmö,Hornsgatan 74,55.60661,12.9791,True,2025-06-06,SEK,m²,174.0
+445,lägenhet,hyra,4306,0,1,27,0,Linnéstaden,Göteborg,Kungsgatan 71,57.69093,11.96175,True,2025-12-04,SEK,m²,159.0
+446,lägenhet,hyra,8089,0,2,56,0,Hisingen,Göteborg,Bergsgatan 20,57.72628,11.89216,False,2025-05-21,SEK,m²,144.0
+447,hus,hyra,3175,0,1,23,0,Centrum,Göteborg,Kyrkogatan 106,57.71261,11.96886,True,2026-01-14,SEK,m²,138.0
+448,hus,köpa,1156619,2932,5,105,11015,Östermalm,Stockholm,Parkvägen 79,59.3356,18.08972,True,2026-02-01,SEK,m²,11015.0
+449,hus,köpa,330348,2038,3,60,5505,Västra Hamnen,Malmö,Björkgatan 22,55.61812,12.97975,False,2025-10-15,SEK,m²,5506.0
+450,lägenhet,köpa,113627,1246,1,20,5681,Centrum,Göteborg,Storgatan 55,57.71874,11.98096,True,2025-09-02,SEK,m²,5681.0
+451,lägenhet,köpa,661698,8485,6,156,4241,Hyllie,Malmö,Hornsgatan 3,55.57038,12.96854,True,2025-04-17,SEK,m²,4242.0
+452,hus,köpa,105326,2195,1,18,5851,Majorna,Göteborg,Skolvägen 83,57.70597,11.93911,True,2025-10-10,SEK,m²,5851.0
+453,hus,hyra,23258,0,5,140,0,Hyllie,Malmö,Parkvägen 27,55.56974,12.96958,True,2025-08-16,SEK,m²,166.0
+454,hus,hyra,15438,0,5,115,0,Centrum,Göteborg,Drottninggatan 32,57.70375,11.97628,True,2025-11-05,SEK,m²,134.0
+455,hus,köpa,416705,1652,3,57,7310,Hisingen,Göteborg,Drottninggatan 113,57.73824,11.90592,False,2026-04-04,SEK,m²,7311.0
+456,hus,hyra,3776,0,1,28,0,Östermalm,Stockholm,Parkvägen 18,59.33437,18.07528,False,2025-11-22,SEK,m²,135.0
+457,hus,köpa,1279069,2284,6,168,7613,Centrum,Göteborg,Lindvägen 108,57.71872,11.97729,True,2026-01-10,SEK,m²,7614.0
+458,hus,hyra,12091,0,4,76,0,Rosengård,Malmö,Bergsgatan 26,55.58891,13.03888,True,2025-12-23,SEK,m²,159.0
+459,hus,hyra,21080,0,6,150,0,Majorna,Göteborg,Björkgatan 90,57.70397,11.93154,True,2025-08-02,SEK,m²,141.0
+460,lägenhet,köpa,144608,1252,1,19,7610,Majorna,Göteborg,Hornsgatan 3,57.70563,11.94253,True,2025-08-30,SEK,m²,7611.0
+461,hus,köpa,414961,2237,4,72,5763,Hisingen,Göteborg,Kungsgatan 59,57.72483,11.89205,False,2025-12-29,SEK,m²,5763.0
+462,hus,köpa,289264,2253,2,46,6288,Centrum,Göteborg,Kyrkogatan 45,57.70705,11.96474,True,2025-11-15,SEK,m²,6288.0
+463,lägenhet,köpa,1710751,8397,5,130,13159,Vasastan,Stockholm,Kungsgatan 62,59.35006,18.04659,True,2025-06-26,SEK,m²,13160.0
+464,hus,hyra,11173,0,3,69,0,Hisingen,Göteborg,Storgatan 13,57.73369,11.90394,True,2026-02-26,SEK,m²,162.0
+465,hus,hyra,12982,0,5,100,0,Kungsholmen,Stockholm,Lindvägen 72,59.33987,18.03445,True,2025-12-10,SEK,m²,130.0
+466,hus,hyra,4661,0,1,26,0,Majorna,Göteborg,Drottninggatan 57,57.70082,11.93249,False,2025-09-10,SEK,m²,179.0
+467,hus,hyra,10395,0,4,72,0,Linnéstaden,Göteborg,Kungsgatan 13,57.69331,11.94268,True,2025-11-08,SEK,m²,144.0
+468,hus,köpa,747152,1734,6,156,4789,Rosengård,Malmö,Lindvägen 108,55.58215,13.03131,True,2025-12-07,SEK,m²,4789.0
+469,hus,hyra,18847,0,6,114,0,Limhamn,Malmö,Björkgatan 10,55.58559,12.9206,True,2025-09-27,SEK,m²,165.0
+470,hus,köpa,488310,2566,4,72,6782,Hisingen,Göteborg,Skolvägen 93,57.72349,11.89807,True,2026-01-28,SEK,m²,6782.0
+471,hus,köpa,947542,2211,5,120,7896,Linnéstaden,Göteborg,Storgatan 76,57.70699,11.94321,True,2025-08-02,SEK,m²,7896.0
+472,hus,köpa,135631,2478,1,25,5425,Majorna,Göteborg,Storgatan 54,57.69778,11.92938,True,2025-04-13,SEK,m²,5425.0
+473,lägenhet,köpa,1441737,8248,6,114,12646,Kungsholmen,Stockholm,Hornsgatan 9,59.33081,18.03296,True,2025-08-10,SEK,m²,12647.0
+474,hus,hyra,8129,0,2,54,0,Hisingen,Göteborg,Lindvägen 87,57.72778,11.89704,False,2025-11-05,SEK,m²,151.0
+475,hus,köpa,543718,2945,5,95,5723,Centrum,Göteborg,Lindvägen 82,57.71181,11.96572,True,2025-06-25,SEK,m²,5723.0
+476,hus,hyra,27887,0,6,162,0,Västra Hamnen,Malmö,Strandvägen 106,55.61621,12.98405,True,2025-11-22,SEK,m²,172.0
+477,lägenhet,hyra,13571,0,5,100,0,Hyllie,Malmö,Björkgatan 103,55.56018,12.98457,True,2026-01-29,SEK,m²,136.0
+478,lägenhet,hyra,19640,0,5,120,0,Limhamn,Malmö,Sveavägen 41,55.58867,12.93098,True,2025-09-26,SEK,m²,164.0
+479,hus,köpa,546957,2344,2,42,13022,Östermalm,Stockholm,Sveavägen 98,59.34311,18.08411,True,2025-08-04,SEK,m²,13023.0
+480,lägenhet,hyra,9959,0,3,66,0,Södermalm,Stockholm,Sveavägen 117,59.30642,18.07596,True,2025-12-30,SEK,m²,151.0
+481,hus,hyra,2712,0,1,19,0,Hyllie,Malmö,Kyrkogatan 69,55.56882,12.9741,False,2025-09-05,SEK,m²,143.0
+482,hus,köpa,522272,1823,3,75,6963,Hisingen,Göteborg,Drottninggatan 114,57.72756,11.90987,False,2025-05-23,SEK,m²,6964.0
+483,lägenhet,köpa,394275,3933,3,54,7301,Centrum,Göteborg,Strandvägen 28,57.70853,11.97351,True,2025-11-26,SEK,m²,7301.0
+484,lägenhet,köpa,142235,1611,1,23,6184,Hisingen,Göteborg,Storgatan 19,57.73627,11.89762,True,2025-05-30,SEK,m²,6184.0
+485,lägenhet,köpa,505936,4606,3,66,7665,Kungsholmen,Stockholm,Sveavägen 67,59.32293,18.02374,True,2025-07-02,SEK,m²,7666.0
+486,hus,köpa,653111,2699,3,75,8708,Östermalm,Stockholm,Kungsgatan 8,59.32957,18.07333,True,2025-04-27,SEK,m²,8708.0
+487,hus,hyra,7936,0,3,63,0,Linnéstaden,Göteborg,Kyrkogatan 77,57.70692,11.9564,True,2025-08-29,SEK,m²,126.0
+488,lägenhet,hyra,18997,0,4,108,0,Hisingen,Göteborg,Lindvägen 53,57.72297,11.90046,False,2025-08-07,SEK,m²,176.0
+489,lägenhet,köpa,731850,4372,3,63,11616,Södermalm,Stockholm,Storgatan 115,59.30744,18.06273,False,2025-04-14,SEK,m²,11617.0
+490,hus,köpa,1373031,1856,6,162,8475,Hisingen,Göteborg,Kungsgatan 31,57.72287,11.89887,True,2025-10-06,SEK,m²,8476.0
+491,hus,köpa,778194,2057,6,144,5404,Hisingen,Göteborg,Skolvägen 66,57.73952,11.90944,False,2025-06-06,SEK,m²,5404.0
+492,hus,köpa,352190,2524,4,88,4002,Västra Hamnen,Malmö,Strandvägen 77,55.61044,12.9855,True,2025-11-05,SEK,m²,4002.0
+493,lägenhet,köpa,465970,3397,3,54,8629,Vasastan,Stockholm,Kungsgatan 119,59.33683,18.04592,True,2025-07-24,SEK,m²,8629.0
+494,hus,hyra,25679,0,6,162,0,Södermalm,Stockholm,Sveavägen 47,59.31521,18.07153,True,2026-01-31,SEK,m²,159.0
+495,lägenhet,hyra,3337,0,1,24,0,Östermalm,Stockholm,Hornsgatan 69,59.33968,18.07255,True,2025-07-24,SEK,m²,139.0
+496,hus,köpa,689408,1771,6,156,4419,Limhamn,Malmö,Sveavägen 39,55.59258,12.93227,True,2025-10-27,SEK,m²,4419.0
+497,hus,köpa,368780,1516,4,92,4008,Västra Hamnen,Malmö,Björkgatan 68,55.61973,12.98473,True,2025-11-02,SEK,m²,4008.0
+498,lägenhet,köpa,1467797,9074,5,125,11742,Kungsholmen,Stockholm,Strandvägen 38,59.33987,18.02189,False,2025-09-02,SEK,m²,11742.0
+499,lägenhet,köpa,969879,9304,6,138,7028,Centrum,Göteborg,Björkgatan 52,57.7049,11.96748,True,2025-07-08,SEK,m²,7028.0
+500,lägenhet,hyra,21380,0,6,156,0,Hisingen,Göteborg,Björkgatan 4,57.72655,11.89204,True,2025-09-18,SEK,m²,137.0
+501,hus,hyra,3145,0,1,19,0,Hisingen,Göteborg,Lindvägen 54,57.72491,11.89204,True,2025-09-02,SEK,m²,166.0
+502,hus,köpa,689544,1612,3,78,8840,Södermalm,Stockholm,Kungsgatan 89,59.30888,18.06845,True,2026-03-23,SEK,m²,8840.0
+503,lägenhet,köpa,220442,3945,2,54,4082,Rosengård,Malmö,Kyrkogatan 86,55.59737,13.02455,True,2025-04-19,SEK,m²,4082.0
+504,lägenhet,hyra,16587,0,5,95,0,Vasastan,Stockholm,Kungsgatan 64,59.34006,18.04293,False,2026-03-06,SEK,m²,175.0
+505,hus,köpa,1371544,2406,6,120,11429,Vasastan,Stockholm,Björkgatan 103,59.34652,18.05763,False,2025-12-20,SEK,m²,11430.0
+506,lägenhet,hyra,15827,0,4,104,0,Linnéstaden,Göteborg,Storgatan 56,57.70123,11.94295,False,2025-05-08,SEK,m²,152.0
+507,lägenhet,hyra,14939,0,6,114,0,Limhamn,Malmö,Strandvägen 37,55.58299,12.92969,True,2025-05-25,SEK,m²,131.0
+508,hus,hyra,6422,0,2,46,0,Linnéstaden,Göteborg,Bergsgatan 28,57.69193,11.9575,True,2025-04-09,SEK,m²,140.0
+509,lägenhet,hyra,16701,0,5,115,0,Limhamn,Malmö,Björkgatan 89,55.59532,12.93084,True,2025-10-10,SEK,m²,145.0
+510,hus,hyra,6017,0,2,42,0,Östermalm,Stockholm,Kungsgatan 39,59.34338,18.08446,False,2026-02-20,SEK,m²,143.0
+511,hus,hyra,18922,0,4,108,0,Hisingen,Göteborg,Björkgatan 102,57.73171,11.89285,True,2025-07-14,SEK,m²,175.0
+512,lägenhet,hyra,18382,0,5,130,0,Vasastan,Stockholm,Strandvägen 6,59.34971,18.05496,False,2025-06-30,SEK,m²,141.0
+513,lägenhet,hyra,7754,0,2,54,0,Limhamn,Malmö,Björkgatan 66,55.57712,12.93997,True,2025-09-27,SEK,m²,144.0
+514,hus,köpa,1646710,2208,6,132,12475,Vasastan,Stockholm,Bergsgatan 59,59.34247,18.05665,True,2025-09-13,SEK,m²,12475.0
+515,hus,köpa,585137,1641,3,66,8865,Linnéstaden,Göteborg,Kungsgatan 14,57.69349,11.95596,True,2025-12-05,SEK,m²,8866.0
+516,lägenhet,köpa,222895,1445,1,27,8255,Linnéstaden,Göteborg,Lindvägen 6,57.69632,11.95051,True,2025-06-13,SEK,m²,8255.0
+517,lägenhet,hyra,4608,0,2,36,0,Kungsholmen,Stockholm,Kungsgatan 40,59.33205,18.02421,True,2025-10-16,SEK,m²,128.0
+518,lägenhet,hyra,4726,0,1,28,0,Södermalm,Stockholm,Sveavägen 114,59.31558,18.06838,True,2025-05-26,SEK,m²,169.0
+519,lägenhet,hyra,3894,0,1,22,0,Södermalm,Stockholm,Kyrkogatan 20,59.31094,18.077,True,2026-03-22,SEK,m²,177.0
+520,lägenhet,hyra,11404,0,3,75,0,Vasastan,Stockholm,Hornsgatan 38,59.34422,18.05413,True,2026-02-13,SEK,m²,152.0
+521,lägenhet,hyra,13833,0,4,80,0,Rosengård,Malmö,Lindvägen 52,55.5931,13.03896,True,2025-04-12,SEK,m²,173.0
+522,lägenhet,köpa,314102,5560,3,84,3739,Rosengård,Malmö,Kyrkogatan 94,55.59947,13.03068,True,2026-03-31,SEK,m²,3739.0
+523,lägenhet,köpa,760470,4626,5,95,8004,Centrum,Göteborg,Bergsgatan 13,57.71548,11.97505,False,2026-02-15,SEK,m²,8005.0
+524,lägenhet,hyra,8520,0,3,63,0,Vasastan,Stockholm,Strandvägen 114,59.34747,18.05575,True,2026-01-02,SEK,m²,135.0
+525,lägenhet,köpa,347678,2770,3,60,5794,Västra Hamnen,Malmö,Lindvägen 87,55.6099,12.97089,True,2025-04-10,SEK,m²,5795.0
+526,hus,hyra,21864,0,6,132,0,Limhamn,Malmö,Kyrkogatan 71,55.5844,12.92506,True,2026-04-03,SEK,m²,166.0
+527,lägenhet,hyra,12562,0,4,104,0,Limhamn,Malmö,Lindvägen 10,55.58296,12.93474,False,2025-07-14,SEK,m²,121.0
+528,lägenhet,köpa,123991,1337,1,19,6525,Majorna,Göteborg,Strandvägen 59,57.70102,11.93745,False,2026-02-24,SEK,m²,6526.0
+529,lägenhet,hyra,16278,0,4,96,0,Kungsholmen,Stockholm,Hornsgatan 64,59.33782,18.03645,True,2026-02-03,SEK,m²,170.0
+530,hus,köpa,183412,2189,1,21,8733,Centrum,Göteborg,Storgatan 86,57.71859,11.97155,True,2025-11-19,SEK,m²,8734.0
+531,lägenhet,köpa,1348317,8259,5,110,12257,Östermalm,Stockholm,Parkvägen 102,59.33293,18.07836,True,2025-05-11,SEK,m²,12257.0
+532,hus,hyra,10941,0,3,69,0,Majorna,Göteborg,Strandvägen 31,57.68962,11.92404,True,2026-03-21,SEK,m²,159.0
+533,lägenhet,köpa,515609,5049,4,88,5859,Majorna,Göteborg,Strandvägen 48,57.69776,11.93584,True,2026-03-17,SEK,m²,5859.0
+534,lägenhet,köpa,643320,3489,2,52,12371,Vasastan,Stockholm,Parkvägen 70,59.3505,18.05088,True,2025-07-21,SEK,m²,12372.0
+535,hus,hyra,11870,0,3,75,0,Rosengård,Malmö,Kungsgatan 2,55.5866,13.03787,True,2026-02-11,SEK,m²,158.0
+536,hus,hyra,4014,0,1,24,0,Vasastan,Stockholm,Björkgatan 68,59.34029,18.05143,True,2026-02-12,SEK,m²,167.0
+537,hus,köpa,473435,2047,3,84,5636,Hisingen,Göteborg,Drottninggatan 64,57.72304,11.89405,True,2025-06-23,SEK,m²,5636.0
+538,hus,hyra,11270,0,3,75,0,Östermalm,Stockholm,Strandvägen 51,59.33177,18.08002,True,2025-04-29,SEK,m²,150.0
+539,lägenhet,köpa,213979,2210,2,52,4114,Rosengård,Malmö,Skolvägen 30,55.59043,13.02993,True,2025-10-14,SEK,m²,4115.0
+540,lägenhet,köpa,1453853,12462,6,162,8974,Södermalm,Stockholm,Lindvägen 18,59.31599,18.0663,True,2026-02-18,SEK,m²,8974.0
+541,lägenhet,hyra,9724,0,3,69,0,Centrum,Göteborg,Storgatan 41,57.70089,11.97896,False,2026-01-13,SEK,m²,141.0
+542,hus,hyra,17592,0,6,138,0,Hisingen,Göteborg,Storgatan 79,57.72942,11.90542,True,2025-12-08,SEK,m²,127.0
+543,hus,köpa,472812,2714,6,108,4377,Hyllie,Malmö,Strandvägen 71,55.57197,12.96878,False,2025-11-27,SEK,m²,4378.0
+544,lägenhet,köpa,601696,6357,4,104,5785,Majorna,Göteborg,Björkgatan 62,57.69,11.9391,True,2025-10-20,SEK,m²,5786.0
+545,hus,köpa,864817,2149,6,108,8007,Centrum,Göteborg,Drottninggatan 2,57.71885,11.97833,True,2025-08-24,SEK,m²,8008.0
+546,lägenhet,köpa,127937,1124,1,24,5330,Hyllie,Malmö,Björkgatan 108,55.56826,12.97875,True,2025-09-12,SEK,m²,5331.0
+547,lägenhet,köpa,444602,4300,4,92,4832,Rosengård,Malmö,Sveavägen 47,55.5953,13.04033,True,2026-03-05,SEK,m²,4833.0
+548,hus,hyra,19018,0,4,112,0,Linnéstaden,Göteborg,Hornsgatan 47,57.68884,11.95394,True,2025-09-16,SEK,m²,170.0
+549,lägenhet,hyra,13832,0,3,84,0,Södermalm,Stockholm,Hornsgatan 39,59.30529,18.06569,False,2025-08-07,SEK,m²,165.0
+550,lägenhet,köpa,352314,2660,2,48,7339,Majorna,Göteborg,Björkgatan 52,57.6941,11.94132,True,2025-05-08,SEK,m²,7340.0
+551,lägenhet,köpa,281928,4041,3,66,4271,Limhamn,Malmö,Hornsgatan 47,55.59003,12.93583,False,2025-06-24,SEK,m²,4272.0
+552,lägenhet,köpa,503493,6052,5,125,4027,Hyllie,Malmö,Lindvägen 24,55.56619,12.96914,True,2025-11-07,SEK,m²,4028.0
+553,lägenhet,hyra,11513,0,4,84,0,Limhamn,Malmö,Parkvägen 5,55.59031,12.932,False,2025-07-28,SEK,m²,137.0
+554,lägenhet,köpa,1681286,9991,6,150,11208,Kungsholmen,Stockholm,Bergsgatan 66,59.33389,18.02236,False,2026-02-28,SEK,m²,11209.0
+555,lägenhet,hyra,26762,0,6,156,0,Rosengård,Malmö,Strandvägen 71,55.6002,13.03571,True,2025-05-09,SEK,m²,172.0
+556,lägenhet,köpa,129704,941,1,19,6826,Centrum,Göteborg,Sveavägen 82,57.71141,11.9824,False,2026-03-07,SEK,m²,6827.0
+557,lägenhet,hyra,9685,0,3,78,0,Kungsholmen,Stockholm,Kungsgatan 41,59.33186,18.0208,True,2025-09-28,SEK,m²,124.0
+558,hus,köpa,221171,1525,3,60,3686,Västra Hamnen,Malmö,Strandvägen 37,55.61964,12.96921,True,2025-09-27,SEK,m²,3686.0
+559,hus,hyra,3162,0,1,18,0,Hisingen,Göteborg,Hornsgatan 30,57.73176,11.90381,True,2025-12-04,SEK,m²,176.0
+560,lägenhet,hyra,24778,0,6,162,0,Rosengård,Malmö,Lindvägen 111,55.59392,13.02532,False,2025-05-27,SEK,m²,153.0
+561,lägenhet,hyra,3691,0,1,21,0,Västra Hamnen,Malmö,Sveavägen 52,55.61031,12.97908,True,2025-10-24,SEK,m²,176.0
+562,hus,köpa,305762,2624,2,44,6949,Centrum,Göteborg,Strandvägen 120,57.70196,11.98351,True,2025-10-30,SEK,m²,6949.0
+563,hus,köpa,592712,2227,6,108,5488,Västra Hamnen,Malmö,Kungsgatan 56,55.62028,12.97531,True,2026-02-17,SEK,m²,5488.0
+564,hus,köpa,772743,2950,6,120,6439,Centrum,Göteborg,Bergsgatan 52,57.71088,11.97387,True,2025-06-30,SEK,m²,6440.0
+565,lägenhet,hyra,11238,0,4,72,0,Västra Hamnen,Malmö,Skolvägen 17,55.61451,12.98254,True,2025-08-16,SEK,m²,156.0
+566,hus,köpa,105418,2364,1,23,4583,Västra Hamnen,Malmö,Kyrkogatan 102,55.60625,12.97483,True,2025-06-04,SEK,m²,4583.0
+567,hus,köpa,314297,2567,2,36,8730,Linnéstaden,Göteborg,Hornsgatan 5,57.69426,11.94789,True,2025-11-18,SEK,m²,8730.0
+568,lägenhet,hyra,17627,0,6,108,0,Majorna,Göteborg,Bergsgatan 75,57.69313,11.92492,True,2025-04-11,SEK,m²,163.0
+569,lägenhet,köpa,596061,6291,5,110,5418,Hyllie,Malmö,Lindvägen 1,55.5558,12.96837,False,2026-03-24,SEK,m²,5419.0
+570,lägenhet,köpa,465398,6875,5,90,5171,Hyllie,Malmö,Bergsgatan 48,55.56203,12.9777,True,2025-12-25,SEK,m²,5171.0
+571,lägenhet,hyra,6466,0,2,50,0,Södermalm,Stockholm,Kyrkogatan 19,59.3053,18.06776,True,2025-07-13,SEK,m²,129.0
+572,hus,köpa,462384,2050,4,80,5779,Hyllie,Malmö,Bergsgatan 88,55.55274,12.96715,True,2025-08-11,SEK,m²,5780.0
+573,hus,hyra,10026,0,3,57,0,Majorna,Göteborg,Björkgatan 14,57.70071,11.93439,False,2025-04-19,SEK,m²,176.0
+574,lägenhet,hyra,2728,0,1,19,0,Majorna,Göteborg,Kungsgatan 16,57.69132,11.93903,True,2026-02-04,SEK,m²,144.0
+575,lägenhet,köpa,626447,5121,3,78,8031,Östermalm,Stockholm,Björkgatan 106,59.332,18.08014,True,2026-01-09,SEK,m²,8031.0
+576,hus,hyra,12382,0,4,92,0,Limhamn,Malmö,Kyrkogatan 52,55.5918,12.929,True,2025-06-20,SEK,m²,135.0
+577,lägenhet,hyra,11332,0,4,76,0,Linnéstaden,Göteborg,Hornsgatan 104,57.702,11.94736,False,2025-05-16,SEK,m²,149.0
+578,lägenhet,hyra,15421,0,5,110,0,Östermalm,Stockholm,Storgatan 92,59.33286,18.0835,True,2025-04-11,SEK,m²,140.0
+579,hus,hyra,10883,0,4,88,0,Majorna,Göteborg,Storgatan 117,57.70895,11.9334,True,2025-08-19,SEK,m²,124.0
+580,lägenhet,köpa,463611,3491,4,80,5795,Västra Hamnen,Malmö,Kyrkogatan 27,55.61905,12.96627,True,2025-08-15,SEK,m²,5795.0
+581,hus,hyra,11245,0,3,63,0,Centrum,Göteborg,Kungsgatan 117,57.70807,11.9831,False,2026-03-19,SEK,m²,178.0
+582,lägenhet,hyra,4635,0,1,27,0,Limhamn,Malmö,Björkgatan 11,55.58711,12.93901,True,2025-11-06,SEK,m²,172.0
+583,lägenhet,köpa,372289,3808,3,81,4596,Rosengård,Malmö,Hornsgatan 89,55.59165,13.03031,True,2025-04-21,SEK,m²,4596.0
+584,lägenhet,hyra,3258,0,1,21,0,Västra Hamnen,Malmö,Drottninggatan 51,55.62257,12.97438,False,2025-12-27,SEK,m²,155.0
+585,hus,hyra,13661,0,4,76,0,Hisingen,Göteborg,Drottninggatan 81,57.72998,11.90103,True,2025-12-23,SEK,m²,180.0
+586,lägenhet,köpa,552062,5997,4,104,5308,Rosengård,Malmö,Kyrkogatan 30,55.59323,13.02347,True,2025-08-11,SEK,m²,5308.0
+587,hus,köpa,602239,2724,6,114,5282,Limhamn,Malmö,Skolvägen 33,55.58531,12.93786,False,2025-09-20,SEK,m²,5283.0
+588,hus,köpa,259752,2442,3,60,4329,Limhamn,Malmö,Drottninggatan 66,55.5777,12.93277,True,2026-01-18,SEK,m²,4329.0
+589,hus,köpa,924906,2007,3,81,11418,Södermalm,Stockholm,Kyrkogatan 80,59.30699,18.079,False,2025-08-27,SEK,m²,11419.0
+590,hus,köpa,813413,2844,3,72,11297,Östermalm,Stockholm,Björkgatan 119,59.33524,18.07089,True,2026-02-15,SEK,m²,11297.0
+591,hus,hyra,12922,0,5,105,0,Vasastan,Stockholm,Sveavägen 51,59.34786,18.04886,True,2026-03-23,SEK,m²,123.0
+592,lägenhet,hyra,19609,0,6,144,0,Vasastan,Stockholm,Parkvägen 6,59.34717,18.04477,True,2025-11-26,SEK,m²,136.0
+593,hus,hyra,15062,0,5,90,0,Södermalm,Stockholm,Drottninggatan 64,59.30612,18.07646,True,2026-02-19,SEK,m²,167.0
+594,hus,hyra,3383,0,1,23,0,Hyllie,Malmö,Kungsgatan 62,55.55309,12.96624,True,2025-09-07,SEK,m²,147.0
+595,hus,köpa,904710,2525,5,95,9523,Vasastan,Stockholm,Hornsgatan 97,59.34999,18.05224,True,2026-03-26,SEK,m²,9523.0
+596,lägenhet,köpa,639634,4137,3,81,7896,Majorna,Göteborg,Storgatan 110,57.69648,11.93769,True,2026-03-13,SEK,m²,7897.0
+597,hus,köpa,463729,2999,3,69,6720,Majorna,Göteborg,Storgatan 66,57.69193,11.93359,False,2026-03-24,SEK,m²,6721.0
+598,lägenhet,hyra,15637,0,5,125,0,Rosengård,Malmö,Bergsgatan 87,55.59566,13.02304,True,2025-05-19,SEK,m²,125.0
+599,lägenhet,hyra,18342,0,6,108,0,Vasastan,Stockholm,Sveavägen 82,59.35231,18.05773,True,2025-12-02,SEK,m²,170.0
+600,lägenhet,hyra,8859,0,4,72,0,Linnéstaden,Göteborg,Strandvägen 5,57.70101,11.94263,True,2025-08-20,SEK,m²,123.0
+601,hus,köpa,449503,1615,3,72,6243,Centrum,Göteborg,Skolvägen 117,57.70146,11.97227,True,2025-04-12,SEK,m²,6243.0
+602,lägenhet,köpa,369479,3438,2,56,6597,Majorna,Göteborg,Strandvägen 84,57.70621,11.93254,True,2025-04-23,SEK,m²,6598.0
+603,lägenhet,hyra,19640,0,6,138,0,Västra Hamnen,Malmö,Kyrkogatan 106,55.6097,12.982,True,2026-02-13,SEK,m²,142.0
+604,hus,köpa,188582,2447,1,21,8980,Vasastan,Stockholm,Drottninggatan 65,59.33999,18.05356,True,2026-03-30,SEK,m²,8980.0
+605,lägenhet,köpa,582751,7685,6,108,5395,Centrum,Göteborg,Lindvägen 86,57.70797,11.98409,True,2025-10-11,SEK,m²,5396.0
+606,hus,hyra,9121,0,4,72,0,Södermalm,Stockholm,Drottninggatan 51,59.30822,18.06222,False,2025-09-05,SEK,m²,127.0
+607,lägenhet,köpa,594912,3435,3,69,8621,Östermalm,Stockholm,Strandvägen 107,59.33964,18.08724,True,2026-01-04,SEK,m²,8622.0
+608,lägenhet,köpa,733666,7767,6,108,6793,Linnéstaden,Göteborg,Lindvägen 6,57.69372,11.94874,False,2026-03-10,SEK,m²,6793.0
+609,lägenhet,köpa,795935,5784,6,132,6029,Limhamn,Malmö,Lindvägen 107,55.58155,12.93274,True,2025-08-10,SEK,m²,6030.0
+610,hus,köpa,1458745,2982,6,168,8683,Östermalm,Stockholm,Hornsgatan 24,59.34728,18.08215,True,2025-07-01,SEK,m²,8683.0
+611,lägenhet,hyra,9126,0,3,60,0,Vasastan,Stockholm,Lindvägen 96,59.35137,18.04773,True,2026-03-16,SEK,m²,152.0
+612,hus,hyra,3052,0,1,19,0,Rosengård,Malmö,Parkvägen 23,55.59825,13.02662,True,2025-07-16,SEK,m²,161.0
+613,lägenhet,hyra,13320,0,3,81,0,Västra Hamnen,Malmö,Lindvägen 19,55.60694,12.98104,False,2026-03-30,SEK,m²,164.0
+614,lägenhet,hyra,3599,0,1,26,0,Majorna,Göteborg,Strandvägen 78,57.69986,11.93526,False,2025-12-10,SEK,m²,138.0
+615,lägenhet,köpa,1299772,4237,5,100,12997,Kungsholmen,Stockholm,Sveavägen 99,59.3388,18.02476,True,2026-02-07,SEK,m²,12998.0
+616,lägenhet,hyra,10665,0,3,60,0,Majorna,Göteborg,Storgatan 72,57.69565,11.92456,True,2026-03-30,SEK,m²,178.0
+617,lägenhet,köpa,450070,4235,4,72,6250,Rosengård,Malmö,Björkgatan 111,55.59084,13.03374,False,2026-03-02,SEK,m²,6251.0
+618,lägenhet,hyra,21215,0,6,132,0,Östermalm,Stockholm,Lindvägen 112,59.33061,18.07559,False,2025-04-19,SEK,m²,161.0
+619,hus,hyra,6763,0,2,46,0,Linnéstaden,Göteborg,Storgatan 29,57.70067,11.95476,True,2025-08-13,SEK,m²,147.0
+620,hus,köpa,822690,1815,5,100,8226,Södermalm,Stockholm,Strandvägen 120,59.31602,18.06878,True,2025-06-29,SEK,m²,8227.0
+621,lägenhet,köpa,689162,3832,2,52,13253,Östermalm,Stockholm,Strandvägen 50,59.33411,18.07345,True,2025-12-21,SEK,m²,13253.0
+622,lägenhet,hyra,13797,0,3,84,0,Rosengård,Malmö,Bergsgatan 58,55.58659,13.03087,True,2026-01-19,SEK,m²,164.0
+623,lägenhet,hyra,3101,0,1,19,0,Majorna,Göteborg,Hornsgatan 79,57.69843,11.92417,True,2025-05-20,SEK,m²,163.0
+624,lägenhet,köpa,494896,7374,5,95,5209,Västra Hamnen,Malmö,Drottninggatan 4,55.61998,12.98536,True,2025-04-09,SEK,m²,5209.0
+625,hus,hyra,14730,0,4,104,0,Limhamn,Malmö,Björkgatan 104,55.59352,12.93131,True,2025-05-28,SEK,m²,142.0
+626,hus,köpa,306118,2329,2,48,6377,Majorna,Göteborg,Bergsgatan 42,57.69437,11.92597,True,2025-07-24,SEK,m²,6377.0
+627,lägenhet,hyra,8999,0,3,60,0,Kungsholmen,Stockholm,Strandvägen 10,59.33708,18.03625,True,2025-12-29,SEK,m²,150.0
+628,lägenhet,köpa,374192,3856,3,54,6929,Hisingen,Göteborg,Parkvägen 112,57.72495,11.8921,True,2026-01-20,SEK,m²,6929.0
+629,hus,köpa,384344,2632,3,75,5124,Limhamn,Malmö,Kungsgatan 70,55.58324,12.93656,False,2025-12-18,SEK,m²,5125.0
+630,lägenhet,hyra,18283,0,4,108,0,Hyllie,Malmö,Kungsgatan 3,55.55216,12.97059,True,2025-05-25,SEK,m²,169.0
+631,hus,hyra,16718,0,6,126,0,Hyllie,Malmö,Hornsgatan 106,55.55426,12.96566,False,2025-05-20,SEK,m²,133.0
+632,hus,hyra,16029,0,4,108,0,Hisingen,Göteborg,Kyrkogatan 62,57.73826,11.90961,True,2025-12-19,SEK,m²,148.0
+633,hus,hyra,6311,0,2,40,0,Hyllie,Malmö,Lindvägen 86,55.56822,12.97823,True,2025-10-22,SEK,m²,158.0
+634,lägenhet,hyra,16483,0,5,135,0,Västra Hamnen,Malmö,Parkvägen 94,55.61387,12.9681,True,2025-12-27,SEK,m²,122.0
+635,hus,köpa,542913,2469,3,63,8617,Kungsholmen,Stockholm,Skolvägen 6,59.33446,18.02177,True,2025-05-03,SEK,m²,8618.0
+636,hus,köpa,376801,2842,4,72,5233,Västra Hamnen,Malmö,Bergsgatan 73,55.61728,12.98117,True,2025-05-08,SEK,m²,5233.0
+637,hus,hyra,8911,0,3,72,0,Vasastan,Stockholm,Parkvägen 56,59.35174,18.05104,True,2026-02-14,SEK,m²,124.0
+638,hus,köpa,695773,2092,2,54,12884,Kungsholmen,Stockholm,Bergsgatan 45,59.33278,18.02015,True,2025-11-11,SEK,m²,12885.0
+639,lägenhet,hyra,12183,0,4,72,0,Västra Hamnen,Malmö,Storgatan 49,55.61335,12.9699,True,2025-06-19,SEK,m²,169.0
+640,lägenhet,hyra,3203,0,1,24,0,Linnéstaden,Göteborg,Parkvägen 117,57.70173,11.95221,True,2025-04-09,SEK,m²,133.0
+641,hus,köpa,387866,1842,3,54,7182,Centrum,Göteborg,Kyrkogatan 7,57.71212,11.96831,False,2025-06-21,SEK,m²,7183.0
+642,hus,hyra,4111,0,1,24,0,Vasastan,Stockholm,Drottninggatan 117,59.34739,18.05618,True,2025-06-03,SEK,m²,171.0
+643,lägenhet,köpa,177349,1162,1,20,8867,Vasastan,Stockholm,Storgatan 28,59.33738,18.05842,False,2025-10-15,SEK,m²,8867.0
+644,lägenhet,köpa,803582,4587,4,88,9131,Östermalm,Stockholm,Kyrkogatan 91,59.33031,18.08665,True,2026-03-21,SEK,m²,9132.0
+645,lägenhet,köpa,422613,1856,2,38,11121,Vasastan,Stockholm,Skolvägen 55,59.35043,18.04804,True,2025-09-12,SEK,m²,11121.0
+646,hus,hyra,16489,0,6,120,0,Hisingen,Göteborg,Kyrkogatan 56,57.73568,11.90046,True,2026-03-26,SEK,m²,137.0
+647,hus,hyra,3777,0,1,24,0,Linnéstaden,Göteborg,Lindvägen 66,57.694,11.94552,True,2026-02-02,SEK,m²,157.0
+648,hus,hyra,3431,0,1,27,0,Västra Hamnen,Malmö,Bergsgatan 83,55.61058,12.98324,True,2025-07-31,SEK,m²,127.0
+649,hus,köpa,468377,1782,5,110,4257,Hyllie,Malmö,Parkvägen 83,55.5698,12.9763,False,2026-03-19,SEK,m²,4258.0
+650,lägenhet,köpa,315049,3952,3,54,5834,Centrum,Göteborg,Hornsgatan 16,57.71395,11.96966,False,2026-03-03,SEK,m²,5834.0
+651,lägenhet,köpa,107117,950,1,18,5950,Limhamn,Malmö,Hornsgatan 102,55.5818,12.92516,False,2025-10-30,SEK,m²,5951.0
+652,hus,köpa,610609,2901,2,54,11307,Östermalm,Stockholm,Storgatan 28,59.34186,18.07271,True,2026-02-08,SEK,m²,11308.0
+653,hus,hyra,18713,0,4,112,0,Östermalm,Stockholm,Lindvägen 41,59.3317,18.07003,True,2025-08-06,SEK,m²,167.0
+654,hus,hyra,10361,0,3,72,0,Södermalm,Stockholm,Kungsgatan 45,59.31501,18.07438,True,2026-02-09,SEK,m²,144.0
+655,lägenhet,hyra,21127,0,6,156,0,Centrum,Göteborg,Björkgatan 68,57.71367,11.97485,True,2025-06-26,SEK,m²,135.0
+656,lägenhet,köpa,714877,5293,4,92,7770,Östermalm,Stockholm,Kungsgatan 9,59.34428,18.08718,True,2025-05-08,SEK,m²,7770.0
+657,hus,hyra,13771,0,5,110,0,Linnéstaden,Göteborg,Björkgatan 89,57.69146,11.95166,True,2025-10-29,SEK,m²,125.0
+658,hus,hyra,15716,0,5,125,0,Linnéstaden,Göteborg,Kyrkogatan 24,57.69395,11.9561,True,2025-04-10,SEK,m²,126.0
+659,lägenhet,hyra,3404,0,1,28,0,Linnéstaden,Göteborg,Drottninggatan 70,57.70207,11.9614,True,2025-10-29,SEK,m²,122.0
+660,lägenhet,köpa,933755,6859,6,150,6225,Västra Hamnen,Malmö,Drottninggatan 64,55.61194,12.98006,True,2025-10-06,SEK,m²,6225.0
+661,lägenhet,köpa,549723,8251,6,114,4822,Rosengård,Malmö,Lindvägen 118,55.58608,13.03672,True,2025-11-03,SEK,m²,4822.0
+662,hus,hyra,7961,0,2,50,0,Södermalm,Stockholm,Kungsgatan 116,59.31077,18.06208,True,2026-04-02,SEK,m²,159.0
+663,hus,köpa,287940,1698,2,56,5141,Rosengård,Malmö,Parkvägen 28,55.59154,13.03966,True,2025-10-08,SEK,m²,5142.0
+664,hus,köpa,350462,2357,2,36,9735,Vasastan,Stockholm,Kungsgatan 107,59.34739,18.04658,True,2025-11-04,SEK,m²,9735.0
+665,lägenhet,hyra,2929,0,1,24,0,Hyllie,Malmö,Kyrkogatan 21,55.55602,12.98202,True,2025-07-13,SEK,m²,122.0
+666,hus,hyra,17287,0,6,126,0,Södermalm,Stockholm,Skolvägen 46,59.31932,18.0662,True,2025-08-12,SEK,m²,137.0
+667,hus,köpa,617649,2540,6,126,4901,Rosengård,Malmö,Sveavägen 94,55.58854,13.03046,True,2025-07-13,SEK,m²,4902.0
+668,hus,hyra,9377,0,4,72,0,Hyllie,Malmö,Drottninggatan 3,55.55976,12.97981,True,2026-01-04,SEK,m²,130.0
+669,lägenhet,hyra,17816,0,6,114,0,Östermalm,Stockholm,Sveavägen 23,59.33888,18.07356,True,2025-06-27,SEK,m²,156.0
+670,lägenhet,hyra,2495,0,1,19,0,Majorna,Göteborg,Parkvägen 37,57.70374,11.94014,True,2025-06-02,SEK,m²,131.0
+671,lägenhet,hyra,2661,0,1,22,0,Centrum,Göteborg,Kungsgatan 10,57.71497,11.97268,True,2025-09-24,SEK,m²,121.0
+672,lägenhet,hyra,4623,0,1,27,0,Limhamn,Malmö,Storgatan 83,55.59154,12.92566,False,2025-04-09,SEK,m²,171.0
+673,hus,köpa,972608,1768,6,120,8105,Majorna,Göteborg,Drottninggatan 84,57.69645,11.93876,True,2026-01-22,SEK,m²,8105.0
+674,lägenhet,köpa,697738,2910,2,56,12459,Östermalm,Stockholm,Kungsgatan 17,59.33213,18.0891,True,2025-11-14,SEK,m²,12460.0
+675,hus,hyra,10467,0,3,75,0,Linnéstaden,Göteborg,Hornsgatan 76,57.7022,11.95518,False,2025-09-30,SEK,m²,140.0
+676,hus,hyra,5015,0,1,28,0,Centrum,Göteborg,Björkgatan 11,57.71505,11.97418,True,2025-09-09,SEK,m²,179.0
+677,lägenhet,hyra,11592,0,4,72,0,Södermalm,Stockholm,Lindvägen 105,59.31516,18.06267,False,2026-04-07,SEK,m²,161.0
+678,lägenhet,hyra,10023,0,3,72,0,Rosengård,Malmö,Sveavägen 99,55.59795,13.03368,True,2025-07-28,SEK,m²,139.0
+679,lägenhet,hyra,2895,0,1,23,0,Majorna,Göteborg,Hornsgatan 107,57.69537,11.93696,True,2025-10-06,SEK,m²,126.0
+680,lägenhet,hyra,22381,0,6,162,0,Västra Hamnen,Malmö,Kungsgatan 48,55.61142,12.97472,True,2025-11-11,SEK,m²,138.0
+681,lägenhet,hyra,8982,0,2,52,0,Västra Hamnen,Malmö,Kungsgatan 59,55.60918,12.97496,True,2025-12-20,SEK,m²,173.0
+682,hus,hyra,16412,0,6,120,0,Majorna,Göteborg,Sveavägen 99,57.70368,11.92762,True,2025-08-10,SEK,m²,137.0
+683,hus,köpa,498315,1950,2,42,11864,Södermalm,Stockholm,Strandvägen 36,59.30561,18.07594,True,2025-06-13,SEK,m²,11865.0
+684,hus,hyra,15293,0,5,90,0,Östermalm,Stockholm,Skolvägen 115,59.34076,18.08042,True,2026-01-04,SEK,m²,170.0
+685,lägenhet,hyra,8122,0,2,54,0,Majorna,Göteborg,Storgatan 62,57.70633,11.92555,True,2025-11-23,SEK,m²,150.0
+686,hus,hyra,16434,0,5,135,0,Majorna,Göteborg,Kungsgatan 16,57.70676,11.93408,False,2025-08-25,SEK,m²,122.0
+687,hus,köpa,610454,1860,5,90,6782,Majorna,Göteborg,Björkgatan 61,57.69497,11.93247,False,2025-07-16,SEK,m²,6783.0
+688,lägenhet,köpa,1159079,11494,6,150,7727,Vasastan,Stockholm,Skolvägen 111,59.33755,18.04778,True,2025-08-09,SEK,m²,7727.0
+689,lägenhet,hyra,15205,0,4,96,0,Kungsholmen,Stockholm,Bergsgatan 56,59.33708,18.0383,True,2025-10-26,SEK,m²,158.0
+690,lägenhet,hyra,13060,0,4,92,0,Hyllie,Malmö,Björkgatan 51,55.55648,12.97276,True,2025-10-05,SEK,m²,142.0
+691,hus,köpa,529424,2453,5,90,5882,Linnéstaden,Göteborg,Lindvägen 117,57.68715,11.9524,True,2026-01-08,SEK,m²,5882.0
+692,hus,hyra,20465,0,6,168,0,Rosengård,Malmö,Strandvägen 67,55.59436,13.0319,True,2025-11-17,SEK,m²,122.0
+693,lägenhet,hyra,7707,0,2,44,0,Vasastan,Stockholm,Kyrkogatan 55,59.34453,18.04819,True,2025-06-02,SEK,m²,175.0
+694,lägenhet,köpa,987144,5452,4,76,12988,Kungsholmen,Stockholm,Hornsgatan 39,59.33751,18.02354,True,2026-03-08,SEK,m²,12989.0
+695,lägenhet,köpa,368703,5616,4,92,4007,Limhamn,Malmö,Lindvägen 32,55.59043,12.93115,False,2026-03-13,SEK,m²,4008.0
+696,lägenhet,köpa,200655,2085,2,42,4777,Rosengård,Malmö,Lindvägen 18,55.5938,13.03676,False,2025-04-08,SEK,m²,4778.0
+697,hus,köpa,282102,2920,3,60,4701,Rosengård,Malmö,Sveavägen 43,55.59163,13.03556,False,2025-08-22,SEK,m²,4702.0
+698,hus,köpa,94640,1582,1,18,5257,Limhamn,Malmö,Björkgatan 46,55.59018,12.92548,True,2025-09-14,SEK,m²,5258.0
+699,hus,hyra,14278,0,5,105,0,Kungsholmen,Stockholm,Storgatan 19,59.32358,18.02091,False,2026-03-07,SEK,m²,136.0
+700,hus,köpa,1545977,2556,6,132,11711,Östermalm,Stockholm,Lindvägen 67,59.33515,18.07948,False,2025-09-11,SEK,m²,11712.0
+701,hus,köpa,882257,2839,5,100,8822,Centrum,Göteborg,Björkgatan 30,57.70237,11.96552,True,2025-04-19,SEK,m²,8823.0
+702,lägenhet,hyra,6849,0,2,50,0,Majorna,Göteborg,Parkvägen 113,57.68913,11.93355,True,2026-04-04,SEK,m²,137.0
+703,hus,hyra,12967,0,5,95,0,Rosengård,Malmö,Hornsgatan 33,55.59586,13.03393,True,2025-11-14,SEK,m²,136.0
+704,hus,hyra,11552,0,4,76,0,Centrum,Göteborg,Bergsgatan 55,57.71757,11.97064,True,2025-08-26,SEK,m²,152.0
+705,hus,köpa,680674,2459,2,54,12605,Södermalm,Stockholm,Björkgatan 24,59.30634,18.07142,False,2025-11-22,SEK,m²,12605.0
+706,lägenhet,hyra,17680,0,4,100,0,Rosengård,Malmö,Kungsgatan 56,55.59245,13.03229,False,2025-04-20,SEK,m²,177.0
+707,hus,hyra,28119,0,6,168,0,Rosengård,Malmö,Hornsgatan 109,55.58393,13.02948,True,2025-04-11,SEK,m²,167.0
+708,lägenhet,köpa,317206,5837,4,88,3604,Västra Hamnen,Malmö,Hornsgatan 22,55.61537,12.98162,True,2026-03-14,SEK,m²,3605.0
+709,lägenhet,köpa,645740,3712,4,80,8071,Centrum,Göteborg,Kungsgatan 11,57.71834,11.97492,True,2025-07-20,SEK,m²,8072.0
+710,lägenhet,köpa,504528,3058,2,40,12613,Vasastan,Stockholm,Parkvägen 96,59.348,18.05253,False,2025-08-21,SEK,m²,12613.0
+711,hus,hyra,16301,0,6,120,0,Linnéstaden,Göteborg,Lindvägen 57,57.70319,11.96089,True,2025-10-13,SEK,m²,136.0
+712,lägenhet,köpa,337844,5544,4,92,3672,Hyllie,Malmö,Sveavägen 61,55.56256,12.97343,False,2026-02-17,SEK,m²,3672.0
+713,lägenhet,hyra,17337,0,6,144,0,Östermalm,Stockholm,Parkvägen 110,59.34592,18.07482,True,2026-01-19,SEK,m²,120.0
+714,lägenhet,hyra,23227,0,5,135,0,Linnéstaden,Göteborg,Kungsgatan 27,57.70509,11.95018,True,2026-02-26,SEK,m²,172.0
+715,lägenhet,köpa,378401,6333,3,84,4504,Rosengård,Malmö,Parkvägen 52,55.58867,13.03554,True,2025-12-21,SEK,m²,4505.0
+716,hus,hyra,12525,0,4,72,0,Centrum,Göteborg,Kungsgatan 10,57.71086,11.97752,True,2025-06-22,SEK,m²,174.0
+717,hus,hyra,17604,0,6,120,0,Majorna,Göteborg,Kungsgatan 55,57.69721,11.93187,True,2025-04-15,SEK,m²,147.0
+718,hus,köpa,924292,1730,6,162,5705,Limhamn,Malmö,Storgatan 99,55.5922,12.93322,True,2025-06-30,SEK,m²,5706.0
+719,lägenhet,hyra,20280,0,6,126,0,Hisingen,Göteborg,Lindvägen 51,57.72098,11.898,True,2025-08-10,SEK,m²,161.0
+720,lägenhet,köpa,555509,3508,3,66,8416,Östermalm,Stockholm,Drottninggatan 64,59.34019,18.07828,True,2025-10-28,SEK,m²,8417.0
+721,lägenhet,hyra,25394,0,6,156,0,Västra Hamnen,Malmö,Strandvägen 102,55.6138,12.96946,True,2025-12-31,SEK,m²,163.0
+722,lägenhet,hyra,9023,0,3,66,0,Hisingen,Göteborg,Parkvägen 73,57.73994,11.89117,True,2025-09-04,SEK,m²,137.0
+723,hus,köpa,1655606,2735,6,132,12542,Kungsholmen,Stockholm,Parkvägen 35,59.32813,18.03109,True,2026-02-03,SEK,m²,12542.0
+724,hus,köpa,551684,2469,5,105,5254,Västra Hamnen,Malmö,Drottninggatan 84,55.61118,12.97576,False,2026-01-09,SEK,m²,5254.0
+725,hus,hyra,14556,0,5,95,0,Limhamn,Malmö,Kungsgatan 86,55.59392,12.92777,True,2025-06-09,SEK,m²,153.0
+726,lägenhet,hyra,4185,0,1,25,0,Hyllie,Malmö,Skolvägen 116,55.55811,12.9735,True,2026-03-20,SEK,m²,167.0
+727,lägenhet,köpa,150397,1989,1,26,5784,Hyllie,Malmö,Sveavägen 112,55.56331,12.96651,True,2025-08-09,SEK,m²,5784.0
+728,hus,köpa,156099,2476,2,38,4107,Västra Hamnen,Malmö,Parkvägen 57,55.60928,12.98521,True,2025-08-29,SEK,m²,4108.0
+729,hus,köpa,106797,2701,1,19,5620,Linnéstaden,Göteborg,Drottninggatan 88,57.70667,11.94799,False,2026-04-02,SEK,m²,5621.0
+730,hus,hyra,17246,0,5,105,0,Kungsholmen,Stockholm,Bergsgatan 56,59.33704,18.02083,True,2025-05-05,SEK,m²,164.0
+731,hus,hyra,12022,0,3,75,0,Rosengård,Malmö,Lindvägen 91,55.58949,13.03713,True,2025-06-18,SEK,m²,160.0
+732,lägenhet,hyra,8888,0,2,50,0,Limhamn,Malmö,Kyrkogatan 33,55.57999,12.93146,True,2025-11-26,SEK,m²,178.0
+733,lägenhet,köpa,393378,7535,4,104,3782,Limhamn,Malmö,Björkgatan 20,55.59214,12.92152,True,2026-01-23,SEK,m²,3782.0
+734,lägenhet,hyra,11022,0,3,69,0,Linnéstaden,Göteborg,Björkgatan 26,57.69289,11.95306,True,2026-03-19,SEK,m²,160.0
+735,hus,köpa,1072696,2691,6,162,6621,Majorna,Göteborg,Bergsgatan 100,57.69784,11.93488,True,2026-01-22,SEK,m²,6622.0
+736,lägenhet,köpa,504298,1807,2,40,12607,Östermalm,Stockholm,Björkgatan 20,59.34664,18.07322,False,2025-10-30,SEK,m²,12607.0
+737,lägenhet,hyra,12941,0,3,81,0,Majorna,Göteborg,Drottninggatan 64,57.69189,11.9359,True,2025-05-25,SEK,m²,160.0
+738,hus,köpa,993478,2094,5,135,7359,Linnéstaden,Göteborg,Kungsgatan 43,57.69765,11.95273,False,2025-05-23,SEK,m²,7359.0
+739,lägenhet,köpa,322272,1356,1,27,11936,Kungsholmen,Stockholm,Björkgatan 45,59.32808,18.03365,False,2025-12-10,SEK,m²,11936.0
+740,lägenhet,köpa,972863,5936,4,84,11581,Kungsholmen,Stockholm,Drottninggatan 7,59.32813,18.02107,True,2026-03-04,SEK,m²,11582.0
+741,lägenhet,köpa,744556,3655,3,57,13062,Kungsholmen,Stockholm,Parkvägen 50,59.34194,18.02469,True,2025-07-12,SEK,m²,13062.0
+742,hus,köpa,1421099,1508,4,108,13158,Vasastan,Stockholm,Bergsgatan 14,59.33486,18.05266,True,2025-11-13,SEK,m²,13158.0
+743,hus,köpa,189690,1596,1,28,6774,Hisingen,Göteborg,Kungsgatan 44,57.72537,11.8929,True,2025-07-07,SEK,m²,6775.0
+744,lägenhet,hyra,2411,0,1,19,0,Linnéstaden,Göteborg,Kungsgatan 74,57.69509,11.95057,True,2025-10-28,SEK,m²,127.0
+745,hus,köpa,93997,2663,1,18,5222,Hyllie,Malmö,Strandvägen 8,55.56369,12.97283,True,2025-08-10,SEK,m²,5222.0
+746,hus,köpa,284557,1579,2,46,6186,Centrum,Göteborg,Parkvägen 116,57.70144,11.97804,False,2025-06-18,SEK,m²,6186.0
+747,hus,hyra,3224,0,1,18,0,Centrum,Göteborg,Drottninggatan 98,57.69908,11.9788,True,2025-05-27,SEK,m²,179.0
+748,hus,köpa,127588,2212,1,27,4725,Hyllie,Malmö,Storgatan 73,55.56633,12.97141,False,2026-01-01,SEK,m²,4725.0
+749,lägenhet,hyra,20616,0,6,144,0,Rosengård,Malmö,Björkgatan 79,55.58355,13.03496,True,2025-09-11,SEK,m²,143.0
+750,hus,hyra,19406,0,5,115,0,Limhamn,Malmö,Strandvägen 92,55.59329,12.9287,True,2025-07-12,SEK,m²,169.0
+751,lägenhet,köpa,418613,2529,2,50,8372,Kungsholmen,Stockholm,Sveavägen 60,59.33427,18.02042,True,2025-05-18,SEK,m²,8372.0
+752,hus,köpa,1582095,1840,6,126,12556,Södermalm,Stockholm,Strandvägen 67,59.32245,18.07277,True,2025-04-08,SEK,m²,12556.0
+753,lägenhet,köpa,661426,4121,3,60,11023,Kungsholmen,Stockholm,Parkvägen 119,59.33433,18.02973,True,2025-08-26,SEK,m²,11024.0
+754,lägenhet,hyra,8856,0,2,54,0,Rosengård,Malmö,Björkgatan 2,55.59951,13.03067,False,2025-11-26,SEK,m²,164.0
+755,lägenhet,hyra,13289,0,4,80,0,Linnéstaden,Göteborg,Parkvägen 86,57.70673,11.96152,True,2025-05-09,SEK,m²,166.0
+756,lägenhet,köpa,970980,10615,6,162,5993,Rosengård,Malmö,Drottninggatan 54,55.60092,13.03808,True,2025-12-14,SEK,m²,5994.0
+757,hus,hyra,18782,0,6,144,0,Hyllie,Malmö,Kungsgatan 110,55.56645,12.97803,False,2025-12-04,SEK,m²,130.0
+758,hus,köpa,495869,2128,4,100,4958,Hyllie,Malmö,Bergsgatan 35,55.56388,12.98444,True,2025-11-28,SEK,m²,4959.0
+759,lägenhet,köpa,440388,4484,3,81,5436,Linnéstaden,Göteborg,Parkvägen 70,57.69232,11.94421,True,2026-01-31,SEK,m²,5437.0
+760,lägenhet,hyra,3827,0,1,25,0,Hyllie,Malmö,Skolvägen 64,55.55386,12.97318,True,2026-01-11,SEK,m²,153.0
+761,hus,köpa,296966,2380,1,28,10605,Vasastan,Stockholm,Skolvägen 42,59.33867,18.05654,True,2026-01-16,SEK,m²,10606.0
+762,lägenhet,köpa,416606,5560,4,72,5786,Linnéstaden,Göteborg,Hornsgatan 63,57.69632,11.9541,True,2025-09-08,SEK,m²,5786.0
+763,lägenhet,hyra,12434,0,4,72,0,Hisingen,Göteborg,Hornsgatan 87,57.73078,11.89628,True,2025-11-07,SEK,m²,173.0
+764,lägenhet,hyra,14781,0,5,100,0,Kungsholmen,Stockholm,Hornsgatan 11,59.32385,18.03267,True,2025-08-30,SEK,m²,148.0
+765,hus,köpa,295302,2645,3,66,4474,Hyllie,Malmö,Björkgatan 54,55.55314,12.97809,True,2025-11-01,SEK,m²,4474.0
+766,lägenhet,hyra,8064,0,3,60,0,Hisingen,Göteborg,Kungsgatan 65,57.72051,11.9017,False,2025-05-16,SEK,m²,134.0
+767,lägenhet,köpa,1368436,7922,5,120,11403,Östermalm,Stockholm,Sveavägen 35,59.33349,18.07097,True,2025-12-22,SEK,m²,11404.0
+768,hus,hyra,20736,0,5,125,0,Vasastan,Stockholm,Strandvägen 59,59.35271,18.05287,True,2026-03-08,SEK,m²,166.0
+769,hus,köpa,181047,2697,1,20,9052,Hisingen,Göteborg,Hornsgatan 26,57.73601,11.90166,False,2026-02-05,SEK,m²,9052.0
+770,lägenhet,köpa,209119,1622,1,25,8364,Östermalm,Stockholm,Lindvägen 95,59.33057,18.08648,True,2025-09-26,SEK,m²,8365.0
+771,lägenhet,köpa,1053732,6796,5,100,10537,Kungsholmen,Stockholm,Skolvägen 69,59.33802,18.02085,True,2025-05-14,SEK,m²,10537.0
+772,hus,hyra,8727,0,3,63,0,Kungsholmen,Stockholm,Sveavägen 26,59.32636,18.03587,False,2025-05-31,SEK,m²,139.0
+773,lägenhet,köpa,721474,4153,4,76,9493,Kungsholmen,Stockholm,Skolvägen 91,59.34077,18.0353,True,2025-10-30,SEK,m²,9493.0
+774,lägenhet,köpa,476585,2616,3,60,7943,Majorna,Göteborg,Strandvägen 87,57.70179,11.93015,False,2025-09-01,SEK,m²,7943.0
+775,hus,hyra,3305,0,1,26,0,Limhamn,Malmö,Hornsgatan 114,55.58458,12.93534,True,2025-04-19,SEK,m²,127.0
+776,hus,hyra,3643,0,1,22,0,Kungsholmen,Stockholm,Skolvägen 63,59.3302,18.03199,True,2026-03-29,SEK,m²,166.0
+777,lägenhet,hyra,17111,0,6,108,0,Vasastan,Stockholm,Storgatan 37,59.35047,18.05587,True,2026-01-07,SEK,m²,158.0
+778,hus,köpa,1304575,2778,6,150,8697,Kungsholmen,Stockholm,Björkgatan 80,59.33254,18.02538,True,2025-10-22,SEK,m²,8697.0
+779,lägenhet,köpa,1243236,5774,5,105,11840,Kungsholmen,Stockholm,Kyrkogatan 69,59.32351,18.0289,True,2026-03-10,SEK,m²,11840.0
+780,lägenhet,hyra,13127,0,4,88,0,Västra Hamnen,Malmö,Sveavägen 53,55.62251,12.98598,True,2025-08-27,SEK,m²,149.0
+781,hus,hyra,20981,0,6,168,0,Kungsholmen,Stockholm,Lindvägen 4,59.32291,18.03592,True,2025-11-22,SEK,m²,125.0
+782,hus,hyra,18819,0,6,120,0,Östermalm,Stockholm,Kyrkogatan 22,59.33317,18.08285,False,2025-10-07,SEK,m²,157.0
+783,lägenhet,hyra,16603,0,6,126,0,Centrum,Göteborg,Björkgatan 64,57.71493,11.96685,True,2026-04-01,SEK,m²,132.0
+784,hus,köpa,827242,2305,6,150,5514,Limhamn,Malmö,Lindvägen 56,55.58878,12.93788,False,2026-01-27,SEK,m²,5515.0
+785,lägenhet,hyra,23123,0,6,132,0,Kungsholmen,Stockholm,Hornsgatan 56,59.33672,18.02052,True,2026-02-16,SEK,m²,175.0
+786,hus,hyra,4986,0,2,36,0,Rosengård,Malmö,Skolvägen 16,55.58168,13.02304,True,2025-09-26,SEK,m²,138.0
+787,lägenhet,hyra,13354,0,3,81,0,Centrum,Göteborg,Kyrkogatan 110,57.70011,11.97024,True,2026-03-12,SEK,m²,165.0
+788,lägenhet,hyra,14669,0,4,88,0,Rosengård,Malmö,Storgatan 39,55.58447,13.03726,True,2025-04-23,SEK,m²,167.0
+789,lägenhet,köpa,680874,5100,4,88,7737,Östermalm,Stockholm,Parkvägen 13,59.33901,18.07462,True,2025-10-08,SEK,m²,7737.0
+790,hus,köpa,528872,2794,3,66,8013,Majorna,Göteborg,Kungsgatan 105,57.70221,11.94061,True,2025-10-21,SEK,m²,8013.0
+791,lägenhet,köpa,135014,1023,1,23,5870,Hisingen,Göteborg,Storgatan 116,57.73138,11.89102,True,2025-12-21,SEK,m²,5870.0
+792,hus,köpa,350417,2014,4,96,3650,Hyllie,Malmö,Björkgatan 22,55.55281,12.97287,True,2025-12-29,SEK,m²,3650.0
+793,lägenhet,köpa,704677,6756,6,108,6524,Linnéstaden,Göteborg,Storgatan 85,57.69052,11.9477,False,2025-09-19,SEK,m²,6525.0
+794,hus,köpa,105272,2928,1,21,5012,Västra Hamnen,Malmö,Bergsgatan 3,55.60832,12.98414,True,2026-04-05,SEK,m²,5013.0
+795,lägenhet,hyra,2610,0,1,20,0,Västra Hamnen,Malmö,Bergsgatan 111,55.61492,12.9719,False,2025-10-27,SEK,m²,130.0
+796,lägenhet,hyra,6798,0,2,44,0,Södermalm,Stockholm,Sveavägen 2,59.31147,18.07643,True,2025-10-15,SEK,m²,154.0
+797,hus,hyra,23255,0,5,130,0,Hisingen,Göteborg,Kungsgatan 109,57.73144,11.90464,True,2025-11-13,SEK,m²,179.0
+798,hus,köpa,132393,1530,1,20,6619,Centrum,Göteborg,Bergsgatan 111,57.70174,11.96979,True,2025-10-13,SEK,m²,6620.0
+799,hus,köpa,435432,2534,3,72,6047,Hyllie,Malmö,Kungsgatan 33,55.56711,12.98457,False,2026-01-17,SEK,m²,6048.0
+800,hus,köpa,606233,2142,5,105,5773,Rosengård,Malmö,Kyrkogatan 65,55.59589,13.03562,True,2026-03-05,SEK,m²,5774.0
+801,hus,köpa,1474657,1694,6,126,11703,Södermalm,Stockholm,Bergsgatan 60,59.32141,18.06655,False,2025-10-14,SEK,m²,11704.0
+802,hus,hyra,9576,0,2,54,0,Limhamn,Malmö,Parkvägen 32,55.58986,12.93749,True,2025-07-15,SEK,m²,177.0
+803,lägenhet,hyra,15874,0,4,96,0,Hisingen,Göteborg,Strandvägen 5,57.73311,11.90425,True,2026-01-04,SEK,m²,165.0
+804,hus,köpa,501560,2669,3,81,6192,Limhamn,Malmö,Bergsgatan 93,55.58633,12.92469,True,2025-08-06,SEK,m²,6192.0
+805,hus,köpa,351294,1853,3,63,5576,Majorna,Göteborg,Björkgatan 22,57.70356,11.93311,False,2025-09-07,SEK,m²,5576.0
+806,hus,köpa,647372,2534,5,90,7193,Hisingen,Göteborg,Kyrkogatan 107,57.72077,11.90919,False,2025-12-13,SEK,m²,7193.0
+807,lägenhet,hyra,18735,0,6,108,0,Linnéstaden,Göteborg,Skolvägen 105,57.70251,11.95699,True,2026-04-03,SEK,m²,173.0
+808,hus,hyra,3192,0,1,26,0,Majorna,Göteborg,Storgatan 2,57.69089,11.93621,True,2025-10-26,SEK,m²,123.0
+809,hus,hyra,16309,0,4,92,0,Hisingen,Göteborg,Parkvägen 95,57.72683,11.90095,True,2025-08-01,SEK,m²,177.0
+810,lägenhet,hyra,6369,0,2,46,0,Majorna,Göteborg,Drottninggatan 85,57.69919,11.93457,True,2025-07-20,SEK,m²,138.0
+811,hus,hyra,4236,0,1,24,0,Östermalm,Stockholm,Kyrkogatan 23,59.34716,18.08823,True,2025-10-24,SEK,m²,176.0
+812,lägenhet,hyra,18093,0,4,112,0,Östermalm,Stockholm,Storgatan 28,59.34754,18.08416,False,2025-06-11,SEK,m²,162.0
+813,hus,köpa,541556,2628,5,95,5700,Rosengård,Malmö,Drottninggatan 71,55.59612,13.04159,False,2025-04-26,SEK,m²,5701.0
+814,lägenhet,köpa,837396,7293,4,108,7753,Södermalm,Stockholm,Kyrkogatan 103,59.30794,18.06372,False,2025-07-14,SEK,m²,7754.0
+815,hus,köpa,942651,1521,4,92,10246,Södermalm,Stockholm,Kyrkogatan 47,59.31682,18.07222,True,2026-02-23,SEK,m²,10246.0
+816,lägenhet,hyra,11303,0,4,72,0,Västra Hamnen,Malmö,Strandvägen 68,55.61234,12.97396,False,2025-04-25,SEK,m²,157.0
+817,lägenhet,hyra,4489,0,1,25,0,Hisingen,Göteborg,Sveavägen 26,57.73353,11.90243,True,2025-10-24,SEK,m²,180.0
+818,lägenhet,hyra,13868,0,5,110,0,Centrum,Göteborg,Drottninggatan 4,57.71378,11.97609,False,2025-07-03,SEK,m²,126.0
+819,lägenhet,hyra,16782,0,5,110,0,Centrum,Göteborg,Björkgatan 38,57.70191,11.98001,False,2025-07-05,SEK,m²,153.0
+820,lägenhet,köpa,930264,7955,4,104,8944,Vasastan,Stockholm,Strandvägen 111,59.3513,18.0576,True,2025-07-18,SEK,m²,8945.0
+821,hus,hyra,13281,0,3,81,0,Södermalm,Stockholm,Björkgatan 89,59.30937,18.07927,True,2025-06-23,SEK,m²,164.0
+822,lägenhet,köpa,1070249,5071,4,92,11633,Östermalm,Stockholm,Drottninggatan 97,59.34008,18.07507,False,2025-07-08,SEK,m²,11633.0
+823,lägenhet,hyra,21324,0,6,168,0,Kungsholmen,Stockholm,Lindvägen 114,59.33903,18.03738,False,2026-04-06,SEK,m²,127.0
+824,hus,köpa,198198,2073,1,26,7623,Östermalm,Stockholm,Skolvägen 76,59.33101,18.08542,False,2025-10-31,SEK,m²,7623.0
+825,lägenhet,köpa,464751,2574,2,36,12909,Kungsholmen,Stockholm,Strandvägen 120,59.33818,18.03119,True,2025-10-02,SEK,m²,12910.0
+826,hus,hyra,10516,0,3,72,0,Vasastan,Stockholm,Hornsgatan 58,59.34938,18.04554,True,2025-08-23,SEK,m²,146.0
+827,hus,köpa,1552799,2798,5,120,12939,Södermalm,Stockholm,Hornsgatan 5,59.32007,18.07858,True,2026-03-31,SEK,m²,12940.0
+828,lägenhet,köpa,565850,4907,5,110,5144,Hyllie,Malmö,Björkgatan 17,55.56613,12.9665,False,2025-05-11,SEK,m²,5144.0
+829,lägenhet,hyra,11168,0,3,69,0,Södermalm,Stockholm,Kungsgatan 17,59.30539,18.06346,True,2025-10-22,SEK,m²,162.0
+830,lägenhet,köpa,1283828,9322,5,125,10270,Östermalm,Stockholm,Parkvägen 34,59.34445,18.08478,False,2025-08-24,SEK,m²,10271.0
+831,hus,hyra,11535,0,3,81,0,Hyllie,Malmö,Storgatan 61,55.55221,12.98111,True,2026-02-04,SEK,m²,142.0
+832,lägenhet,hyra,13706,0,3,84,0,Linnéstaden,Göteborg,Kyrkogatan 110,57.69227,11.94844,True,2025-05-05,SEK,m²,163.0
+833,lägenhet,köpa,670032,5994,5,120,5583,Limhamn,Malmö,Storgatan 69,55.58387,12.93367,True,2025-07-26,SEK,m²,5584.0
+834,hus,hyra,10440,0,4,76,0,Linnéstaden,Göteborg,Kyrkogatan 83,57.69437,11.95534,True,2026-01-17,SEK,m²,137.0
+835,hus,köpa,251111,2273,2,40,6277,Hyllie,Malmö,Lindvägen 25,55.56372,12.97001,True,2026-04-02,SEK,m²,6278.0
+836,hus,köpa,964729,1739,5,90,10719,Södermalm,Stockholm,Bergsgatan 81,59.32487,18.07246,True,2025-11-20,SEK,m²,10719.0
+837,lägenhet,hyra,3283,0,1,22,0,Linnéstaden,Göteborg,Drottninggatan 110,57.69794,11.95611,True,2025-12-15,SEK,m²,149.0
+838,hus,köpa,621936,1804,6,138,4506,Hyllie,Malmö,Kyrkogatan 13,55.55393,12.97165,True,2026-02-22,SEK,m²,4507.0
+839,lägenhet,köpa,287898,4896,4,76,3788,Limhamn,Malmö,Strandvägen 24,55.58319,12.93812,False,2026-02-12,SEK,m²,3788.0
+840,hus,hyra,10409,0,4,76,0,Östermalm,Stockholm,Kyrkogatan 64,59.33365,18.08264,True,2025-11-05,SEK,m²,137.0
+841,lägenhet,köpa,1473807,7515,5,120,12281,Kungsholmen,Stockholm,Skolvägen 49,59.33797,18.02046,True,2025-06-25,SEK,m²,12282.0
+842,hus,köpa,608573,1932,5,100,6085,Västra Hamnen,Malmö,Kungsgatan 71,55.60465,12.9723,False,2025-10-27,SEK,m²,6086.0
+843,hus,hyra,3698,0,1,26,0,Centrum,Göteborg,Storgatan 1,57.71208,11.98408,True,2025-04-17,SEK,m²,142.0
+844,lägenhet,köpa,86738,1742,1,24,3614,Rosengård,Malmö,Lindvägen 37,55.59756,13.02294,True,2025-12-08,SEK,m²,3614.0
+845,lägenhet,köpa,645751,4181,3,78,8278,Centrum,Göteborg,Kyrkogatan 27,57.71065,11.9777,True,2025-11-26,SEK,m²,8279.0
+846,hus,hyra,19048,0,5,135,0,Östermalm,Stockholm,Hornsgatan 47,59.3449,18.08358,True,2025-05-16,SEK,m²,141.0
+847,hus,köpa,736017,2336,3,81,9086,Kungsholmen,Stockholm,Parkvägen 19,59.32496,18.03584,True,2025-06-02,SEK,m²,9087.0
+848,lägenhet,hyra,13435,0,4,92,0,Linnéstaden,Göteborg,Sveavägen 116,57.70174,11.94883,True,2025-05-19,SEK,m²,146.0
+849,lägenhet,hyra,24157,0,5,135,0,Västra Hamnen,Malmö,Sveavägen 109,55.62132,12.97976,True,2025-07-19,SEK,m²,179.0
+850,lägenhet,köpa,720293,9576,5,135,5335,Hyllie,Malmö,Parkvägen 91,55.56517,12.97548,True,2025-09-22,SEK,m²,5336.0
+851,hus,köpa,806313,2653,6,144,5599,Limhamn,Malmö,Strandvägen 9,55.58899,12.93399,True,2025-10-20,SEK,m²,5599.0
+852,hus,hyra,14765,0,4,108,0,Linnéstaden,Göteborg,Strandvägen 118,57.6877,11.95,True,2025-12-21,SEK,m²,137.0
+853,lägenhet,köpa,165856,1516,1,27,6142,Hisingen,Göteborg,Lindvägen 44,57.73278,11.89151,True,2025-08-24,SEK,m²,6143.0
+854,lägenhet,köpa,437278,2895,2,38,11507,Södermalm,Stockholm,Björkgatan 9,59.31244,18.07322,True,2026-04-01,SEK,m²,11507.0
+855,hus,köpa,641804,2654,5,90,7131,Centrum,Göteborg,Sveavägen 63,57.71784,11.98397,True,2025-09-09,SEK,m²,7131.0
+856,lägenhet,hyra,21339,0,6,120,0,Limhamn,Malmö,Bergsgatan 21,55.57957,12.92561,False,2025-10-19,SEK,m²,178.0
+857,lägenhet,köpa,291141,2379,2,42,6931,Majorna,Göteborg,Storgatan 109,57.70413,11.93934,True,2025-08-15,SEK,m²,6932.0
+858,hus,hyra,2856,0,1,22,0,Södermalm,Stockholm,Bergsgatan 8,59.31823,18.07896,True,2026-01-15,SEK,m²,130.0
+859,hus,hyra,10708,0,3,81,0,Hisingen,Göteborg,Björkgatan 113,57.72981,11.90802,False,2026-03-09,SEK,m²,132.0
+860,hus,hyra,5712,0,2,44,0,Limhamn,Malmö,Björkgatan 73,55.58363,12.93088,False,2025-06-05,SEK,m²,130.0
+861,hus,hyra,23006,0,6,168,0,Linnéstaden,Göteborg,Kyrkogatan 30,57.69652,11.94435,True,2025-10-02,SEK,m²,137.0
+862,lägenhet,hyra,24295,0,5,140,0,Vasastan,Stockholm,Storgatan 42,59.33801,18.05898,False,2026-03-11,SEK,m²,174.0
+863,lägenhet,köpa,254798,1944,2,36,7077,Centrum,Göteborg,Storgatan 101,57.7176,11.97002,False,2025-06-24,SEK,m²,7078.0
+864,hus,hyra,3591,0,1,25,0,Kungsholmen,Stockholm,Hornsgatan 110,59.33563,18.02037,True,2026-01-22,SEK,m²,144.0
+865,hus,hyra,9095,0,3,69,0,Östermalm,Stockholm,Strandvägen 94,59.34389,18.08429,True,2026-04-08,SEK,m²,132.0
+866,hus,hyra,2610,0,1,19,0,Linnéstaden,Göteborg,Storgatan 69,57.70597,11.96068,True,2025-09-28,SEK,m²,137.0
+867,lägenhet,hyra,15505,0,5,115,0,Limhamn,Malmö,Strandvägen 31,55.58178,12.92754,True,2025-07-19,SEK,m²,135.0
+868,lägenhet,köpa,623714,3151,2,56,11137,Östermalm,Stockholm,Hornsgatan 42,59.34737,18.08456,False,2025-08-15,SEK,m²,11138.0
+869,lägenhet,hyra,5029,0,2,36,0,Rosengård,Malmö,Björkgatan 26,55.59753,13.03296,True,2025-06-29,SEK,m²,140.0
+870,lägenhet,köpa,160534,987,1,21,7644,Östermalm,Stockholm,Lindvägen 44,59.34207,18.08383,True,2025-06-30,SEK,m²,7644.0
+871,lägenhet,hyra,13411,0,5,95,0,Rosengård,Malmö,Drottninggatan 48,55.59066,13.02751,True,2025-08-01,SEK,m²,141.0
+872,hus,köpa,1302852,2155,6,108,12063,Östermalm,Stockholm,Lindvägen 12,59.33054,18.08712,True,2025-10-28,SEK,m²,12063.0
+873,lägenhet,köpa,828957,4691,5,90,9210,Östermalm,Stockholm,Kungsgatan 76,59.34643,18.08309,True,2025-11-20,SEK,m²,9211.0
+874,hus,köpa,104099,2847,1,27,3855,Västra Hamnen,Malmö,Storgatan 58,55.62248,12.97091,False,2025-06-24,SEK,m²,3856.0
+875,hus,köpa,281713,1590,2,36,7825,Kungsholmen,Stockholm,Skolvägen 102,59.3333,18.0349,True,2026-02-12,SEK,m²,7825.0
+876,hus,köpa,141729,1538,1,25,5669,Limhamn,Malmö,Sveavägen 70,55.57789,12.92922,True,2025-04-28,SEK,m²,5669.0
+877,lägenhet,köpa,235789,1743,1,24,9824,Kungsholmen,Stockholm,Lindvägen 84,59.33783,18.02906,True,2025-07-13,SEK,m²,9825.0
+878,hus,hyra,9022,0,3,63,0,Limhamn,Malmö,Bergsgatan 38,55.58056,12.93914,True,2025-11-22,SEK,m²,143.0
+879,hus,hyra,3385,0,1,23,0,Centrum,Göteborg,Storgatan 67,57.70633,11.98205,True,2025-05-23,SEK,m²,147.0
+880,lägenhet,köpa,837067,4382,4,76,11014,Kungsholmen,Stockholm,Bergsgatan 13,59.32632,18.02005,True,2025-08-23,SEK,m²,11014.0
+881,lägenhet,hyra,10645,0,3,81,0,Hisingen,Göteborg,Skolvägen 56,57.73397,11.90813,True,2025-10-01,SEK,m²,131.0
+882,hus,köpa,324820,1872,4,88,3691,Rosengård,Malmö,Hornsgatan 87,55.60026,13.02691,True,2025-07-29,SEK,m²,3691.0
+883,hus,köpa,433808,2482,3,63,6885,Hisingen,Göteborg,Kungsgatan 96,57.72824,11.89428,True,2026-01-09,SEK,m²,6886.0
+884,lägenhet,hyra,16386,0,5,130,0,Hisingen,Göteborg,Björkgatan 84,57.72505,11.89055,True,2025-12-06,SEK,m²,126.0
+885,hus,köpa,439112,2907,3,78,5629,Centrum,Göteborg,Drottninggatan 7,57.70889,11.97511,False,2025-10-02,SEK,m²,5630.0
+886,lägenhet,köpa,1077665,5905,6,120,8980,Centrum,Göteborg,Kungsgatan 79,57.70095,11.97819,True,2025-07-22,SEK,m²,8981.0
+887,lägenhet,köpa,422664,7776,4,100,4226,Limhamn,Malmö,Lindvägen 59,55.57813,12.93866,True,2026-04-05,SEK,m²,4227.0
+888,lägenhet,köpa,291286,2543,2,54,5394,Linnéstaden,Göteborg,Sveavägen 7,57.70423,11.9438,False,2025-10-21,SEK,m²,5394.0
+889,hus,köpa,632376,2754,6,156,4053,Västra Hamnen,Malmö,Parkvägen 54,55.6114,12.97795,True,2025-10-03,SEK,m²,4054.0
+890,hus,köpa,380371,1549,3,66,5763,Hisingen,Göteborg,Parkvägen 45,57.73898,11.90053,True,2025-07-17,SEK,m²,5763.0
+891,hus,hyra,3812,0,1,26,0,Limhamn,Malmö,Parkvägen 58,55.58847,12.92199,True,2025-07-25,SEK,m²,147.0
+892,hus,hyra,10373,0,3,84,0,Västra Hamnen,Malmö,Kungsgatan 91,55.61425,12.98202,False,2025-10-20,SEK,m²,123.0
+893,hus,köpa,606537,1901,3,78,7776,Linnéstaden,Göteborg,Bergsgatan 115,57.70539,11.96196,True,2025-06-10,SEK,m²,7776.0
+894,hus,köpa,670849,1557,6,168,3993,Västra Hamnen,Malmö,Bergsgatan 5,55.62121,12.97504,True,2025-12-15,SEK,m²,3993.0
+895,lägenhet,köpa,826701,7675,5,135,6123,Hyllie,Malmö,Storgatan 87,55.56194,12.98004,True,2025-12-25,SEK,m²,6124.0
+896,lägenhet,köpa,137779,1630,1,22,6262,Hyllie,Malmö,Sveavägen 107,55.56026,12.96516,True,2026-02-06,SEK,m²,6263.0
+897,hus,hyra,11706,0,4,96,0,Linnéstaden,Göteborg,Parkvägen 69,57.70531,11.94787,True,2025-11-17,SEK,m²,122.0
+898,hus,köpa,143757,2094,1,18,7986,Linnéstaden,Göteborg,Sveavägen 82,57.70344,11.96163,True,2025-10-17,SEK,m²,7986.0
+899,lägenhet,hyra,3552,0,1,21,0,Limhamn,Malmö,Sveavägen 108,55.58285,12.92429,True,2026-01-30,SEK,m²,169.0
+900,hus,hyra,19974,0,6,156,0,Södermalm,Stockholm,Strandvägen 6,59.32351,18.07644,True,2025-08-24,SEK,m²,128.0
+901,hus,köpa,363059,2381,3,69,5261,Majorna,Göteborg,Parkvägen 29,57.69839,11.92805,True,2025-04-28,SEK,m²,5262.0
+902,hus,köpa,694776,1654,6,126,5514,Hisingen,Göteborg,Sveavägen 85,57.72414,11.8947,False,2026-03-09,SEK,m²,5514.0
+903,hus,hyra,18183,0,5,140,0,Kungsholmen,Stockholm,Skolvägen 19,59.33264,18.03175,True,2025-07-23,SEK,m²,130.0
+904,lägenhet,köpa,1192270,3967,5,90,13247,Östermalm,Stockholm,Kungsgatan 74,59.33354,18.07285,True,2025-10-18,SEK,m²,13247.0
+905,lägenhet,köpa,252024,2805,2,46,5478,Västra Hamnen,Malmö,Kungsgatan 14,55.62071,12.97246,True,2025-12-21,SEK,m²,5479.0
+906,hus,hyra,8890,0,3,63,0,Södermalm,Stockholm,Lindvägen 39,59.31529,18.07297,False,2025-07-28,SEK,m²,141.0
+907,lägenhet,hyra,17704,0,6,144,0,Centrum,Göteborg,Sveavägen 96,57.71481,11.97953,True,2025-12-14,SEK,m²,123.0
+908,lägenhet,köpa,1262669,6283,4,96,13152,Södermalm,Stockholm,Hornsgatan 15,59.31612,18.07693,False,2026-01-21,SEK,m²,13153.0
+909,lägenhet,hyra,11751,0,4,72,0,Södermalm,Stockholm,Björkgatan 99,59.30887,18.07165,True,2025-06-15,SEK,m²,163.0
+910,lägenhet,köpa,406116,5424,4,88,4614,Limhamn,Malmö,Kyrkogatan 28,55.59369,12.9293,True,2025-10-06,SEK,m²,4615.0
+911,lägenhet,hyra,13027,0,5,95,0,Kungsholmen,Stockholm,Skolvägen 21,59.33936,18.02042,True,2025-06-09,SEK,m²,137.0
+912,hus,hyra,27112,0,6,168,0,Östermalm,Stockholm,Strandvägen 25,59.34089,18.08492,True,2025-09-17,SEK,m²,161.0
+913,lägenhet,köpa,666722,4082,3,66,10101,Södermalm,Stockholm,Storgatan 9,59.32365,18.06211,True,2026-03-22,SEK,m²,10102.0
+914,lägenhet,hyra,23833,0,5,135,0,Hisingen,Göteborg,Parkvägen 53,57.73475,11.90027,False,2025-08-30,SEK,m²,177.0
+915,lägenhet,hyra,21857,0,6,138,0,Västra Hamnen,Malmö,Storgatan 106,55.60617,12.96823,True,2025-09-27,SEK,m²,158.0
+916,lägenhet,hyra,8738,0,4,72,0,Rosengård,Malmö,Hornsgatan 101,55.59301,13.02676,False,2025-12-30,SEK,m²,121.0
+917,lägenhet,köpa,581554,6864,6,132,4405,Västra Hamnen,Malmö,Strandvägen 41,55.61667,12.97079,True,2026-01-26,SEK,m²,4406.0
+918,lägenhet,köpa,519687,2251,2,44,11811,Södermalm,Stockholm,Lindvägen 4,59.31116,18.07785,True,2025-05-24,SEK,m²,11811.0
+919,hus,hyra,11777,0,4,80,0,Vasastan,Stockholm,Storgatan 76,59.35227,18.05088,True,2025-05-31,SEK,m²,147.0
+920,lägenhet,hyra,26749,0,6,168,0,Rosengård,Malmö,Kungsgatan 56,55.58319,13.03736,True,2026-02-03,SEK,m²,159.0
+921,hus,hyra,22765,0,5,135,0,Östermalm,Stockholm,Björkgatan 108,59.33798,18.08346,True,2026-02-26,SEK,m²,169.0
+922,lägenhet,hyra,6668,0,2,52,0,Hyllie,Malmö,Kungsgatan 98,55.558,12.968,True,2025-12-20,SEK,m²,128.0
+923,hus,köpa,1136007,2296,6,162,7012,Majorna,Göteborg,Drottninggatan 7,57.69444,11.92561,True,2026-04-03,SEK,m²,7012.0
+924,hus,hyra,22044,0,6,126,0,Västra Hamnen,Malmö,Kyrkogatan 66,55.60365,12.98189,True,2026-02-02,SEK,m²,175.0
+925,hus,hyra,3452,0,1,28,0,Västra Hamnen,Malmö,Kyrkogatan 11,55.61252,12.96761,True,2025-09-19,SEK,m²,123.0
+926,lägenhet,köpa,154411,3086,2,40,3860,Hyllie,Malmö,Lindvägen 9,55.55336,12.98064,True,2025-12-02,SEK,m²,3860.0
+927,lägenhet,hyra,6630,0,2,42,0,Rosengård,Malmö,Bergsgatan 28,55.59916,13.03312,True,2025-08-27,SEK,m²,158.0
+928,lägenhet,hyra,6686,0,2,46,0,Majorna,Göteborg,Sveavägen 74,57.70621,11.92957,True,2025-08-04,SEK,m²,145.0
+929,hus,köpa,108139,1989,1,18,6007,Linnéstaden,Göteborg,Strandvägen 12,57.69378,11.95903,True,2026-02-22,SEK,m²,6008.0
+930,hus,köpa,885256,1688,4,100,8852,Södermalm,Stockholm,Bergsgatan 11,59.3195,18.08004,True,2026-01-24,SEK,m²,8853.0
+931,lägenhet,köpa,712065,4143,3,72,9889,Vasastan,Stockholm,Hornsgatan 48,59.34105,18.04021,False,2026-02-06,SEK,m²,9890.0
+932,hus,hyra,16519,0,4,100,0,Hyllie,Malmö,Kungsgatan 86,55.55962,12.96623,True,2026-03-16,SEK,m²,165.0
+933,lägenhet,hyra,5745,0,2,44,0,Hyllie,Malmö,Hornsgatan 71,55.56957,12.98154,True,2025-11-05,SEK,m²,131.0
+934,hus,hyra,3125,0,1,24,0,Majorna,Göteborg,Björkgatan 46,57.70847,11.932,False,2026-03-16,SEK,m²,130.0
+935,lägenhet,köpa,643767,5937,5,105,6131,Hyllie,Malmö,Storgatan 19,55.55759,12.97939,True,2025-12-07,SEK,m²,6131.0
+936,hus,köpa,549223,2260,2,52,10561,Östermalm,Stockholm,Parkvägen 74,59.34779,18.08912,True,2026-04-03,SEK,m²,10562.0
+937,hus,köpa,464066,1557,3,63,7366,Hisingen,Göteborg,Skolvägen 48,57.73704,11.89165,True,2025-05-14,SEK,m²,7366.0
+938,lägenhet,hyra,10674,0,4,72,0,Centrum,Göteborg,Strandvägen 40,57.70916,11.96489,True,2025-12-28,SEK,m²,148.0
+939,hus,köpa,478396,1695,2,56,8542,Centrum,Göteborg,Parkvägen 41,57.7088,11.96814,False,2025-05-30,SEK,m²,8543.0
+940,hus,köpa,237692,2575,3,63,3772,Hyllie,Malmö,Kungsgatan 45,55.564,12.97434,True,2025-06-27,SEK,m²,3773.0
+941,hus,köpa,977375,1593,6,138,7082,Linnéstaden,Göteborg,Bergsgatan 7,57.7,11.95315,True,2026-01-28,SEK,m²,7082.0
+942,hus,hyra,7387,0,2,42,0,Östermalm,Stockholm,Drottninggatan 49,59.33762,18.08148,True,2025-12-22,SEK,m²,176.0
+943,lägenhet,hyra,11223,0,4,80,0,Vasastan,Stockholm,Sveavägen 53,59.34485,18.05767,True,2025-10-17,SEK,m²,140.0
+944,hus,hyra,13585,0,4,104,0,Kungsholmen,Stockholm,Hornsgatan 84,59.32371,18.02234,True,2026-01-07,SEK,m²,131.0
+945,lägenhet,köpa,671736,8181,6,120,5597,Centrum,Göteborg,Lindvägen 114,57.71417,11.96546,True,2025-09-15,SEK,m²,5598.0
+946,hus,hyra,8236,0,2,46,0,Östermalm,Stockholm,Storgatan 58,59.33638,18.07682,False,2026-01-28,SEK,m²,179.0
+947,lägenhet,köpa,690895,4719,3,66,10468,Vasastan,Stockholm,Parkvägen 56,59.34163,18.05549,False,2025-04-08,SEK,m²,10468.0
+948,lägenhet,hyra,6011,0,2,38,0,Västra Hamnen,Malmö,Drottninggatan 16,55.61047,12.98496,False,2025-06-18,SEK,m²,158.0
+949,lägenhet,köpa,234856,1185,1,19,12360,Södermalm,Stockholm,Lindvägen 110,59.32417,18.06161,True,2025-12-14,SEK,m²,12361.0
+950,lägenhet,köpa,184171,1413,1,19,9693,Vasastan,Stockholm,Parkvägen 17,59.35195,18.05233,True,2025-08-21,SEK,m²,9693.0
+951,hus,hyra,14182,0,6,108,0,Hisingen,Göteborg,Storgatan 31,57.73843,11.9099,False,2025-06-18,SEK,m²,131.0
+952,hus,hyra,17042,0,6,132,0,Centrum,Göteborg,Bergsgatan 67,57.7153,11.97918,True,2025-12-29,SEK,m²,129.0
+953,hus,köpa,1591297,1953,6,120,13260,Vasastan,Stockholm,Lindvägen 69,59.34679,18.05503,True,2026-01-21,SEK,m²,13261.0
+954,hus,köpa,836200,1879,6,144,5806,Västra Hamnen,Malmö,Sveavägen 1,55.60823,12.98199,True,2025-06-20,SEK,m²,5807.0
+955,lägenhet,köpa,455631,4223,4,80,5695,Centrum,Göteborg,Drottninggatan 2,57.71202,11.97116,True,2026-01-27,SEK,m²,5695.0
+956,hus,köpa,987487,2411,5,95,10394,Södermalm,Stockholm,Björkgatan 109,59.32315,18.0763,True,2026-03-08,SEK,m²,10395.0
+957,lägenhet,hyra,11467,0,4,72,0,Majorna,Göteborg,Skolvägen 52,57.69005,11.93619,True,2026-01-10,SEK,m²,159.0
+958,hus,köpa,666187,1923,5,125,5329,Limhamn,Malmö,Hornsgatan 85,55.58503,12.92869,True,2025-09-07,SEK,m²,5329.0
+959,hus,köpa,698694,2943,5,115,6075,Västra Hamnen,Malmö,Storgatan 85,55.61151,12.97442,True,2025-11-09,SEK,m²,6076.0
+960,lägenhet,hyra,17869,0,5,125,0,Centrum,Göteborg,Drottninggatan 69,57.71276,11.97355,True,2026-01-29,SEK,m²,143.0
+961,lägenhet,hyra,20045,0,6,114,0,Östermalm,Stockholm,Drottninggatan 86,59.34044,18.08785,True,2025-07-24,SEK,m²,176.0
+962,lägenhet,köpa,877639,7792,6,156,5625,Linnéstaden,Göteborg,Strandvägen 115,57.69933,11.94225,True,2025-12-17,SEK,m²,5626.0
+963,lägenhet,hyra,20182,0,6,168,0,Centrum,Göteborg,Kyrkogatan 28,57.71856,11.97759,False,2025-07-09,SEK,m²,120.0
+964,lägenhet,hyra,8649,0,3,57,0,Västra Hamnen,Malmö,Storgatan 80,55.60923,12.96949,True,2026-03-04,SEK,m²,152.0
+965,hus,hyra,9237,0,3,72,0,Rosengård,Malmö,Drottninggatan 19,55.59542,13.03491,True,2026-02-04,SEK,m²,128.0
+966,lägenhet,hyra,22569,0,6,132,0,Vasastan,Stockholm,Skolvägen 2,59.34849,18.04473,True,2025-08-21,SEK,m²,171.0
+967,hus,hyra,10998,0,4,72,0,Östermalm,Stockholm,Kyrkogatan 8,59.34136,18.08168,False,2026-03-20,SEK,m²,153.0
+968,lägenhet,köpa,306850,3311,2,56,5479,Centrum,Göteborg,Parkvägen 43,57.71257,11.98198,False,2026-01-08,SEK,m²,5479.0
+969,lägenhet,hyra,17672,0,5,105,0,Kungsholmen,Stockholm,Kyrkogatan 15,59.33877,18.03314,True,2025-10-05,SEK,m²,168.0
+970,lägenhet,köpa,851106,8172,6,114,7465,Centrum,Göteborg,Storgatan 97,57.71382,11.98107,False,2026-01-23,SEK,m²,7466.0
+971,hus,köpa,480579,1927,3,84,5721,Västra Hamnen,Malmö,Kyrkogatan 84,55.62227,12.96673,True,2025-06-08,SEK,m²,5721.0
+972,hus,hyra,11471,0,3,66,0,Kungsholmen,Stockholm,Sveavägen 58,59.3377,18.03781,True,2026-01-20,SEK,m²,174.0
+973,lägenhet,hyra,18830,0,5,115,0,Vasastan,Stockholm,Skolvägen 12,59.34847,18.0407,True,2025-12-05,SEK,m²,164.0
+974,hus,hyra,9695,0,3,72,0,Vasastan,Stockholm,Sveavägen 73,59.33517,18.05678,False,2025-12-23,SEK,m²,135.0
+975,hus,köpa,150468,2192,2,38,3959,Västra Hamnen,Malmö,Kyrkogatan 110,55.61706,12.9768,False,2025-09-02,SEK,m²,3960.0
+976,hus,köpa,602018,2574,6,126,4777,Limhamn,Malmö,Sveavägen 49,55.58654,12.92151,True,2025-09-11,SEK,m²,4778.0
+977,lägenhet,köpa,452291,3625,3,66,6852,Hisingen,Göteborg,Drottninggatan 66,57.72962,11.9,True,2025-08-02,SEK,m²,6853.0
+978,hus,hyra,20503,0,5,115,0,Majorna,Göteborg,Kungsgatan 106,57.69675,11.94105,True,2026-01-02,SEK,m²,178.0
+979,lägenhet,köpa,1033671,4561,4,100,10336,Östermalm,Stockholm,Lindvägen 46,59.34791,18.0761,True,2025-12-25,SEK,m²,10337.0
+980,hus,köpa,146109,1701,1,23,6352,Linnéstaden,Göteborg,Skolvägen 37,57.70556,11.95639,False,2026-04-08,SEK,m²,6353.0
+981,hus,köpa,807437,2268,6,132,6116,Limhamn,Malmö,Sveavägen 62,55.57903,12.93549,False,2025-12-30,SEK,m²,6117.0
+982,lägenhet,hyra,5751,0,2,44,0,Västra Hamnen,Malmö,Hornsgatan 62,55.60486,12.96668,True,2025-12-23,SEK,m²,131.0
+983,lägenhet,hyra,6458,0,2,44,0,Hyllie,Malmö,Lindvägen 31,55.56609,12.96812,False,2025-05-21,SEK,m²,147.0
+984,lägenhet,hyra,8676,0,3,57,0,Kungsholmen,Stockholm,Drottninggatan 106,59.32571,18.01995,True,2025-07-05,SEK,m²,152.0
+985,lägenhet,köpa,220555,4176,3,60,3675,Västra Hamnen,Malmö,Kungsgatan 86,55.61049,12.97981,True,2026-04-06,SEK,m²,3676.0
+986,hus,hyra,5773,0,2,44,0,Hisingen,Göteborg,Parkvägen 11,57.73817,11.9043,False,2025-05-22,SEK,m²,131.0
+987,lägenhet,köpa,471652,3416,4,76,6205,Hyllie,Malmö,Sveavägen 79,55.57141,12.98056,False,2025-09-25,SEK,m²,6206.0
+988,lägenhet,köpa,459225,2341,3,54,8504,Majorna,Göteborg,Strandvägen 26,57.70719,11.93991,True,2026-01-17,SEK,m²,8504.0
+989,hus,köpa,689651,2547,4,96,7183,Linnéstaden,Göteborg,Strandvägen 48,57.68999,11.95565,True,2025-06-21,SEK,m²,7184.0
+990,hus,köpa,644802,1863,4,104,6200,Centrum,Göteborg,Kungsgatan 76,57.71339,11.9744,False,2025-05-05,SEK,m²,6200.0
+991,hus,hyra,9758,0,3,75,0,Västra Hamnen,Malmö,Hornsgatan 75,55.6058,12.98022,False,2025-10-30,SEK,m²,130.0
+992,lägenhet,köpa,219766,1728,1,26,8452,Hisingen,Göteborg,Bergsgatan 88,57.73315,11.90234,True,2026-02-10,SEK,m²,8453.0
+993,lägenhet,köpa,885665,4697,5,110,8051,Södermalm,Stockholm,Parkvägen 16,59.32484,18.07783,True,2025-12-31,SEK,m²,8052.0
+994,lägenhet,hyra,3792,0,1,27,0,Södermalm,Stockholm,Kyrkogatan 3,59.30858,18.0792,False,2025-07-15,SEK,m²,140.0
+995,lägenhet,hyra,24633,0,6,144,0,Vasastan,Stockholm,Strandvägen 92,59.33961,18.05286,True,2026-02-09,SEK,m²,171.0
+996,hus,köpa,415196,1506,3,78,5323,Limhamn,Malmö,Strandvägen 4,55.58462,12.93831,True,2025-11-30,SEK,m²,5323.0
+997,lägenhet,hyra,13529,0,4,80,0,Östermalm,Stockholm,Björkgatan 21,59.33305,18.07797,False,2025-12-27,SEK,m²,169.0
+998,hus,köpa,171323,2196,1,19,9017,Kungsholmen,Stockholm,Storgatan 72,59.32218,18.02531,True,2025-04-11,SEK,m²,9017.0
+999,lägenhet,hyra,3172,0,1,23,0,Rosengård,Malmö,Bergsgatan 51,55.58942,13.03934,False,2026-03-13,SEK,m²,138.0
+1000,hus,köpa,815878,2539,6,138,5912,Västra Hamnen,Malmö,Skolvägen 59,55.61509,12.98012,True,2025-07-17,SEK,m²,5912.0
