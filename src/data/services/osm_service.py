@@ -64,6 +64,7 @@ def get_nearby_places(lat, lon, radius=1500):
 if __name__ == "__main__":
     # Testar centrala Stockholm 
     # Bör funka nu, AI korrigering
+    # Reminder: Överbelasta inte API:et, uppdatering lär komma...
     results = get_nearby_places(59.3293, 18.0686)
     print(f"Analys klar! Hittade {len(results)} intressanta platser.")
     
