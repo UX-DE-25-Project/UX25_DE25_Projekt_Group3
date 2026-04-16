@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <title>RightHome</title>
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background: #F5F0E8; padding: 20px; }
+        .header { background: #1A2E4A; color: white; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; border-radius: 12px; margin-bottom: 20px; }
+        .logo { font-size: 28px; font-weight: bold; display: flex; align-items: center; gap: 10px; }
+        .logo-icon { background: #E8735A; width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: bold; }
+        .logo span { color: #E8735A; }
+        .auth-section { display: flex; align-items: center; gap: 15px; }
+        .auth-buttons { display: flex; gap: 10px; }
+        .login-btn { background: #E8735A; color: white; border: none; padding: 8px 20px; border-radius: 6px; cursor: pointer; }
+        .register-btn { background: transparent; color: #E8735A; border: 1px solid #E8735A; padding: 8px 20px; border-radius: 6px; cursor: pointer; }
+        .user-info { display: flex; align-items: center; gap: 15px; }
+        .user-name { font-weight: bold; }
+        .my-page-btn, .logout-btn { background: transparent; color: #E8735A; border: 1px solid #E8735A; padding: 6px 15px; border-radius: 6px; cursor: pointer; }
+        .dashboard { display: flex; gap: 20px; max-width: 1400px; margin: 0 auto; flex-wrap: wrap; }
+        .sidebar { width: 280px; background: white; border-radius: 16px; padding: 20px; }
+        .main { flex: 1; background: white; border-radius: 16px; padding: 20px; min-width: 300px; }
+        .right { width: 280px; background: white; border-radius: 16px; padding: 20px; }
+        .filter-group { margin-bottom: 20px; }
+        .filter-group label { font-weight: bold; display: block; margin-bottom: 8px; font-size: 13px; }
+        .filter-group input, .filter-group select { width: 100%; padding: 8px 12px; border: 1px solid #ddd; border-radius: 8px; }
+        
+        /* Fix för checkboxar - bredare och mer utrymme */
+        .checkbox-group { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 12px; 
+            margin-top: 5px; 
+        }
+        .checkbox-group label { 
+            font-weight: normal; 
+            display: flex; 
+            align-items: center; 
+            gap: 8px; 
+            font-size: 14px; 
+            cursor: pointer; 
+            white-space: nowrap;
+        }
+        .checkbox-group input { 
+            width: 18px; 
+            height: 18px; 
+            margin: 0; 
+            cursor: pointer; 
+        }
+        
+        input[type="range"] { width: 100%; margin: 10px 0; }
+        .budget-range { display: flex; justify-content: space-between; font-size: 11px; color: #888; }
+        .budget-value { color: #E8735A; font-weight: bold; text-align: center; margin: 5px 0; }
+        .info-links { margin-top: 20px; }
+        .info-links a { display: block; padding: 10px 0; color: #1A2E4A; text-decoration: none; font-size: 13px; border-bottom: 1px solid #eee; cursor: pointer; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 12px 10px; text-align: left; border-bottom: 1px solid #eee; }
+        th { background: #F8F5F0; font-weight: 600; }
+        .price { color: #E8735A; font-weight: bold; }
+        tr:hover { background: #F9F6F0; cursor: pointer; }
+        .stats-cards { display: flex; gap: 15px; margin-bottom: 20px; }
+        .stat-card { flex: 1; background: #F8F5F0; border-radius: 12px; padding: 15px; text-align: center; }
+        .stat-number { font-size: 24px; font-weight: bold; color: #1A2E4A; }
+        .stat-label { font-size: 12px; color: #666; margin-top: 5px; }
+        .listings-header { display: flex; justify-content: space-between; margin-bottom: 15px; }
+        .listings-count { color: #888; font-size: 13px; }
+        .chart-container { text-align: center; margin: 15px 0; }
+        .pie-chart { width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 15px; }
+        .chart-legend { font-size: 12px; text-align: left; display: inline-block; }
+        .legend-color { display: inline-block; width: 12px; height: 12px; border-radius: 2px; margin-right: 8px; }
+        .map-container { margin-bottom: 20px; border-radius: 12px; overflow: hidden; height: 300px; background: #e0e0e0; }
+        #map { width: 100%; height: 100%; }
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); justify-content: center; align-items: center; z-index: 1000; }
+        .modal-content { background: white; padding: 30px; border-radius: 16px; width: 400px; max-width: 90%; }
+        .modal-content h3 { margin-bottom: 20px; color: #1A2E4A; }
+        .modal-content input { width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 8px; }
+        .modal-content button { width: 100%; padding: 10px; background: #1A2E4A; color: white; border: none; border-radius: 8px; cursor: pointer; }
+        .close { float: right; cursor: pointer; font-size: 20px; color: #888; }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div class="logo"><div class="logo-icon">RH</div>Right<span>Home</span></div>
+    <div class="auth-section">
+        <div id="authButtons" class="auth-buttons">
+            <button class="login-btn" onclick="showLoginModal()">Logga in</button>
+            <button class="register-btn" onclick="showRegisterModal()">Registrera dig</button>
+        </div>
+        <div id="userInfo" class="user-info" style="display: none;">
+            <span class="user-name" id="userNameDisplay"></span>
+            <button class="my-page-btn" onclick="showMyPage()">Mina sidor</button>
+            <button class="logout-btn" onclick="logout()">Logga ut</button>
+        </div>
+    </div>
+</div>
+
+<div class="dashboard">
+    <div class="sidebar">
+        <div class="filter-group">
+            <label>Sök område</label>
+            <input type="text" id="searchInput" placeholder="Sök stad eller adress" onkeyup="filterData()">
+        </div>
+        
+        <div class="filter-group">
+            <label>Vill du hyra eller köpa?</label>
+            <div class="checkbox-group">
+                <label><input type="checkbox" id="filterHyra" onchange="filterData()"> Hyra</label>
+                <label><input type="checkbox" id="filterKopa" onchange="filterData()"> Köpa</label>
+                <label><input type="checkbox" id="filterHus" onchange="filterData()"> Hus</label>
+                <label><input type="checkbox" id="filterLagenhet" onchange="filterData()"> Lägenhet</label>
+            </div>
+        </div>
+
+        <div class="filter-group">
+            <label>Boyta (kvm)</label>
+            <select id="filterArea" onchange="filterData()">
+                <option value="0">Alla</option>
+                <option value="50">Max 50 kvm</option>
+                <option value="75">Max 75 kvm</option>
+                <option value="100">Max 100 kvm</option>
+                <option value="150">Max 150 kvm</option>
+            </select>
+        </div>
+
+        <div class="filter-group">
+            <label>Rum</label>
+            <select id="filterRooms" onchange="filterData()">
+                <option value="">Alla</option>
+                <option value="1">1 rum</option>
+                <option value="2">2 rum</option>
+                <option value="3">3 rum</option>
+                <option value="4">4+ rum</option>
+            </select>
+        </div>
+
+        <div class="filter-group">
+            <label>Din budget</label>
+            <input type="range" id="priceSlider" min="0" max="15000000" value="15000000" oninput="updatePrice(); filterData()">
+            <div class="budget-value" id="priceValue">15 000 000 kr</div>
+            <div class="budget-range">
+                <span>0 kr</span>
+                <span>15 000 000 kr</span>
+            </div>
+        </div>
+
+        <div class="info-links">
+            <a href="#">Läs mer</a>
+            <a href="#">Svenska bostadsmarknaden</a>
+            <a href="#">Försäkring</a>
+            <a href="#">Behörighet till bank</a>
+            <a href="#">Personliga preferenser</a>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="map-container"><div id="map"></div></div>
+        <div class="listings-header">
+            <h2>Bostadslista</h2>
+            <div class="listings-count" id="countDisplay">Visar 0 bostäder</div>
+        </div>
+        <div style="overflow-x: auto; max-height: 350px; overflow-y: auto;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Adress</th>
+                        <th>Stad</th>
+                        <th>Rum</th>
+                        <th>Yta</th>
+                        <th>Pris</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <tr><td colspan="5">Laddar...<\/td><\/tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="right">
+        <div class="stats-cards">
+            <div class="stat-card">
+                <div class="stat-number" id="totalCount">0</div>
+                <div class="stat-label">Antal bostäder</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="avgPrice">0</div>
+                <div class="stat-label">Snittpris</div>
+            </div>
+        </div>
+
+        <h3>Lägenhet vs Hus</h3>
+        <div id="pieChartContainer" class="chart-container"></div>
+        
+        <h3 style="margin-top: 20px;">Bostäder per stad</h3>
+        <div id="cityStats"></div>
+    </div>
+</div>
+
+<div id="loginModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('loginModal')">&times;</span>
+        <h3>Logga in</h3>
+        <input type="email" id="loginEmail" placeholder="E-post">
+        <input type="password" id="loginPassword" placeholder="Lösenord">
+        <button onclick="login()">Logga in</button>
+    </div>
+</div>
+
+<div id="registerModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('registerModal')">&times;</span>
+        <h3>Registrera dig</h3>
+        <input type="text" id="regName" placeholder="Namn">
+        <input type="email" id="regEmail" placeholder="E-post">
+        <input type="password" id="regPassword" placeholder="Lösenord">
+        <button onclick="register()">Registrera</button>
+    </div>
+</div>
+
+<div id="myPageModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('myPageModal')">&times;</span>
+        <h3>Mina sidor</h3>
+        <p><strong>Namn:</strong> <span id="profileName"></span></p>
+        <p><strong>E-post:</strong> <span id="profileEmail"></span></p>
+        <p><strong>Medlem sedan:</strong> <span id="profileSince"></span></p>
+        <p><strong>Sparade bostäder:</strong> <span id="savedCount">0</span></p>
+        <button onclick="closeModal('myPageModal')">Stäng</button>
+    </div>
+</div>
+
+<script>
+    let map, markers = [], allData = [], currentUser = null, savedProperties = [];
+
+    function initMap() {
+        map = new google.maps.Map(document.getElementById("map"), {
+            center: { lat: 59.3293, lng: 18.0686 },
+            zoom: 6
+        });
+        if (allData.length > 0) updateMapMarkers(allData);
+    }
+
+    function updateMapMarkers(data) {
+        if (!map) return;
+        markers.forEach(m => m.setMap(null));
+        markers = [];
+        let bounds = new google.maps.LatLngBounds();
+        data.forEach(b => {
+            let lat = parseFloat(b.lat), lng = parseFloat(b.lon);
+            if (!isNaN(lat) && !isNaN(lng) && lat !== 0 && lng !== 0) {
+                let marker = new google.maps.Marker({ position: { lat: lat, lng: lng }, map: map, title: b.adress });
+                let info = new google.maps.InfoWindow({ content: `<div><b>${b.adress}</b><br>${b.rum} rum, ${b.boyta} kvm<br>${parseInt(b.pris).toLocaleString()} kr</div>` });
+                marker.addListener("click", () => info.open(map, marker));
+                markers.push(marker);
+                bounds.extend(marker.getPosition());
+            }
+        });
+        if (markers.length > 0) map.fitBounds(bounds);
+        else map.setCenter({ lat: 59.3293, lng: 18.0686 });
+    }
+
+    Papa.parse("right_home_cleaned.csv", {
+        download: true, header: true,
+        complete: function(r) {
+            allData = r.data.filter(b => b.adress && b.adress !== '');
+            filterData();
+            updateStats();
+            if (typeof google !== 'undefined') updateMapMarkers(allData);
+            else setTimeout(() => updateMapMarkers(allData), 500);
+        }
+    });
+
+    function filterData() {
+        let f = [...allData];
+        let s = document.getElementById('searchInput').value.toLowerCase();
+        if (s) f = f.filter(b => (b.stad || '').toLowerCase().includes(s) || (b.adress || '').toLowerCase().includes(s));
+        
+        let hyra = document.getElementById('filterHyra').checked;
+        let kopa = document.getElementById('filterKopa').checked;
+        if (hyra || kopa) {
+            f = f.filter(b => {
+                if (hyra && !kopa) return b.upplatelseform === 'hyra';
+                if (kopa && !hyra) return b.upplatelseform === 'kopa';
+                return true;
+            });
+        }
+        
+        let hus = document.getElementById('filterHus').checked;
+        let lgh = document.getElementById('filterLagenhet').checked;
+        if (hus || lgh) {
+            f = f.filter(b => {
+                if (hus && !lgh) return b.typ === 'hus';
+                if (lgh && !hus) return b.typ === 'lägenhet';
+                return true;
+            });
+        }
+        
+        let ma = parseInt(document.getElementById('filterArea').value);
+        if (ma > 0) f = f.filter(b => b.boyta <= ma);
+        
+        let rm = document.getElementById('filterRooms').value;
+        if (rm) f = f.filter(b => b.rum == rm);
+        
+        let mp = parseInt(document.getElementById('priceSlider').value);
+        f = f.filter(b => parseInt(b.pris) <= mp);
+        
+        document.getElementById('tableBody').innerHTML = f.length ? f.map(b => `<tr onclick="alert('${b.adress}\\n${b.rum} rum, ${b.boyta} kvm\\n${parseInt(b.pris).toLocaleString()} kr')"><td>${b.adress}${b.adress ? '' : '-'}<\/td><td>${b.stad || '-'}<\/td><td>${b.rum || '-'}<\/td><td>${b.boyta || '-'}<\/td><td class="price">${parseInt(b.pris).toLocaleString()} kr<\/td><\/tr>`).join('') : '<tr><td colspan="5">Inga bostäder matchar<\/td><\/tr>';
+        document.getElementById('countDisplay').innerHTML = `Visar ${f.length} av ${allData.length} bostäder`;
+        document.getElementById('totalCount').innerHTML = f.length;
+        if (f.length) document.getElementById('avgPrice').innerHTML = (f.reduce((s,b)=>s+parseInt(b.pris),0)/f.length/10000).toFixed(2) + ' Mkr';
+        if (map && typeof google !== 'undefined') updateMapMarkers(f);
+    }
+
+    function updatePrice() { let v = document.getElementById('priceSlider').value; document.getElementById('priceValue').innerHTML = parseInt(v).toLocaleString() + ' kr'; filterData(); }
+    
+    function updateStats() {
+        let hus = allData.filter(b => b.typ === 'hus').length;
+        let lgh = allData.filter(b => b.typ === 'lägenhet').length;
+        let t = allData.length;
+        if (!t) return;
+        let lagPct = (lgh / t) * 360;
+        document.getElementById('pieChartContainer').innerHTML = `<div class="pie-chart" style="background: conic-gradient(#E8735A 0deg ${lagPct}deg, #1A2E4A ${lagPct}deg 360deg);"></div><div class="chart-legend"><div><span class="legend-color" style="background:#E8735A"></span> Lägenhet: ${(lgh/t*100).toFixed(1)}% (${lgh} st)</div><div><span class="legend-color" style="background:#1A2E4A"></span> Hus: ${(hus/t*100).toFixed(1)}% (${hus} st)</div></div>`;
+        let cities = {};
+        allData.forEach(b => { if(b.stad) cities[b.stad] = (cities[b.stad]||0)+1; });
+        document.getElementById('cityStats').innerHTML = '<div style="font-size:13px">' + Object.entries(cities).sort((a,b)=>b[1]-a[1]).slice(0,5).map(([c,ct]) => `<div><strong>${c}:</strong> ${ct} st</div>`).join('') + '</div>';
+    }
+
+    function showLoginModal() { document.getElementById('loginModal').style.display = 'flex'; }
+    function showRegisterModal() { document.getElementById('registerModal').style.display = 'flex'; }
+    function closeModal(id) { document.getElementById(id).style.display = 'none'; }
+    function login() { let e = document.getElementById('loginEmail').value; if(e && e.includes('@')) { currentUser = { name: e.split('@')[0], email: e, createdAt: Date.now() }; updateAuthUI(); closeModal('loginModal'); } else alert("Ange e-post"); }
+    function register() { let n = document.getElementById('regName').value, e = document.getElementById('regEmail').value; if(n && e && e.includes('@')) { currentUser = { name: n, email: e, createdAt: Date.now() }; updateAuthUI(); closeModal('registerModal'); } else alert("Fyll i alla fält"); }
+    function logout() { currentUser = null; updateAuthUI(); }
+    function updateAuthUI() { document.getElementById('authButtons').style.display = currentUser ? 'none' : 'flex'; document.getElementById('userInfo').style.display = currentUser ? 'flex' : 'none'; if(currentUser) document.getElementById('userNameDisplay').innerHTML = '👤 ' + currentUser.name; }
+    function showMyPage() { if(currentUser) { document.getElementById('profileName').innerHTML = currentUser.name; document.getElementById('profileEmail').innerHTML = currentUser.email; document.getElementById('profileSince').innerHTML = new Date(currentUser.createdAt).toLocaleDateString('sv-SE'); document.getElementById('savedCount').innerHTML = savedProperties.length; document.getElementById('myPageModal').style.display = 'flex'; } }
+    window.onclick = e => { if(e.target.classList.contains('modal')) e.target.style.display = 'none'; }
+    
+    updatePrice(); updateAuthUI();
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD6s0xeoS3rrEFMZUr2ToMEVp0l7F0tf_8&callback=initMap" async defer></script>
+</body>
+</html>
