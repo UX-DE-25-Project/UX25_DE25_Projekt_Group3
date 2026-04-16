@@ -62,9 +62,10 @@ def get_nearby_places(lat, lon, radius=1500):
     
 # Snabbtest för att se att allt faktiskt kom med
 if __name__ == "__main__":
-    # Testar centrala Stockholm
+    # Testar centrala Stockholm 
+    # Bör funka nu, AI korrigering
     results = get_nearby_places(59.3293, 18.0686)
-    print(f"🔍 Analys klar! Hittade {len(results)} intressanta platser.")
+    print(f"Analys klar! Hittade {len(results)} intressanta platser.")
     
     categories = [p['category'] for p in results]
     for cat in set(categories):
