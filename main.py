@@ -1,25 +1,22 @@
-# main.py
-from ETL_Pipline.extract import extract 
+from ETL_Pipline.extract import extract
 from ETL_Pipline.transform import transform
-
+from ETL_Pipline.load import load
 
 def main():
     print("Startar RightHome ETL-pipeline...\n")
-    
-    # STEG 1: EXTRACT
-    df_raw = extract("src/data/bostader.json")
-    print(f"   Antal rader inlästa: {len(df_raw)}")
-    print(f"   Kolumner: {list(df_raw.columns)}\n")
-    
-    #  STEG 2: TRANSFORM 
-    df_clean = transform(df_raw)
-    
-    #  STEG 3: LOAD till Supabase (efter Supabase är uppsatt)
-    # load(df_clean)
-    
-    print("Extract + transform klar! Nästa steg: Load")
+
+    df_raw = extract("ETL_Pipline/right_home_cleaned.csv")
+    if df_raw is None:
+        print("Kunde inte läsa datafilen.")
+        return
+
+    df_bostader, df_priser, df_platser = transform(df_raw)
+
+    load(df_platser, "platser")
+    load(df_bostader, "bostader")
+    load(df_priser, "priser")
+
+    print("\nAlla pipelines klara!")
 
 if __name__ == "__main__":
     main()
-
-
