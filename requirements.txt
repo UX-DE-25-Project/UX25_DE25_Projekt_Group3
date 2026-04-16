@@ -1,0 +1,8 @@
+pandas
+duckdb
+matplotlib
+seaborn
+python-dotenv
+requests
+supabase
+dotenv

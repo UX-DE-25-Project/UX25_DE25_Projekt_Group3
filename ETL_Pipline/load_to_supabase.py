@@ -5,45 +5,55 @@ from dotenv import load_dotenv
 
 # Ladda miljövariabler
 load_dotenv("../.env")
-SUPABASE_URL = os.getenv("SUPABASE_URL")
-SUPABASE_KEY = os.getenv("SUPABASE_KEY")
 
-if not SUPABASE_KEY:
-    print("FEL: Kunde inte hitta SUPABASE_KEY i .env-filen!")
-    print(f"Letade i: {os.path.abspath('../.env')}")
-    exit()
-else:
-    print(f"Nyckel hittad! Den börjar med: {SUPABASE_KEY[:10]}...")
+def load(df_bostader, df_priser, df_platser):
+    SUPABASE_URL = os.getenv("SUPABASE_URL")
+    SUPABASE_KEY = os.getenv("SUPABASE_KEY")
 
-supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
+    if not SUPABASE_KEY:
+        print("FEL: Kunde inte hitta SUPABASE_KEY i .env-filen!")
+        print(f"Letade i: {os.path.abspath('../.env')}")
+        return
 
-# Ladda CSV:er
-df_platser = pd.read_csv("platser.csv")
-df_platser = df_platser.rename(columns={
-    "område": "kommun",
-    "plats_id": "id"
-})
-df_bostader = pd.read_csv("bostader.csv")
-df_priser   = pd.read_csv("priser.csv")
+    supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
 
-# Konvertera till rätt format
-df_bostader["created_at"] = df_bostader["created_at"].astype(str)
-df_bostader["tillgänglig"] = df_bostader["tillgänglig"].astype(bool)
+    # 1. Förbered platser (Specifika namnbyten)
+    print("Förbereder platser...")
+    df_platser_upload = df_platser.rename(columns={
+        "område": "kommun",
+        "plats_id": "id"
+    })
 
-# ── Ladda upp i rätt ordning ──────────────────────────
-# 1. platser först (eftersom bostader refererar till den)
-print(" Laddar upp platser...")
-supabase.table("platser").upsert(df_platser.to_dict(orient="records")).execute()
-print(f"{len(df_platser)} platser uppladdade!")
+    # 2. Förbered bostäder (Datatyper)
+    df_bostader_upload = df_bostader.copy()
+    df_bostader_upload["created_at"] = df_bostader_upload["created_at"].astype(str)
+    df_bostader_upload["tillgänglig"] = df_bostader_upload["tillgänglig"].astype(bool)
 
-# 2. bostader
-print(" Laddar upp bostader...")
-supabase.table("bostader").upsert(df_bostader.to_dict(orient="records")).execute()
-print(f"{len(df_bostader)} bostäder uppladdade!")
+    # - Detta bör laddas upp i rätt ordning -
 
-# 3. priser sist (refererar till bostader)
-print(" Laddar upp priser...")
-supabase.table("priser").upsert(df_priser.to_dict(orient="records")).execute()
-print(f"{len(df_priser)} priser uppladdade!")
+    try:
+        # 1. platser först
+        print("Laddar upp platser...")
+        supabase.table("platser").upsert(df_platser_upload.to_dict(orient="records")).execute()
+        print(f" {len(df_platser_upload)} platser uppladdade!")
 
-print("\n All data uppladdad till Supabase!")
+        # 2. bostader
+        print("Laddar upp bostader...")
+        supabase.table("bostader").upsert(df_bostader_upload.to_dict(orient="records")).execute()
+        print(f" {len(df_bostader_upload)} bostäder uppladdade!")
+
+        # 3. priser sist
+        print("Laddar upp priser...")
+        supabase.table("priser").upsert(df_priser.to_dict(orient="records")).execute()
+        print(f" {len(df_priser)} priser uppladdade!")
+
+    except Exception as e:
+        print(f"Fel vid uppladdning: {e}")
+
+# Så att filen kan fortfarande köras självständigt:
+if __name__ == "__main__":
+    print("Kör som fristående skript - läser lokala CSV-filer...")
+    df_p = pd.read_csv("src/data/platser_clean.csv")
+    df_b = pd.read_csv("src/data/bostader_clean.csv")
+    df_pr = pd.read_csv("src/data/priser_clean.csv")
+    load(df_b, df_pr, df_p)
