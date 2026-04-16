@@ -11,7 +11,7 @@ def get_nearby_places(lat, lon, radius=1500):
     query = f"""
     [out:json];
     (
-      node[node["amenity"~"school|restaurant|bar|cafe|pharmacy|library|place_of_worship|hospital"](around:{radius},{lat},{lon});
+      node["amenity"~"school|restaurant|bar|cafe|pharmacy|library|place_of_worship|hospital"](around:{radius},{lat},{lon});
       node["leisure"~"park|fitness_centre|playground"](around:{radius},{lat},{lon});
       node["shop"~"supermarket|mall"](around:{radius},{lat},{lon});
       node["highway"="bus_stop"](around:{radius},{lat},{lon});

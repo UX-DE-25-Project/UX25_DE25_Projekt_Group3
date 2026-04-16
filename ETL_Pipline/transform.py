@@ -36,9 +36,18 @@ def transform(df: pd.DataFrame, scb_stats=None, osm_data=None):
         print("SCB-data integrerad i platser.")
         pop_map = {}
         for stad, info in scb_stats.items():
-            val = info.get("folkmangd")
-            pop_val = val if isinstance(val, list) else val
-            pop_map[stad] = int(pop_val) if pop_val and pop_val != "N/A" else None
+            pop_val = info.get("folkmangd")
+            
+            if isinstance(pop_val, list) and len(pop_val) > 0:
+                pop_val = pop_val
+
+            try:
+                if pop_val is not None and str(pop_val).strip() != "N/A":
+                    pop_map[stad] = int(str(pop_val).replace(" ", ""))
+                else:
+                    pop_map[stad] = None
+            except (ValueError, TypeError):
+                pop_map[stad] = None
 
         df_platser["kommun_befolkning"] = df_platser["stad"].map(pop_map).astype("Int64")
 
@@ -94,11 +103,10 @@ def transform(df: pd.DataFrame, scb_stats=None, osm_data=None):
 
     return df_bostader, df_priser, df_platser
 
-# Lokal test av transform-funktionen
-
 if __name__ == "__main__":
     from extract import extract
-    
+
+    # Lokal test av transform-funktionen
     df_raw = extract("../src/data/bostader.json")
     
     # Ladda SCB
@@ -107,7 +115,14 @@ if __name__ == "__main__":
             scb_data = json.load(f)
     except FileNotFoundError:
         scb_data = None
-        
+
+    # Ladda OSM
+    try:
+        with open("../src/data/osm_data.json", "r", encoding="utf-8") as f:
+            osm_data = json.load(f)
+    except FileNotFoundError:
+        osm_data = None
+
     # Ladda OSM (Ex: hur mock-data kan se ut under utveckling...)
     # Laddas in från en fil genererat via api:et
     mock_osm_data = {
@@ -115,7 +130,7 @@ if __name__ == "__main__":
         "123": [{"category": "Kollektivtrafik"}, {"category": "Kollektivtrafik"}, {"category": "Mat & Shopping"}]
     }
     
-    df_bostader, df_priser, df_platser = transform(df_raw)
+    df_bostader, df_priser, df_platser = transform(df_raw, scb_stats=scb_data, osm_data=mock_osm_data)
 
     df_platser.to_csv("platser.csv", index=False)
     df_bostader.to_csv("bostader.csv", index=False)
