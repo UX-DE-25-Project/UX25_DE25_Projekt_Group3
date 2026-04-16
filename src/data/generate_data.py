@@ -47,7 +47,6 @@ koordinater = {
     "Bromma":      {"lat": 59.3370, "lon": 17.9400},
     "Farsta":      {"lat": 59.2430, "lon": 18.0940},
     "Spånga":      {"lat": 59.3830, "lon": 17.9010},
-    #lägger den biten - ska dubbel kolla om den är fonktionell 
     "Centrum":     {"lat": 57.7089, "lon": 11.9746},
     "Hisingen":    {"lat": 57.7300, "lon": 11.9000},
     "Majorna":     {"lat": 57.6990, "lon": 11.9330},
@@ -119,4 +118,4 @@ with open("src/data/bostader.json", "w", encoding="utf-8") as f:
     json.dump(bostäder, f, ensure_ascii=False, indent=2)
 
 print("1000 bostäder genererade och sparade i src/data/bostader.json")
-print(f"Data redo för Supabase, inkluderar 'avgift', 365 dagars historik mm.")
+print(f"Data redo för Supabase, inkluderar 'avgift', 365 dagars historik mm.") 
