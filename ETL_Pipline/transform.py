@@ -45,13 +45,42 @@ def transform(df: pd.DataFrame, scb_stats=None, osm_data=None):
     # Koppla plats_id tillbaka till huvudtabellen
     df = df.merge(df_platser, on=["område", "stad"], how="left")
 
-    # ── Tabell 2: bostader ─────────────────────────────
+    # ── Tabell 2: bostader (+ OSM) ─────────────────────────────
     df_bostader = df[[
         "id", "typ", "upplåtelseform", "rum", "boyta",
         "boyta_enhet", "tillgänglig", "created_at",
         "adress", "lat", "lon", "plats_id"
-    ]]
+    ]].copy()
 
+    # OSM-data: Skapa kolumner för Points of Interest
+    if osm_data:
+        print("OSM-data integrerad i bostäder.")
+
+        # Kolumner med 0 som standardvärde
+        kategorier = ["Kollektivtrafik", "Utbildning & Kultur", "Mat & Shopping", "Fritid", "Religion & Tro", "Hälsa", "Övrigt"]
+        for cat in kategorier:
+            # Snygga till kolumnnamn
+            col_name = "poi_" + cat.lower().replace(" & ", "_").replace("ä", "a").replace("ö", "o").replace(" ", "_") 
+            df_bostader[col_name] = 0
+
+        # Data baserat på bostadens ID
+        for bostad_id, places in osm_data.items():
+            if not places: continue
+
+            # Antalet platser per kategori för just denna bostad
+            cat_counts = {}
+            for p in places:
+                c = p.get("category")
+                cat_counts[c] = cat_counts.get(c, 0) + 1
+                
+            # Uppdatera rätt rad i DF
+            idx = df_bostader.index[df_bostader['id'] == int(bostad_id)]
+            if not idx.empty:
+                for cat, count in cat_counts.items():
+                    col_name = "poi_" + cat.lower().replace(" & ", "_").replace(" ", "_").replace("ä", "a").replace("ö", "o")
+                    if col_name in df_bostader.columns:
+                        df_bostader.loc[idx, col_name] = count
+                
     # ── Tabell 3: priser ───────────────────────────────
     df_priser = df[[
         "id", "pris", "avgift",
@@ -65,14 +94,31 @@ def transform(df: pd.DataFrame, scb_stats=None, osm_data=None):
 
     return df_bostader, df_priser, df_platser
 
+# Lokal test av transform-funktionen
 
 if __name__ == "__main__":
     from extract import extract
+    
     df_raw = extract("../src/data/bostader.json")
+    
+    # Ladda SCB
+    try:
+        with open("../src/data/scb_stats.json", "r", encoding="utf-8") as f:
+            scb_data = json.load(f)
+    except FileNotFoundError:
+        scb_data = None
+        
+    # Ladda OSM (Ex: hur mock-data kan se ut under utveckling...)
+    # Laddas in från en fil genererat via api:et
+    mock_osm_data = {
+        # Exempeldata: bostad med id 123 har 3 närliggande platser, varav 2 är kollektivtrafik och 1 är mat & shopping
+        "123": [{"category": "Kollektivtrafik"}, {"category": "Kollektivtrafik"}, {"category": "Mat & Shopping"}]
+    }
+    
     df_bostader, df_priser, df_platser = transform(df_raw)
 
     df_platser.to_csv("platser.csv", index=False)
     df_bostader.to_csv("bostader.csv", index=False)
     df_priser.to_csv("priser.csv", index=False)
 
-    print("CSV:er sparade: platser.csv, bostader.csv, priser.csv")
+    print("CSV:er sparade lokalt: platser.csv, bostader.csv, priser.csv")
