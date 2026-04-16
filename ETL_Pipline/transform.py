@@ -1,6 +1,7 @@
 import pandas as pd
+import json
 
-def transform(df: pd.DataFrame):
+def transform(df: pd.DataFrame, scb_stats=None, osm_data=None):
     # Byt namn på kolumner
     df = df.rename(columns={
         "latitude": "lat",
@@ -23,12 +24,23 @@ def transform(df: pd.DataFrame):
     df["upplåtelseform"]   = df["upplåtelseform"].str.lower().str.strip()
     df["område"]           = df["område"].str.strip()
     df["stad"]             = df["stad"].str.strip()
+    
     df = df.dropna(subset=["pris", "lat", "lon", "område", "stad"])
     df = df.drop_duplicates(subset=["id"])
 
     # ── Tabell 1: platser ──────────────────────────────
     df_platser = df[["område", "stad"]].drop_duplicates().reset_index(drop=True)
     df_platser["plats_id"] = df_platser.index + 1
+
+    if scb_stats:
+        print("SCB-data integrerad i platser.")
+        pop_map = {}
+        for stad, info in scb_stats.items():
+            val = info.get("folkmangd")
+            pop_val = val if isinstance(val, list) else val
+            pop_map[stad] = int(pop_val) if pop_val and pop_val != "N/A" else None
+
+        df_platser["kommun_befolkning"] = df_platser["stad"].map(pop_map).astype("Int64")
 
     # Koppla plats_id tillbaka till huvudtabellen
     df = df.merge(df_platser, on=["område", "stad"], how="left")
