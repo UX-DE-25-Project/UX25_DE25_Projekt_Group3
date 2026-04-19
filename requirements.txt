@@ -1,0 +1,10 @@
+dotenv
+duckdb
+json
+matplotlib
+os
+pandas
+python-dotenv
+requests
+seaborn
+#supabase
