@@ -1,6 +1,7 @@
 import pandas as pd
+import json
 
-def transform(df: pd.DataFrame):
+def transform(df: pd.DataFrame, scb_stats=None, osm_data=None):
     # Byt namn på kolumner
     df = df.rename(columns={
         "latitude": "lat",
@@ -23,6 +24,7 @@ def transform(df: pd.DataFrame):
     df["upplåtelseform"]   = df["upplåtelseform"].str.lower().str.strip()
     df["område"]           = df["område"].str.strip()
     df["stad"]             = df["stad"].str.strip()
+    
     df = df.dropna(subset=["pris", "lat", "lon", "område", "stad"])
     df = df.drop_duplicates(subset=["id"])
 
@@ -30,16 +32,64 @@ def transform(df: pd.DataFrame):
     df_platser = df[["område", "stad"]].drop_duplicates().reset_index(drop=True)
     df_platser["plats_id"] = df_platser.index + 1
 
+    if scb_stats:
+        print("SCB-data integrerad i platser.")
+        pop_map = {}
+        for stad, info in scb_stats.items():
+            pop_val = info.get("folkmangd")
+            
+            if isinstance(pop_val, list) and len(pop_val) > 0:
+                pop_val = pop_val
+
+            try:
+                if pop_val is not None and str(pop_val).strip() != "N/A":
+                    pop_map[stad] = int(str(pop_val).replace(" ", ""))
+                else:
+                    pop_map[stad] = None
+            except (ValueError, TypeError):
+                pop_map[stad] = None
+
+        df_platser["kommun_befolkning"] = df_platser["stad"].map(pop_map).astype("Int64")
+
     # Koppla plats_id tillbaka till huvudtabellen
     df = df.merge(df_platser, on=["område", "stad"], how="left")
 
-    # ── Tabell 2: bostader ─────────────────────────────
+    # ── Tabell 2: bostader (+ OSM) ─────────────────────────────
     df_bostader = df[[
         "id", "typ", "upplåtelseform", "rum", "boyta",
         "boyta_enhet", "tillgänglig", "created_at",
         "adress", "lat", "lon", "plats_id"
-    ]]
+    ]].copy()
 
+    # OSM-data: Skapa kolumner för Points of Interest
+    if osm_data:
+        print("OSM-data integrerad i bostäder.")
+
+        # Kolumner med 0 som standardvärde
+        kategorier = ["Kollektivtrafik", "Utbildning & Kultur", "Mat & Shopping", "Fritid", "Religion & Tro", "Hälsa", "Övrigt"]
+        for cat in kategorier:
+            # Snygga till kolumnnamn
+            col_name = "poi_" + cat.lower().replace(" & ", "_").replace("ä", "a").replace("ö", "o").replace(" ", "_") 
+            df_bostader[col_name] = 0
+
+        # Data baserat på bostadens ID
+        for bostad_id, places in osm_data.items():
+            if not places: continue
+
+            # Antalet platser per kategori för just denna bostad
+            cat_counts = {}
+            for p in places:
+                c = p.get("category")
+                cat_counts[c] = cat_counts.get(c, 0) + 1
+                
+            # Uppdatera rätt rad i DF
+            idx = df_bostader.index[df_bostader['id'] == int(bostad_id)]
+            if not idx.empty:
+                for cat, count in cat_counts.items():
+                    col_name = "poi_" + cat.lower().replace(" & ", "_").replace(" ", "_").replace("ä", "a").replace("ö", "o")
+                    if col_name in df_bostader.columns:
+                        df_bostader.loc[idx, col_name] = count
+                
     # ── Tabell 3: priser ───────────────────────────────
     df_priser = df[[
         "id", "pris", "avgift",
@@ -53,14 +103,37 @@ def transform(df: pd.DataFrame):
 
     return df_bostader, df_priser, df_platser
 
-
 if __name__ == "__main__":
     from extract import extract
+
+    # Lokal test av transform-funktionen
     df_raw = extract("../src/data/bostader.json")
-    df_bostader, df_priser, df_platser = transform(df_raw)
+    
+    # Ladda SCB
+    try:
+        with open("../src/data/scb_stats.json", "r", encoding="utf-8") as f:
+            scb_data = json.load(f)
+    except FileNotFoundError:
+        scb_data = None
+
+    # Ladda OSM
+    try:
+        with open("../src/data/osm_data.json", "r", encoding="utf-8") as f:
+            osm_data = json.load(f)
+    except FileNotFoundError:
+        osm_data = None
+
+    # Ladda OSM (Ex: hur mock-data kan se ut under utveckling...)
+    # Laddas in från en fil genererat via api:et
+    mock_osm_data = {
+        # Exempeldata: bostad med id 123 har 3 närliggande platser, varav 2 är kollektivtrafik och 1 är mat & shopping
+        "123": [{"category": "Kollektivtrafik"}, {"category": "Kollektivtrafik"}, {"category": "Mat & Shopping"}]
+    }
+    
+    df_bostader, df_priser, df_platser = transform(df_raw, scb_stats=scb_data, osm_data=mock_osm_data)
 
     df_platser.to_csv("platser.csv", index=False)
     df_bostader.to_csv("bostader.csv", index=False)
     df_priser.to_csv("priser.csv", index=False)
 
-    print("CSV:er sparade: platser.csv, bostader.csv, priser.csv")
+    print("CSV:er sparade lokalt: platser.csv, bostader.csv, priser.csv")
