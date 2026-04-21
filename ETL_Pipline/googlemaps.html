@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <title>RightHome - Karta med filtrering</title>
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; height: 100vh; display: flex; flex-direction: column; }
+        .header { background: #1A2E4A; color: white; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 24px; font-weight: bold; }
+        .logo span { color: #E8735A; }
+        .filter-bar {
+            background: white;
+            padding: 10px 20px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            border-bottom: 1px solid #ddd;
+            z-index: 1;
+        }
+        .filter-btn {
+            background: #F5F0E8;
+            border: 1px solid #ddd;
+            padding: 8px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+        .filter-btn:hover, .filter-btn.active {
+            background: #E8735A;
+            color: white;
+            border-color: #E8735A;
+        }
+        .map-container { flex: 1; position: relative; }
+        #map { width: 100%; height: 100%; }
+        .info-panel {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(255,255,255,0.9);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            z-index: 1000;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">Right<span>Home</span></div>
+        <div>Hitta din nya bostad</div>
+    </div>
+
+    <div class="filter-bar">
+        <button class="filter-btn" data-type="bostader">Bara bostäder</button>
+        <button class="filter-btn active" data-type="all">Alla platser</button>
+        <button class="filter-btn" data-type="gym">Gym</button>
+        <button class="filter-btn" data-type="school">Skola</button>
+        <button class="filter-btn" data-type="library">Bibliotek</button>
+        <button class="filter-btn" data-type="supermarket">Mataffär</button>
+        <button class="filter-btn" data-type="pharmacy">Apotek</button>
+    </div>
+
+    <div class="map-container">
+        <div id="map"></div>
+        <div class="info-panel" id="infoPanel">Laddar data...</div>
+    </div>
+
+    <script>
+        let map;
+        let bostadMarkers = [];
+        let placeMarkers = [];
+        let allBostader = [];
+        let currentPlacesService = null;
+        let currentType = 'all';
+
+        function initMap() {
+            map = new google.maps.Map(document.getElementById("map"), {
+                center: { lat: 59.3293, lng: 18.0686 },
+                zoom: 11
+            });
+            currentPlacesService = new google.maps.places.PlacesService(map);
+            loadData();
+        }
+
+        function parseCSV(file) {
+            return new Promise((resolve, reject) => {
+                Papa.parse(file, {
+                    download: true,
+                    header: true,
+                    skipEmptyLines: true,
+                    complete: results => resolve(results.data),
+                    error: err => reject(err)
+                });
+            });
+        }
+
+        async function loadData() {
+            try {
+                const [bostader, priser, platser] = await Promise.all([
+                    parseCSV("bostader.csv"),
+                    parseCSV("priser.csv"),
+                    parseCSV("platser.csv")
+                ]);
+
+                const prisMap = {};
+                priser.forEach(p => prisMap[p.bostad_id] = p.pris);
+
+                const platsMap = {};
+                platser.forEach(pl => platsMap[pl.plats_id] = pl.stad);
+
+                allBostader = bostader
+                    .filter(b => b.lat && b.lon && parseFloat(b.lat) !== 0)
+                    .map(b => ({
+                        ...b,
+                        pris: prisMap[b.id] || "Pris saknas",
+                        stad: platsMap[b.plats_id] || "Okänd stad"
+                    }));
+
+                document.getElementById('infoPanel').innerHTML = allBostader.length + ' bostäder laddade från tre källfiler';
+                addBostadMarkers(allBostader);
+                
+                if (currentType === 'all') searchAll();
+
+            } catch (error) {
+                console.error("Fel vid laddning av CSV-filer:", error);
+                document.getElementById('infoPanel').innerHTML = "Fel vid laddning av filer. Kontrollera filnamnen.";
+            }
+        }
+
+                function addBostadMarkers(bostader) {
+            bostadMarkers.forEach(m => m.setMap(null));
+            bostadMarkers = [];
+            
+            bostader.slice(0, 250).forEach(b => {
+                let lat = parseFloat(b.lat);
+                let lng = parseFloat(b.lon);
+                
+                if (!isNaN(lat) && !isNaN(lng)) {
+                    let marker = new google.maps.Marker({
+                        position: { lat: lat, lng: lng },
+                        map: map,
+                        icon: {
+                            url: "http://maps.google.com/mapfiles/ms/icons/red-dot.png"
+                        }
+                    });
+
+                    let prisFormaterat = !isNaN(b.pris) ? parseInt(b.pris).toLocaleString() + ' kr' : b.pris;
+
+                    let info = new google.maps.InfoWindow({
+                        content: `
+                            <div style="padding:10px; font-family: sans-serif;">
+                                <strong style="font-size:14px;">${b.adress}</strong><br>
+                                <span style="color:#666;">${b.stad}</span><br>
+                                <hr style="margin:5px 0; border:0; border-top:1px solid #eee;">
+                                ${b.rum} rum, ${b.boyta} ${b.boyta_enhet || 'kvm'}<br>
+                                <strong style="color:#E8735A; font-size:15px;">${prisFormaterat}</strong>
+                            </div>`
+                    });
+
+                    marker.addListener("click", () => {
+                        info.open(map, marker);
+                    });
+                    bostadMarkers.push(marker);
+                }
+            });
+        }
+
+        function clearPlaces() {
+            placeMarkers.forEach(m => m.setMap(null));
+            placeMarkers = [];
+        }
+
+        function addPlaces(places, type, color) {
+            places.forEach(place => {
+                if (!place.geometry) return;
+                let marker = new google.maps.Marker({
+                    position: place.geometry.location,
+                    map: map,
+                    icon: `http://maps.google.com/mapfiles/ms/icons/${color}-dot.png`
+                });
+                let info = new google.maps.InfoWindow({
+                    content: `<div style="padding:10px"><strong>${place.name}</strong><br>${place.vicinity || ''}<br><span style="color:#E8735A">${type}</span></div>`
+                });
+                marker.addListener("click", () => info.open(map, marker));
+                placeMarkers.push(marker);
+            });
+        }
+
+        function searchAll() {
+            if (!currentPlacesService) return;
+            clearPlaces();
+            let bounds = map.getBounds();
+            if (!bounds) return;
+            
+            let types = ['gym', 'school', 'library', 'supermarket', 'pharmacy'];
+            let colors = ['orange', 'purple', 'blue', 'green', 'pink'];
+            let names = ['Gym', 'Skola', 'Bibliotek', 'Mataffär', 'Apotek'];
+            
+            types.forEach((t, i) => {
+                currentPlacesService.nearbySearch({ bounds: bounds, type: t }, (results, status) => {
+                    if (status === 'OK' && results.length) {
+                        addPlaces(results, names[i], colors[i]);
+                    }
+                });
+            });
+        }
+
+        function searchType(type, name, color) {
+            if (!currentPlacesService) return;
+            clearPlaces();
+            let bounds = map.getBounds();
+            if (!bounds) return;
+            
+            currentPlacesService.nearbySearch({ bounds: bounds, type: type }, (results, status) => {
+                if (status === 'OK' && results.length) {
+                    addPlaces(results, name, color);
+                    document.getElementById('infoPanel').innerHTML = results.length + ' st ' + name + ' + ' + allBostader.length + ' bostäder';
+                } else {
+                    document.getElementById('infoPanel').innerHTML = 'Inga ' + name + ' hittades.';
+                }
+            });
+        }
+
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentType = btn.getAttribute('data-type');
+                
+                if (currentType === 'bostader') {
+                    clearPlaces();
+                    document.getElementById('infoPanel').innerHTML = allBostader.length + ' bostäder';
+                } else if (currentType === 'all') {
+                    searchAll();
+                } else {
+                    const colors = {gym: 'orange', school: 'purple', library: 'blue', supermarket: 'green', pharmacy: 'pink'};
+                    const names = {gym: 'Gym', school: 'Skola', library: 'Bibliotek', supermarket: 'Mataffär', pharmacy: 'Apotek'};
+                    searchType(currentType, names[currentType], colors[currentType]);
+                }
+            });
+        });
+
+        window.initMap = initMap;
+    </script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD6s0xeoS3rrEFMZUr2ToMEVp0l7F0tf_8&libraries=places&callback=initMap" async defer></script>
+</body>
+</html>
