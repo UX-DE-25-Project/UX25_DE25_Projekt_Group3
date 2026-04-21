@@ -34,22 +34,37 @@ def transform(df: pd.DataFrame, scb_stats=None, osm_data=None):
 
     if scb_stats:
         print("SCB-data integrerad i platser.")
+        # DEBUG
+        print(f"DEBUG Sthlm: {scb_stats.get('Stockholm')}")
+
         pop_map = {}
-        for stad, info in scb_stats.items():
-            pop_val = info.get("folkmangd")
-            
+        for key, info in scb_stats.items():
+            clean_key = str(key).lower().replace("kommun", "").strip()
+
+            pop_val = None
+
+            # Om JSON-filen bara är {"Stockholm": 995574}
+            if isinstance(info, (int, str, float)):
+                pop_val = info
+
+            # Om JSON-filen är en dictionary {"Stockholm": {"folkmangd": 995574}}
+            elif isinstance(info, dict):
+                pop_val = info.get("folkmangd") or info.get("folkmängd") or info.get("befolkning") or info.get("Population")
+                
             if isinstance(pop_val, list) and len(pop_val) > 0:
-                pop_val = pop_val
+                pop_val = pop_val[0] # Första värdet i listan
 
             try:
                 if pop_val is not None and str(pop_val).strip() != "N/A":
-                    pop_map[stad] = int(str(pop_val).replace(" ", ""))
-                else:
-                    pop_map[stad] = None
+                    clean_pop = str(pop_val).replace(" ", "").replace("\xa0", "")
+                    pop_map[clean_key] = int(clean_pop)
             except (ValueError, TypeError):
-                pop_map[stad] = None
+                continue
 
-        df_platser["kommun_befolkning"] = df_platser["stad"].map(pop_map).astype("Int64")
+        df_platser["kommun_befolkning"] = df_platser["stad"].str.lower().str.replace("kommun", "").str.strip().map(pop_map).astype("Int64")
+
+        hits = df_platser["kommun_befolkning"].notna().sum()
+        print(f"   SCB-data matchade {hits} av {len(df_platser)} platser.")
 
     # Koppla plats_id tillbaka till huvudtabellen
     df = df.merge(df_platser, on=["område", "stad"], how="left")
