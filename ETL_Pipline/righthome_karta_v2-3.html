@@ -37,6 +37,8 @@
         let mapReady = false;
         let dataReady = false;
 
+        const BASE = "https://ux-de-25-project.github.io/UX25_DE25_Projekt_Group3/ETL_Pipline/";
+
         const urlParams = new URLSearchParams(window.location.search);
         const currentType = urlParams.get('service') || 'all';
 
@@ -61,9 +63,7 @@
 
         function tryApplyFilter() {
             if (!mapReady || !dataReady) return;
-            if (currentType !== 'bostader') {
-                applyServiceFilter(currentType);
-            }
+            if (currentType !== 'bostader') applyServiceFilter(currentType);
         }
 
         function loadData() {
@@ -79,7 +79,7 @@
                 tryApplyFilter();
             }
 
-            Papa.parse("ETL_Pipline/platser.csv", {
+            Papa.parse(BASE + "platser.csv", {
                 download: true, header: true,
                 complete: function(results) {
                     results.data.forEach(p => {
@@ -90,7 +90,7 @@
                 error: function() { platserLoaded = true; tryStart(); }
             });
 
-            Papa.parse("ETL_Pipline/priser.csv", {
+            Papa.parse(BASE + "priser.csv", {
                 download: true, header: true,
                 complete: function(results) {
                     results.data.forEach(p => {
@@ -101,7 +101,7 @@
                 error: function() { priserLoaded = true; tryStart(); }
             });
 
-            Papa.parse("ETL_Pipline/bostader.csv", {
+            Papa.parse(BASE + "bostader.csv", {
                 download: true, header: true,
                 complete: function(results) {
                     allBostader = results.data.filter(b => b.adress && b.lat && b.lon && parseFloat(b.lat) !== 0);
@@ -185,7 +185,6 @@
         function applyServiceFilter(type) {
             clearPlaces();
             if (!placesService) return;
-
             let bounds = map.getBounds();
             if (!bounds) return;
 
