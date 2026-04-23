@@ -26,11 +26,55 @@
             pointer-events: none;
             font-family: 'Segoe UI', Arial, sans-serif;
         }
+        .service-buttons {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(255,255,255,0.95);
+            padding: 10px;
+            border-radius: 12px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+            z-index: 1000;
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            max-width: 300px;
+            pointer-events: auto;
+        }
+        .service-buttons button {
+            background: #f0f0f0;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+        .service-buttons button.active {
+            background: #E8735A;
+            color: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+        .service-buttons button:hover {
+            background: #ddd;
+        }
     </style>
 </head>
 <body>
     <div id="map"></div>
     <div class="info-panel" id="infoPanel">Laddar bostäder...</div>
+    <div class="service-buttons" id="serviceButtons">
+        <button data-service="all">Alla tjänster</button>
+        <button data-service="gym">Gym</button>
+        <button data-service="supermarket">Matbutik</button>
+        <button data-service="restaurant">Restaurang</button>
+        <button data-service="school">Skola</button>
+        <button data-service="library">Bibliotek</button>
+        <button data-service="transit_station">Kollektivtrafik</button>
+    </div>
 
     <script>
         let map;
@@ -107,7 +151,51 @@
                 google.maps.event.trigger(map, 'resize');
             });
             
+            setupButtons();
             loadData();
+        }
+        
+        function setupButtons() {
+            const buttons = document.querySelectorAll('#serviceButtons button');
+            buttons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const service = this.dataset.service;
+                    if (service === 'all') {
+                        activeServices = Object.keys(config);
+                        updateButtonUI('all');
+                    } else {
+                        if (activeServices.includes(service)) {
+                            activeServices = activeServices.filter(s => s !== service);
+                        } else {
+                            activeServices.push(service);
+                        }
+                        updateButtonUI();
+                    }
+                    if (mapReady && dataReady) {
+                        applyServicesFilter(activeServices);
+                    }
+                });
+            });
+        }
+        
+        function updateButtonUI(activeAll = false) {
+            const buttons = document.querySelectorAll('#serviceButtons button');
+            buttons.forEach(btn => {
+                const service = btn.dataset.service;
+                if (activeAll === 'all' || (service === 'all' && activeAll === 'all')) {
+                    if (service === 'all') {
+                        btn.classList.add('active');
+                    } else {
+                        btn.classList.remove('active');
+                    }
+                } else if (service === 'all') {
+                    btn.classList.remove('active');
+                } else if (activeServices.includes(service)) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
         }
         
         function tryApplyFilter() {
@@ -254,7 +342,7 @@
         
         function applyServicesFilter(serviceTypes) {
             clearPlaces();
-            if (!placesService) return;
+            if (!placesService || serviceTypes.length === 0) return;
             let bounds = map.getBounds();
             if (!bounds) return;
             
@@ -269,19 +357,7 @@
             });
         }
         
-        function toggleService(serviceType) {
-            if (activeServices.includes(serviceType)) {
-                activeServices = activeServices.filter(s => s !== serviceType);
-            } else {
-                activeServices.push(serviceType);
-            }
-            if (mapReady && dataReady) {
-                applyServicesFilter(activeServices);
-            }
-        }
-        
         window.initMap = initMap;
-        window.toggleService = toggleService;
     </script>
     
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdh424dxbddWDKWygYygc3s94jXYjl-5E&libraries=places,geocoding&callback=initMap" async defer></script>
