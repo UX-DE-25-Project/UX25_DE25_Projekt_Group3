@@ -2,14 +2,20 @@
 <html lang="sv">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RightHome Karta</title>
     <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html, body { width: 100%; height: 100%; overflow: hidden; }
-        #map { width: 100%; height: 100%; }
+        #map {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
+        }
         .info-panel {
-            position: absolute;
+            position: fixed;
             bottom: 20px;
             left: 20px;
             background: rgba(255,255,255,0.9);
@@ -34,13 +40,25 @@
         let platserMap = {};
         let priserMap = {};
         let placesService = null;
+        let geocoder = null;
         let mapReady = false;
         let dataReady = false;
 
         const BASE = "https://ux-de-25-project.github.io/UX25_DE25_Projekt_Group3/ETL_Pipline/";
 
         const urlParams = new URLSearchParams(window.location.search);
-        const currentType = urlParams.get('service') || 'all';
+        const currentType = urlParams.get('service') || 'bostader';
+        const currentCity = urlParams.get('city') || 'Stockholm';
+
+        // 6 tjänster utan apotek
+        const config = {
+            gym:             { name: 'Gym',             color: 'orange' },
+            school:          { name: 'Skola',           color: 'purple' },
+            library:         { name: 'Bibliotek',       color: 'blue'   },
+            supermarket:     { name: 'Matbutik',        color: 'green'  },
+            transit_station: { name: 'Kollektivtrafik', color: 'yellow' },
+            restaurant:      { name: 'Restaurang',      color: 'red'    }
+        };
 
         function initMap() {
             map = new google.maps.Map(document.getElementById("map"), {
@@ -52,10 +70,24 @@
             });
 
             placesService = new google.maps.places.PlacesService(map);
+            geocoder = new google.maps.Geocoder();
+
+            if (currentCity && currentCity !== 'Stockholm') {
+                geocoder.geocode({ address: currentCity + ', Sverige' }, function(results, status) {
+                    if (status === 'OK' && results[0]) {
+                        map.setCenter(results[0].geometry.location);
+                        map.setZoom(13);
+                    }
+                });
+            }
 
             google.maps.event.addListenerOnce(map, 'bounds_changed', function() {
                 mapReady = true;
                 tryApplyFilter();
+            });
+
+            google.maps.event.addListenerOnce(map, 'idle', function() {
+                google.maps.event.trigger(map, 'resize');
             });
 
             loadData();
@@ -118,7 +150,19 @@
             bostadMarkers.forEach(m => m.setMap(null));
             bostadMarkers = [];
 
-            bostader.slice(0, 300).forEach(b => {
+            let filteredBostader = bostader;
+            if (currentCity && currentCity !== 'Stockholm') {
+                filteredBostader = bostader.filter(b => {
+                    let plats = platserMap[b.plats_id] || {};
+                    let cityLower = currentCity.toLowerCase();
+                    return (plats.område && plats.område.toLowerCase().includes(cityLower)) ||
+                           (plats.stad && plats.stad.toLowerCase().includes(cityLower)) ||
+                           (b.stad && b.stad.toLowerCase().includes(cityLower));
+                });
+                if (filteredBostader.length === 0) filteredBostader = bostader;
+            }
+
+            filteredBostader.slice(0, 300).forEach(b => {
                 let lat = parseFloat(b.lat);
                 let lng = parseFloat(b.lon);
                 if (isNaN(lat) || isNaN(lng)) return;
@@ -188,14 +232,6 @@
             let bounds = map.getBounds();
             if (!bounds) return;
 
-            const config = {
-                gym:         { name: 'Gym',       color: 'orange' },
-                school:      { name: 'Skola',     color: 'purple' },
-                library:     { name: 'Bibliotek', color: 'blue'   },
-                supermarket: { name: 'Mataffär',  color: 'green'  },
-                pharmacy:    { name: 'Apotek',    color: 'pink'   }
-            };
-
             if (type === 'all') {
                 Object.entries(config).forEach(([t, cfg]) => {
                     placesService.nearbySearch({ bounds, type: t }, (results, status) => {
@@ -212,6 +248,6 @@
         window.initMap = initMap;
     </script>
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdh424dxbddWDKWygYygc3s94jXYjl-5E&libraries=places&callback=initMap" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdh424dxbddWDKWygYygc3s94jXYjl-5E&libraries=places,geocoding&callback=initMap" async defer></script>
 </body>
 </html>
