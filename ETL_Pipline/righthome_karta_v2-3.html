@@ -43,12 +43,12 @@
         let geocoder = null;
         let mapReady = false;
         let dataReady = false;
-        
         let infoWindow = null;
+        
+        let activeServices = [];
         
         const BASE = "https://ux-de-25-project.github.io/UX25_DE25_Projekt_Group3/ETL_Pipline/";
         const urlParams = new URLSearchParams(window.location.search);
-        const currentType = urlParams.get('service') || 'bostader';
         const currentCity = urlParams.get('city') || 'Stockholm';
         
         const config = {
@@ -70,9 +70,15 @@
             });
             
             infoWindow = new google.maps.InfoWindow();
-            
             placesService = new google.maps.places.PlacesService(map);
             geocoder = new google.maps.Geocoder();
+            
+            const serviceParam = urlParams.get('service');
+            if (serviceParam && serviceParam !== 'bostader') {
+                activeServices = serviceParam.split(',').map(s => s.trim());
+            } else if (serviceParam === 'bostader') {
+                activeServices = [];
+            }
             
             if (currentCity && currentCity !== 'Stockholm') {
                 geocoder.geocode({ address: currentCity + ', Sverige' }, function(results, status) {
@@ -106,7 +112,9 @@
         
         function tryApplyFilter() {
             if (!mapReady || !dataReady) return;
-            if (currentType !== 'bostader') applyServiceFilter(currentType);
+            if (activeServices.length > 0) {
+                applyServicesFilter(activeServices);
+            }
         }
         
         function loadData() {
@@ -244,26 +252,36 @@
             });
         }
         
-        function applyServiceFilter(type) {
+        function applyServicesFilter(serviceTypes) {
             clearPlaces();
             if (!placesService) return;
             let bounds = map.getBounds();
             if (!bounds) return;
             
-            if (type === 'all') {
-                Object.entries(config).forEach(([t, cfg]) => {
-                    placesService.nearbySearch({ bounds, type: t }, (results, status) => {
-                        if (status === 'OK' && results.length) addPlaces(results, cfg.name, cfg.color);
+            serviceTypes.forEach(type => {
+                if (config[type]) {
+                    placesService.nearbySearch({ bounds, type: type }, (results, status) => {
+                        if (status === 'OK' && results.length) {
+                            addPlaces(results, config[type].name, config[type].color);
+                        }
                     });
-                });
-            } else if (config[type]) {
-                placesService.nearbySearch({ bounds, type }, (results, status) => {
-                    if (status === 'OK' && results.length) addPlaces(results, config[type].name, config[type].color);
-                });
+                }
+            });
+        }
+        
+        function toggleService(serviceType) {
+            if (activeServices.includes(serviceType)) {
+                activeServices = activeServices.filter(s => s !== serviceType);
+            } else {
+                activeServices.push(serviceType);
+            }
+            if (mapReady && dataReady) {
+                applyServicesFilter(activeServices);
             }
         }
         
         window.initMap = initMap;
+        window.toggleService = toggleService;
     </script>
     
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdh424dxbddWDKWygYygc3s94jXYjl-5E&libraries=places,geocoding&callback=initMap" async defer></script>
