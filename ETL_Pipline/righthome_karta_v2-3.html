@@ -50,7 +50,6 @@
         const currentType = urlParams.get('service') || 'bostader';
         const currentCity = urlParams.get('city') || 'Stockholm';
 
-        // 6 tjänster utan apotek
         const config = {
             gym:             { name: 'Gym',             color: 'orange' },
             school:          { name: 'Skola',           color: 'purple' },
@@ -73,18 +72,31 @@
             geocoder = new google.maps.Geocoder();
 
             if (currentCity && currentCity !== 'Stockholm') {
+                // Zooma in på stad — vänta tills idle innan vi söker tjänster
                 geocoder.geocode({ address: currentCity + ', Sverige' }, function(results, status) {
                     if (status === 'OK' && results[0]) {
                         map.setCenter(results[0].geometry.location);
                         map.setZoom(13);
+                        // Vänta tills kartan är klar efter zoom
+                        google.maps.event.addListenerOnce(map, 'idle', function() {
+                            mapReady = true;
+                            tryApplyFilter();
+                        });
+                    } else {
+                        // Geocode misslyckades, använd Stockholm
+                        google.maps.event.addListenerOnce(map, 'idle', function() {
+                            mapReady = true;
+                            tryApplyFilter();
+                        });
                     }
                 });
+            } else {
+                // Stockholm — vänta på idle direkt
+                google.maps.event.addListenerOnce(map, 'idle', function() {
+                    mapReady = true;
+                    tryApplyFilter();
+                });
             }
-
-            google.maps.event.addListenerOnce(map, 'bounds_changed', function() {
-                mapReady = true;
-                tryApplyFilter();
-            });
 
             google.maps.event.addListenerOnce(map, 'idle', function() {
                 google.maps.event.trigger(map, 'resize');
