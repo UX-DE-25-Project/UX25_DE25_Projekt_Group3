@@ -11,7 +11,6 @@
         html, body { width: 100%; height: 100%; overflow: hidden; font-family: 'DM Sans', sans-serif; }
         #map { position: fixed; top: 0; left: 0; width: 100%; height: 100%; }
 
-        /* Info-panel */
         .info-panel {
             position: fixed; bottom: 24px; left: 20px;
             background: rgba(255,255,255,0.92); backdrop-filter: blur(10px);
@@ -21,7 +20,20 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.10);
         }
 
-        /* ── LEGEND ── */
+        /* Rensa rutt-knapp */
+        #clearRoute {
+            position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+            background: #E8735A; color: white;
+            border: none; padding: 8px 20px; border-radius: 999px;
+            font-size: 12px; font-weight: 600; cursor: pointer;
+            box-shadow: 0 2px 10px rgba(232,115,90,0.4);
+            z-index: 1000; display: none;
+            font-family: 'DM Sans', sans-serif;
+            transition: background 0.2s;
+        }
+        #clearRoute:hover { background: #d4634a; }
+
+        /* LEGEND */
         #legend {
             position: fixed; right: 16px; top: 50%;
             transform: translateY(-50%);
@@ -43,59 +55,57 @@
             margin-bottom: 6px; padding-bottom: 8px;
             border-bottom: 1px solid #efefef;
         }
-        .legend-row { display: flex; align-items: center; gap: 10px; padding: 5px 4px; border-radius: 10px; }
+        .legend-row { display: flex; align-items: center; gap: 10px; padding: 5px 4px; }
         .legend-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; box-shadow: 0 1px 4px rgba(0,0,0,0.22); }
         .legend-label { font-size: 12px; font-weight: 500; color: #333; white-space: nowrap; }
         .legend-divider { height: 1px; background: #efefef; margin: 4px 0; }
+        .legend-hint {
+            font-size: 10px; color: #aaa; margin-top: 6px;
+            padding-top: 6px; border-top: 1px solid #efefef;
+            line-height: 1.4;
+        }
 
-        /* ── POPUP ── */
+        /* POPUP */
         .rh-popup { font-family: 'DM Sans', sans-serif; width: 250px; overflow: hidden; }
-
         .rh-img-wrap {
             width: 100%; height: 140px; overflow: hidden;
             background: linear-gradient(135deg, #f7ede8 0%, #ede8f2 100%);
             display: flex; align-items: center; justify-content: center;
-            position: relative;
         }
-        .rh-img-wrap img {
-            width: 100%; height: 100%; object-fit: cover;
-            transition: transform 0.35s; display: block;
-        }
+        .rh-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.35s; display: block; }
         .rh-img-wrap img:hover { transform: scale(1.06); }
         .rh-no-img { font-size: 38px; opacity: 0.35; }
-
         .rh-body { padding: 11px 13px 13px; }
-        .rh-adress {
-            font-family: 'DM Serif Display', serif;
-            font-size: 15px; color: #1a1a1a;
-            line-height: 1.3; margin-bottom: 2px;
-        }
+        .rh-adress { font-family: 'DM Serif Display', serif; font-size: 15px; color: #1a1a1a; line-height: 1.3; margin-bottom: 2px; }
         .rh-stad { font-size: 11px; color: #999; margin-bottom: 7px; }
         .rh-pris { font-size: 17px; font-weight: 700; color: #E8735A; }
         .rh-avgift { font-size: 11px; color: #bbb; margin-top: 1px; }
-
         .rh-tags { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 8px; }
-        .rh-tag {
-            background: #e8dfd4; color: #222;
-            padding: 4px 12px; border-radius: 20px;
-            font-size: 12px; font-weight: 500;
-        }
+        .rh-tag { background: #e8dfd4; color: #222; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 500; }
 
-        /* ── AVSTÅND i popup ── */
-        .rh-distances {
-            margin-top: 10px; padding-top: 10px;
-            border-top: 1px solid #f0ece8;
+        /* Rutt-knappar i popup */
+        .rh-routes { margin-top: 10px; padding-top: 10px; border-top: 1px solid #f0ece8; }
+        .rh-routes-title { font-size: 10px; font-weight: 600; color: #aaa; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 7px; }
+        .rh-route-btn {
+            display: flex; align-items: center; gap: 8px;
+            width: 100%; background: #f8f4f2; border: none;
+            padding: 7px 10px; border-radius: 10px; margin-bottom: 5px;
+            cursor: pointer; transition: background 0.15s;
+            font-family: 'DM Sans', sans-serif; text-align: left;
         }
-        .rh-dist-title {
-            font-size: 10px; font-weight: 600; color: #aaa;
-            text-transform: uppercase; letter-spacing: 0.06em;
-            margin-bottom: 6px;
-        }
+        .rh-route-btn:hover { background: #f0e8e4; }
+        .rh-route-btn:last-child { margin-bottom: 0; }
+        .rh-route-icon { font-size: 16px; width: 22px; text-align: center; }
+        .rh-route-info { flex: 1; }
+        .rh-route-name { font-size: 12px; font-weight: 600; color: #333; }
+        .rh-route-detail { font-size: 10px; color: #aaa; margin-top: 1px; }
+        .rh-route-arrow { font-size: 12px; color: #E8735A; }
+
+        /* Avstånd-sektion */
+        .rh-distances { margin-top: 10px; padding-top: 10px; border-top: 1px solid #f0ece8; }
+        .rh-dist-title { font-size: 10px; font-weight: 600; color: #aaa; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; }
         .rh-dist-loading { font-size: 11px; color: #bbb; font-style: italic; }
-        .rh-dist-service {
-            font-size: 10px; color: #E8735A; font-weight: 600;
-            margin-bottom: 3px; margin-top: 7px;
-        }
+        .rh-dist-service { font-size: 10px; color: #E8735A; font-weight: 600; margin-bottom: 3px; margin-top: 7px; }
         .rh-dist-row { display: flex; align-items: center; gap: 6px; margin-bottom: 3px; }
         .rh-dist-icon { font-size: 13px; width: 18px; text-align: center; }
         .rh-dist-val { font-size: 12px; color: #444; font-weight: 500; }
@@ -106,6 +116,7 @@
 
 <div id="map"></div>
 <div class="info-panel" id="infoPanel">Laddar bostäder…</div>
+<button id="clearRoute" onclick="rensaRutt()">✕ Rensa rutt</button>
 
 <!-- LEGEND -->
 <div id="legend">
@@ -116,12 +127,10 @@
     </div>
     <div class="legend-divider"></div>
     <div id="legend-services"></div>
+    <div class="legend-hint">💡 Klicka en bostad för att se rutt till närmaste tjänst</div>
 </div>
 
 <script>
-/* ════════════════════════════════════════
-   KONFIG
-   ════════════════════════════════════════ */
 const API_KEY = "AIzaSyCdh424dxbddWDKWygYygc3s94jXYjl-5E";
 
 const config = {
@@ -133,12 +142,20 @@ const config = {
     restaurant:      { name: 'Restaurang',      gmColor: 'red',    dot: '#E74C3C' }
 };
 
-const BASE         = "https://ux-de-25-project.github.io/UX25_DE25_Projekt_Group3/ETL_Pipline/";
-const urlParams    = new URLSearchParams(window.location.search);
-const currentCity  = urlParams.get('city')    || 'Stockholm';
-const serviceParam = urlParams.get('service') || '';
+/* Rutt-färger per transportsätt */
+const RUTT_FARGER = {
+    walking: '#27AE60',
+    transit: '#2980B9',
+    driving: '#E8735A'
+};
 
-let map, infoWindow, placesService, geocoder, distanceService;
+const BASE        = "https://ux-de-25-project.github.io/UX25_DE25_Projekt_Group3/ETL_Pipline/";
+const urlParams   = new URLSearchParams(window.location.search);
+const currentCity = urlParams.get('city')    || 'Stockholm';
+const serviceParam= urlParams.get('service') || '';
+
+let map, infoWindow, placesService, geocoder, distanceService, directionsService;
+let directionsRenderers = []; // flera rutter samtidigt
 let bostadMarkers = [], placeMarkers = [], allBostader = [];
 let platserMap = {}, priserMap = {};
 let mapReady = false, dataReady = false;
@@ -147,12 +164,7 @@ let aktivaPlatser = [];
 let activeServices = (serviceParam && serviceParam !== 'bostader')
     ? serviceParam.split(',').map(s => s.trim()).filter(s => config[s]) : [];
 
-/* ════════════════════════════════════════
-   BILD – samma logik som kollegans DAX
-   SWITCH(MOD(id, 5), 0,1,2,3,4)
-   Samma bild till samma bostad i både
-   rapporten och kartan ✅
-   ════════════════════════════════════════ */
+/* ── Kollegans bildlogik MOD(id,5) ── */
 function getBildUrl(id) {
     const bilder = [
         "https://www.bosthlm.se/image/resize/1920/0/images03/192/400128/1347761/highres/12305821.jpg",
@@ -164,34 +176,102 @@ function getBildUrl(id) {
     return bilder[parseInt(id) % 5];
 }
 
-/* ════════════════════════════════════════
-   POPUP
-   ════════════════════════════════════════ */
-function buildPopup(b, plats, pris) {
-    const prisText   = pris.pris
-        ? parseInt(pris.pris).toLocaleString('sv-SE') + ' kr' : 'Pris saknas';
+/* ── Rensa alla rutter från kartan ── */
+function rensaRutt() {
+    directionsRenderers.forEach(r => r.setMap(null));
+    directionsRenderers = [];
+    document.getElementById('clearRoute').style.display = 'none';
+}
+
+/* ── Rita rutt på kartan ── */
+function ritaRutt(origin, destination, travelMode, color) {
+    const renderer = new google.maps.DirectionsRenderer({
+        suppressMarkers: true,
+        polylineOptions: {
+            strokeColor: color,
+            strokeWeight: 4,
+            strokeOpacity: 0.8
+        }
+    });
+    renderer.setMap(map);
+    directionsRenderers.push(renderer);
+
+    directionsService.route({
+        origin,
+        destination,
+        travelMode: google.maps.TravelMode[travelMode.toUpperCase()]
+    }, (result, status) => {
+        if (status === 'OK') {
+            renderer.setDirections(result);
+            document.getElementById('clearRoute').style.display = 'block';
+        }
+    });
+}
+
+/* ── Bygg popup ── */
+function buildPopup(b, plats, pris, naermaste) {
+    const prisText   = pris.pris ? parseInt(pris.pris).toLocaleString('sv-SE') + ' kr' : 'Pris saknas';
     const avgiftText = pris.avgift && parseInt(pris.avgift) > 0
         ? parseInt(pris.avgift).toLocaleString('sv-SE') + ' kr/mån' : '';
     const stadText   = plats.stad
         ? plats.stad + (plats.område ? ' – ' + plats.område : '') : (b.stad || '');
 
-    /* Bild – kollegans MOD-logik */
     const bildUrl = getBildUrl(b.id || 0);
     const imgHtml = `<div class="rh-img-wrap">
         <img src="${bildUrl}" alt="Bostadsbild"
              onerror="this.src='https://media.brunnbergoforshed.se/2008/02/Brunnberg-Forshed-Arkitektkontor-AB-Ugglan-12.jpg'">
     </div>`;
 
-    /* Taggar – samma stil som kollegans HTMLKort */
     const tags = [];
-    if (b.rum)         tags.push(b.rum + ' rum');
-    if (b.boyta)       tags.push(b.boyta + ' ' + (b.boyta_enhet || 'm²'));
-    if (b.typ)         tags.push(b.typ);
+    if (b.rum)   tags.push(b.rum + ' rum');
+    if (b.boyta) tags.push(b.boyta + ' ' + (b.boyta_enhet || 'm²'));
+    if (b.typ)   tags.push(b.typ);
 
+    /* Rutt-knappar per aktiv tjänst */
+    let rutterHtml = '';
+    if (activeServices.length > 0 && Object.keys(naermaste).length > 0) {
+        const knappar = Object.entries(naermaste).map(([type, { place }]) => {
+            const cfg = config[type];
+            const platsNamn = place.name || cfg.name;
+            return `<div style="margin-bottom:8px">
+                <div class="rh-dist-service">📍 Närmaste ${cfg.name}: ${platsNamn}</div>
+                <div style="display:flex;gap:5px;flex-wrap:wrap">
+                    <button class="rh-route-btn" onclick="ritaRutt(
+                        {lat:${parseFloat(b.lat)},lng:${parseFloat(b.lon)}},
+                        {lat:${place.geometry.location.lat()},lng:${place.geometry.location.lng()}},
+                        'walking','${RUTT_FARGER.walking}'
+                    )" style="flex:1;justify-content:center;padding:6px 4px">
+                        <span>🚶</span><span style="font-size:11px;font-weight:600">Till fots</span>
+                    </button>
+                    <button class="rh-route-btn" onclick="ritaRutt(
+                        {lat:${parseFloat(b.lat)},lng:${parseFloat(b.lon)}},
+                        {lat:${place.geometry.location.lat()},lng:${place.geometry.location.lng()}},
+                        'transit','${RUTT_FARGER.transit}'
+                    )" style="flex:1;justify-content:center;padding:6px 4px">
+                        <span>🚌</span><span style="font-size:11px;font-weight:600">Kollektiv</span>
+                    </button>
+                    <button class="rh-route-btn" onclick="ritaRutt(
+                        {lat:${parseFloat(b.lat)},lng:${parseFloat(b.lon)}},
+                        {lat:${place.geometry.location.lat()},lng:${place.geometry.location.lng()}},
+                        'driving','${RUTT_FARGER.driving}'
+                    )" style="flex:1;justify-content:center;padding:6px 4px">
+                        <span>🚗</span><span style="font-size:11px;font-weight:600">Bil</span>
+                    </button>
+                </div>
+            </div>`;
+        }).join('');
+
+        rutterHtml = `<div class="rh-routes">
+            <div class="rh-routes-title">Visa rutt till närmaste</div>
+            ${knappar}
+        </div>`;
+    }
+
+    /* Avstånd-sektion */
     const distHtml = activeServices.length > 0
         ? `<div class="rh-distances">
-               <div class="rh-dist-title">Avstånd till närmaste</div>
-               <div id="rh-dist-content" class="rh-dist-loading">Beräknar avstånd…</div>
+               <div class="rh-dist-title">Restid till närmaste</div>
+               <div id="rh-dist-content" class="rh-dist-loading">Beräknar…</div>
            </div>` : '';
 
     return `<div class="rh-popup">
@@ -201,22 +281,15 @@ function buildPopup(b, plats, pris) {
             ${avgiftText ? `<div class="rh-avgift">Avgift: ${avgiftText}</div>` : ''}
             <div class="rh-adress" style="margin-top:6px">${b.adress || '–'}</div>
             <div class="rh-stad">${stadText}</div>
-            ${tags.length ? `<div class="rh-tags">${tags.map(t => `<span class="rh-tag">${t}</span>`).join('')}</div>` : ''}
+            ${tags.length ? `<div class="rh-tags">${tags.map(t=>`<span class="rh-tag">${t}</span>`).join('')}</div>` : ''}
+            ${rutterHtml}
             ${distHtml}
         </div>
     </div>`;
 }
 
-/* ════════════════════════════════════════
-   AVSTÅND – Distance Matrix API
-   Alla tre transportsätt
-   ════════════════════════════════════════ */
-function hamtaAvstand(bLat, bLng) {
-    if (!activeServices.length || !aktivaPlatser.length) return;
-
-    const origin = new google.maps.LatLng(bLat, bLng);
-
-    /* Närmaste plats per tjänst-typ */
+/* ── Hitta närmaste plats per tjänst ── */
+function hittaNaermaste(bLat, bLng) {
     const naermaste = {};
     aktivaPlatser.forEach(({ place, type }) => {
         if (!place.geometry) return;
@@ -228,11 +301,16 @@ function hamtaAvstand(bLat, bLng) {
             naermaste[type] = { place, d };
         }
     });
+    return naermaste;
+}
 
+/* ── Avstånd via Distance Matrix ── */
+function hamtaAvstand(bLat, bLng, naermaste) {
+    if (!activeServices.length || !Object.keys(naermaste).length) return;
+    const origin = new google.maps.LatLng(bLat, bLng);
     const destinations = Object.entries(naermaste).map(([type, { place }]) => ({
-        type, name: config[type]?.name || type, location: place.geometry.location
+        type, name: config[type]?.name, location: place.geometry.location
     }));
-    if (!destinations.length) return;
 
     const modes = [
         { key: 'walking', icon: '🚶', travelMode: google.maps.TravelMode.WALKING },
@@ -256,11 +334,7 @@ function hamtaAvstand(bLat, bLng) {
                     const type = destinations[i].type;
                     if (!resultat[type]) resultat[type] = {};
                     if (el.status === 'OK') {
-                        resultat[type][mode.key] = {
-                            dist: el.distance.text,
-                            tid:  el.duration.text,
-                            icon: mode.icon
-                        };
+                        resultat[type][mode.key] = { dist: el.distance.text, tid: el.duration.text, icon: mode.icon };
                     }
                 });
             }
@@ -277,8 +351,8 @@ function visaAvstand(resultat, destinations) {
     destinations.forEach(({ type, name }) => {
         const r = resultat[type];
         if (!r || !Object.keys(r).length) return;
-        html += `<div class="rh-dist-service">📍 Närmaste ${name}</div>`;
-        ['walking', 'transit', 'driving'].forEach(key => {
+        html += `<div class="rh-dist-service">📍 ${name}</div>`;
+        ['walking','transit','driving'].forEach(key => {
             const m = r[key]; if (!m) return;
             html += `<div class="rh-dist-row">
                 <span class="rh-dist-icon">${m.icon}</span>
@@ -290,9 +364,7 @@ function visaAvstand(resultat, destinations) {
     container.innerHTML = html || '<span style="color:#bbb;font-size:11px">Ingen data</span>';
 }
 
-/* ════════════════════════════════════════
-   LEGEND
-   ════════════════════════════════════════ */
+/* ── Legend ── */
 function buildLegend(services) {
     const legend    = document.getElementById('legend');
     const container = document.getElementById('legend-services');
@@ -309,9 +381,7 @@ function buildLegend(services) {
     legend.classList.add('visible');
 }
 
-/* ════════════════════════════════════════
-   INIT MAP
-   ════════════════════════════════════════ */
+/* ── Init Map ── */
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: 59.3293, lng: 18.0686 }, zoom: 12,
@@ -319,17 +389,15 @@ function initMap() {
         styles: [{ featureType: 'poi', elementType: 'labels', stylers: [{ visibility: 'off' }] }]
     });
 
-    infoWindow      = new google.maps.InfoWindow({ maxWidth: 270 });
-    placesService   = new google.maps.places.PlacesService(map);
-    geocoder        = new google.maps.Geocoder();
-    distanceService = new google.maps.DistanceMatrixService();
+    infoWindow         = new google.maps.InfoWindow({ maxWidth: 270 });
+    placesService      = new google.maps.places.PlacesService(map);
+    geocoder           = new google.maps.Geocoder();
+    distanceService    = new google.maps.DistanceMatrixService();
+    directionsService  = new google.maps.DirectionsService();
 
     if (currentCity && currentCity !== 'Stockholm') {
         geocoder.geocode({ address: currentCity + ', Sverige' }, (results, status) => {
-            if (status === 'OK' && results[0]) {
-                map.setCenter(results[0].geometry.location);
-                map.setZoom(13);
-            }
+            if (status === 'OK' && results[0]) { map.setCenter(results[0].geometry.location); map.setZoom(13); }
             google.maps.event.addListenerOnce(map, 'idle', () => { mapReady = true; tryApplyServices(); });
         });
     } else {
@@ -340,113 +408,90 @@ function initMap() {
     loadData();
 }
 
-/* ════════════════════════════════════════
-   DATA
-   ════════════════════════════════════════ */
+/* ── Data ── */
 function loadData() {
-    let p1 = false, p2 = false, p3 = false;
+    let p1=false, p2=false, p3=false;
     function tryStart() {
-        if (!p1 || !p2 || !p3) return;
+        if (!p1||!p2||!p3) return;
         document.getElementById('infoPanel').textContent = allBostader.length + ' bostäder laddade';
-        addBostadMarkers(allBostader);
-        dataReady = true;
-        tryApplyServices();
+        addBostadMarkers(allBostader); dataReady=true; tryApplyServices();
     }
-    Papa.parse(BASE + 'platser.csv', { download: true, header: true,
-        complete: r => {
-            r.data.forEach(p => { if (p.plats_id) platserMap[p.plats_id] = { område: p.område, stad: p.stad }; });
-            p1 = true; tryStart();
-        }, error: () => { p1 = true; tryStart(); }
-    });
-    Papa.parse(BASE + 'priser.csv', { download: true, header: true,
-        complete: r => {
-            r.data.forEach(p => { if (p.bostad_id) priserMap[p.bostad_id] = { pris: p.pris, avgift: p.avgift }; });
-            p2 = true; tryStart();
-        }, error: () => { p2 = true; tryStart(); }
-    });
-    Papa.parse(BASE + 'bostader.csv', { download: true, header: true,
-        complete: r => {
-            allBostader = r.data.filter(b => {
-                if (!b.adress || !b.lat || !b.lon) return false;
-                const lat = parseFloat(b.lat), lng = parseFloat(b.lon);
-                return !isNaN(lat) && !isNaN(lng) && lat !== 0;
+    Papa.parse(BASE+'platser.csv',{download:true,header:true,
+        complete:r=>{r.data.forEach(p=>{if(p.plats_id)platserMap[p.plats_id]={område:p.område,stad:p.stad}});p1=true;tryStart();},
+        error:()=>{p1=true;tryStart();}});
+    Papa.parse(BASE+'priser.csv',{download:true,header:true,
+        complete:r=>{r.data.forEach(p=>{if(p.bostad_id)priserMap[p.bostad_id]={pris:p.pris,avgift:p.avgift}});p2=true;tryStart();},
+        error:()=>{p2=true;tryStart();}});
+    Papa.parse(BASE+'bostader.csv',{download:true,header:true,
+        complete:r=>{
+            allBostader=r.data.filter(b=>{
+                if(!b.adress||!b.lat||!b.lon)return false;
+                const lat=parseFloat(b.lat),lng=parseFloat(b.lon);
+                return !isNaN(lat)&&!isNaN(lng)&&lat!==0;
             });
-            p3 = true; tryStart();
-        }, error: () => { p3 = true; tryStart(); }
-    });
+            p3=true;tryStart();
+        },error:()=>{p3=true;tryStart();}});
 }
 
-/* ════════════════════════════════════════
-   MARKÖRER
-   ════════════════════════════════════════ */
+/* ── Bostadsmarkörer ── */
 function addBostadMarkers(bostader) {
-    bostadMarkers.forEach(m => m.setMap(null)); bostadMarkers = [];
-    let lista = bostader;
-    if (currentCity && currentCity !== 'Stockholm') {
-        const cL = currentCity.toLowerCase();
-        const f = bostader.filter(b => {
-            const pl = platserMap[b.plats_id] || {};
-            return (pl.område && pl.område.toLowerCase().includes(cL)) ||
-                   (pl.stad  && pl.stad.toLowerCase().includes(cL))   ||
-                   (b.stad   && b.stad.toLowerCase().includes(cL));
+    bostadMarkers.forEach(m=>m.setMap(null)); bostadMarkers=[];
+    let lista=bostader;
+    if(currentCity&&currentCity!=='Stockholm'){
+        const cL=currentCity.toLowerCase();
+        const f=bostader.filter(b=>{
+            const pl=platserMap[b.plats_id]||{};
+            return(pl.område&&pl.område.toLowerCase().includes(cL))||(pl.stad&&pl.stad.toLowerCase().includes(cL))||(b.stad&&b.stad.toLowerCase().includes(cL));
         });
-        if (f.length) lista = f;
+        if(f.length)lista=f;
     }
-    lista.slice(0, 300).forEach(b => {
-        const lat = parseFloat(b.lat), lng = parseFloat(b.lon);
-        if (isNaN(lat) || isNaN(lng)) return;
-        const plats = platserMap[b.plats_id] || {};
-        const pris  = priserMap[b.id]        || {};
-        const marker = new google.maps.Marker({
-            position: { lat, lng }, map,
-            icon: { path: google.maps.SymbolPath.CIRCLE, scale: 8,
-                    fillColor: '#E8735A', fillOpacity: 0.92,
-                    strokeColor: '#fff', strokeWeight: 2 }
+    lista.slice(0,300).forEach(b=>{
+        const lat=parseFloat(b.lat),lng=parseFloat(b.lon);
+        if(isNaN(lat)||isNaN(lng))return;
+        const plats=platserMap[b.plats_id]||{},pris=priserMap[b.id]||{};
+        const marker=new google.maps.Marker({
+            position:{lat,lng},map,
+            icon:{path:google.maps.SymbolPath.CIRCLE,scale:8,fillColor:'#E8735A',fillOpacity:0.92,strokeColor:'#fff',strokeWeight:2}
         });
-        marker.addListener('click', () => {
-            infoWindow.setContent(buildPopup(b, plats, pris));
-            infoWindow.open(map, marker);
-            google.maps.event.addListenerOnce(infoWindow, 'domready', () => {
-                hamtaAvstand(lat, lng);
+        marker.addListener('click',()=>{
+            rensaRutt(); // rensa gamla rutter
+            const naermaste = hittaNaermaste(lat, lng);
+            infoWindow.setContent(buildPopup(b,plats,pris,naermaste));
+            infoWindow.open(map,marker);
+            google.maps.event.addListenerOnce(infoWindow,'domready',()=>{
+                hamtaAvstand(lat,lng,naermaste);
             });
         });
         bostadMarkers.push(marker);
     });
 }
 
-/* ════════════════════════════════════════
-   TJÄNSTER
-   ════════════════════════════════════════ */
-function clearPlaces() {
-    placeMarkers.forEach(m => m.setMap(null));
-    placeMarkers = [];
-    aktivaPlatser = [];
-}
+/* ── Tjänster ── */
+function clearPlaces(){placeMarkers.forEach(m=>m.setMap(null));placeMarkers=[];aktivaPlatser=[];}
 
-function applyServicesFilter(services) {
-    clearPlaces();
-    buildLegend(services);
-    if (!placesService || !services.length) return;
-    const bounds = map.getBounds(); if (!bounds) return;
-    services.forEach(type => {
-        const cfg = config[type]; if (!cfg) return;
-        placesService.nearbySearch({ bounds, type }, (results, status) => {
-            if (status !== 'OK' || !results.length) return;
-            results.forEach(place => {
-                if (!place.geometry) return;
-                aktivaPlatser.push({ place, type });
-                const m = new google.maps.Marker({
-                    position: place.geometry.location, map,
-                    icon: `https://maps.google.com/mapfiles/ms/icons/${cfg.gmColor}-dot.png`
+function applyServicesFilter(services){
+    clearPlaces(); rensaRutt(); buildLegend(services);
+    if(!placesService||!services.length)return;
+    const bounds=map.getBounds();if(!bounds)return;
+    services.forEach(type=>{
+        const cfg=config[type];if(!cfg)return;
+        placesService.nearbySearch({bounds,type},(results,status)=>{
+            if(status!=='OK'||!results.length)return;
+            results.forEach(place=>{
+                if(!place.geometry)return;
+                aktivaPlatser.push({place,type});
+                const m=new google.maps.Marker({
+                    position:place.geometry.location,map,
+                    icon:`https://maps.google.com/mapfiles/ms/icons/${cfg.gmColor}-dot.png`
                 });
-                m.addListener('click', () => {
+                m.addListener('click',()=>{
                     infoWindow.setContent(`
                         <div style="font-family:'DM Sans',sans-serif;padding:10px;min-width:160px">
                             <strong style="font-size:14px">${place.name}</strong><br>
-                            <span style="color:#888;font-size:12px">${place.vicinity || ''}</span><br>
+                            <span style="color:#888;font-size:12px">${place.vicinity||''}</span><br>
                             <span style="color:#E8735A;font-size:12px;font-weight:600">${cfg.name}</span>
                         </div>`);
-                    infoWindow.open(map, m);
+                    infoWindow.open(map,m);
                 });
                 placeMarkers.push(m);
             });
@@ -454,24 +499,20 @@ function applyServicesFilter(services) {
     });
 }
 
-function tryApplyServices() {
-    if (mapReady && dataReady) applyServicesFilter(activeServices);
-}
+function tryApplyServices(){if(mapReady&&dataReady)applyServicesFilter(activeServices);}
 
-/* Power BI uppdaterar URL → kartan reagerar */
-let lastSvc = serviceParam;
-setInterval(() => {
-    const p = new URLSearchParams(window.location.search);
-    const cur = p.get('service') || '';
-    if (cur !== lastSvc) {
-        lastSvc = cur;
-        activeServices = (cur && cur !== 'bostader')
-            ? cur.split(',').map(s => s.trim()).filter(s => config[s]) : [];
-        if (mapReady && dataReady) applyServicesFilter(activeServices);
+let lastSvc=serviceParam;
+setInterval(()=>{
+    const p=new URLSearchParams(window.location.search);
+    const cur=p.get('service')||'';
+    if(cur!==lastSvc){
+        lastSvc=cur;
+        activeServices=(cur&&cur!=='bostader')?cur.split(',').map(s=>s.trim()).filter(s=>config[s]):[];
+        if(mapReady&&dataReady)applyServicesFilter(activeServices);
     }
-}, 800);
+},800);
 
-window.initMap = initMap;
+window.initMap=initMap;
 </script>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdh424dxbddWDKWygYygc3s94jXYjl-5E&libraries=places,geocoding&callback=initMap" async defer></script>
