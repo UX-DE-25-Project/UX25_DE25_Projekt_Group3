@@ -40,34 +40,24 @@ def transform(df: pd.DataFrame, scb_stats=None, osm_data=None):
  
     if scb_stats:
         print("SCB-data integrerad i platser.")
-        # DEBUG
-        print(f"DEBUG Sthlm: {scb_stats.get('Stockholm')}")
  
         pop_map = {}
-        for key, info in scb_stats.items():
-            clean_key = str(key).lower().replace("kommun", "").strip()
+        for stad, info in scb_stats.items():
+            pop_val = info.get("folkmangd") if isinstance(info, dict) else info
  
-            pop_val = None
- 
-            # Om JSON-filen bara är {"Stockholm": 995574}
-            if isinstance(info, (int, str, float)):
-                pop_val = info
- 
-            # Om JSON-filen är en dictionary {"Stockholm": {"folkmangd": 995574}}
-            elif isinstance(info, dict):
-                pop_val = info.get("folkmangd") or info.get("folkmängd") or info.get("befolkning") or info.get("Population")
-                
             if isinstance(pop_val, list) and len(pop_val) > 0:
-                pop_val = pop_val[0] # Första värdet i listan
+                pop_val = pop_val[0]
  
             try:
                 if pop_val is not None and str(pop_val).strip() != "N/A":
                     clean_pop = str(pop_val).replace(" ", "").replace("\xa0", "")
-                    pop_map[clean_key] = int(clean_pop)
+                    pop_map[stad] = int(clean_pop)
+                else:
+                    pop_map[stad] = None
             except (ValueError, TypeError):
-                continue
+                pop_map[stad] = None
  
-        df_platser["kommun_befolkning"] = df_platser["stad"].str.lower().str.replace("kommun", "").str.strip().map(pop_map).astype("Int64")
+        df_platser["kommun_befolkning"] = df_platser["stad"].map(pop_map).astype("Int64")
  
         hits = df_platser["kommun_befolkning"].notna().sum()
         print(f"   SCB-data matchade {hits} av {len(df_platser)} platser.")
@@ -90,7 +80,7 @@ def transform(df: pd.DataFrame, scb_stats=None, osm_data=None):
         kategorier = ["Kollektivtrafik", "Utbildning & Kultur", "Mat & Shopping", "Fritid", "Religion & Tro", "Hälsa", "Övrigt"]
         for cat in kategorier:
             # Snygga till kolumnnamn
-            col_name = "poi_" + cat.lower().replace(" & ", "_").replace("ä", "a").replace("ö", "o").replace(" ", "_") 
+            col_name = "poi_" + cat.lower().replace(" & ", "_").replace("ä", "a").replace("ö", "o").replace(" ", "_")
             df_bostader[col_name] = 0
  
         # Data baserat på bostadens ID
@@ -102,7 +92,7 @@ def transform(df: pd.DataFrame, scb_stats=None, osm_data=None):
             for p in places:
                 c = p.get("category")
                 cat_counts[c] = cat_counts.get(c, 0) + 1
-                
+ 
             # Uppdatera rätt rad i DF
             idx = df_bostader.index[df_bostader['id'] == int(bostad_id)]
             if not idx.empty:
@@ -110,7 +100,7 @@ def transform(df: pd.DataFrame, scb_stats=None, osm_data=None):
                     col_name = "poi_" + cat.lower().replace(" & ", "_").replace(" ", "_").replace("ä", "a").replace("ö", "o")
                     if col_name in df_bostader.columns:
                         df_bostader.loc[idx, col_name] = count
-                
+ 
     # ── Tabell 3: priser ───────────────────────────────
     df_priser = df[[
         "id", "pris", "avgift",
@@ -136,7 +126,7 @@ if __name__ == "__main__":
  
     # Lokal test av transform-funktionen
     df_raw = extract("../src/data/bostader.json")
-    
+ 
     # Ladda SCB
     try:
         with open("../src/data/scb_stats.json", "r", encoding="utf-8") as f:
@@ -157,7 +147,7 @@ if __name__ == "__main__":
         # Exempeldata: bostad med id 123 har 3 närliggande platser, varav 2 är kollektivtrafik och 1 är mat & shopping
         "123": [{"category": "Kollektivtrafik"}, {"category": "Kollektivtrafik"}, {"category": "Mat & Shopping"}]
     }
-    
+ 
     df_bostader, df_priser, df_platser, df_visningar = transform(df_raw, scb_stats=scb_data, osm_data=mock_osm_data)
  
     df_platser.to_csv("platser.csv", index=False)
