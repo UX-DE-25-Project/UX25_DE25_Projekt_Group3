@@ -4,362 +4,476 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RightHome Karta</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html, body { width: 100%; height: 100%; overflow: hidden; }
-        #map { 
-            position: fixed; 
-            top: 0; left: 0; 
-            width: 100%; 
-            height: 100%; 
-        }
+        html, body { width: 100%; height: 100%; overflow: hidden; font-family: 'DM Sans', sans-serif; }
+        #map { position: fixed; top: 0; left: 0; width: 100%; height: 100%; }
+
+        /* Info-panel */
         .info-panel {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            background: rgba(255,255,255,0.9);
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 12px;
-            z-index: 1000;
-            pointer-events: none;
-            font-family: 'Segoe UI', Arial, sans-serif;
+            position: fixed; bottom: 24px; left: 20px;
+            background: rgba(255,255,255,0.92); backdrop-filter: blur(10px);
+            padding: 7px 16px; border-radius: 999px;
+            font-size: 12px; font-weight: 500; color: #555;
+            z-index: 1000; pointer-events: none;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.10);
         }
-        .service-buttons {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: rgba(255,255,255,0.95);
-            padding: 10px;
-            border-radius: 12px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-            z-index: 1000;
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-            justify-content: flex-end;
-            font-family: 'Segoe UI', Arial, sans-serif;
-            max-width: 300px;
-            pointer-events: auto;
+
+        /* ── LEGEND ── */
+        #legend {
+            position: fixed; right: 16px; top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.96); backdrop-filter: blur(14px);
+            border-radius: 20px; padding: 14px 16px;
+            box-shadow: 0 6px 28px rgba(0,0,0,0.13);
+            z-index: 1000; display: none;
+            flex-direction: column; gap: 3px; min-width: 165px;
+            animation: fadeIn 0.3s ease;
         }
-        .service-buttons button {
-            background: #f0f0f0;
-            border: none;
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            font-weight: 500;
+        #legend.visible { display: flex; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-48%) translateX(8px); }
+            to   { opacity: 1; transform: translateY(-50%) translateX(0); }
         }
-        .service-buttons button.active {
-            background: #E8735A;
-            color: white;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        .legend-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: 13px; color: #1a1a1a;
+            margin-bottom: 6px; padding-bottom: 8px;
+            border-bottom: 1px solid #efefef;
         }
-        .service-buttons button:hover {
-            background: #ddd;
+        .legend-row { display: flex; align-items: center; gap: 10px; padding: 5px 4px; border-radius: 10px; }
+        .legend-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; box-shadow: 0 1px 4px rgba(0,0,0,0.22); }
+        .legend-label { font-size: 12px; font-weight: 500; color: #333; white-space: nowrap; }
+        .legend-divider { height: 1px; background: #efefef; margin: 4px 0; }
+
+        /* ── POPUP ── */
+        .rh-popup { font-family: 'DM Sans', sans-serif; width: 250px; overflow: hidden; }
+
+        .rh-img-wrap {
+            width: 100%; height: 140px; overflow: hidden;
+            background: linear-gradient(135deg, #f7ede8 0%, #ede8f2 100%);
+            display: flex; align-items: center; justify-content: center;
+            position: relative;
         }
+        .rh-img-wrap img {
+            width: 100%; height: 100%; object-fit: cover;
+            transition: transform 0.35s; display: block;
+        }
+        .rh-img-wrap img:hover { transform: scale(1.06); }
+        .rh-no-img { font-size: 38px; opacity: 0.35; }
+
+        .rh-body { padding: 11px 13px 13px; }
+        .rh-adress {
+            font-family: 'DM Serif Display', serif;
+            font-size: 15px; color: #1a1a1a;
+            line-height: 1.3; margin-bottom: 2px;
+        }
+        .rh-stad { font-size: 11px; color: #999; margin-bottom: 7px; }
+        .rh-pris { font-size: 17px; font-weight: 700; color: #E8735A; }
+        .rh-avgift { font-size: 11px; color: #bbb; margin-top: 1px; }
+
+        .rh-tags { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 8px; }
+        .rh-tag {
+            background: #e8dfd4; color: #222;
+            padding: 4px 12px; border-radius: 20px;
+            font-size: 12px; font-weight: 500;
+        }
+
+        /* ── AVSTÅND i popup ── */
+        .rh-distances {
+            margin-top: 10px; padding-top: 10px;
+            border-top: 1px solid #f0ece8;
+        }
+        .rh-dist-title {
+            font-size: 10px; font-weight: 600; color: #aaa;
+            text-transform: uppercase; letter-spacing: 0.06em;
+            margin-bottom: 6px;
+        }
+        .rh-dist-loading { font-size: 11px; color: #bbb; font-style: italic; }
+        .rh-dist-service {
+            font-size: 10px; color: #E8735A; font-weight: 600;
+            margin-bottom: 3px; margin-top: 7px;
+        }
+        .rh-dist-row { display: flex; align-items: center; gap: 6px; margin-bottom: 3px; }
+        .rh-dist-icon { font-size: 13px; width: 18px; text-align: center; }
+        .rh-dist-val { font-size: 12px; color: #444; font-weight: 500; }
+        .rh-dist-sub { font-size: 10px; color: #aaa; margin-left: 2px; }
     </style>
 </head>
 <body>
-    <div id="map"></div>
-    <div class="info-panel" id="infoPanel">Laddar bostäder...</div>
-    <div class="service-buttons" id="serviceButtons">
-        <button data-service="all">Alla tjänster</button>
-        <button data-service="gym">Gym</button>
-        <button data-service="supermarket">Matbutik</button>
-        <button data-service="restaurant">Restaurang</button>
-        <button data-service="school">Skola</button>
-        <button data-service="library">Bibliotek</button>
-        <button data-service="transit_station">Kollektivtrafik</button>
-    </div>
 
-    <script>
-        let map;
-        let bostadMarkers = [];
-        let placeMarkers = [];
-        let allBostader = [];
-        let platserMap = {};
-        let priserMap = {};
-        let placesService = null;
-        let geocoder = null;
-        let mapReady = false;
-        let dataReady = false;
-        let infoWindow = null;
-        
-        let activeServices = [];
-        
-        const BASE = "https://ux-de-25-project.github.io/UX25_DE25_Projekt_Group3/ETL_Pipline/";
-        const urlParams = new URLSearchParams(window.location.search);
-        const currentCity = urlParams.get('city') || 'Stockholm';
-        
-        const config = {
-            gym:             { name: 'Gym',             color: 'orange' },
-            school:          { name: 'Skola',           color: 'purple' },
-            library:         { name: 'Bibliotek',       color: 'blue'   },
-            supermarket:     { name: 'Matbutik',        color: 'green'  },
-            transit_station: { name: 'Kollektivtrafik', color: 'yellow' },
-            restaurant:      { name: 'Restaurang',      color: 'red'    }
-        };
-        
-        function initMap() {
-            map = new google.maps.Map(document.getElementById("map"), {
-                center: { lat: 59.3293, lng: 18.0686 },
-                zoom: 12,
-                streetViewControl: false,
-                mapTypeControl: false,
-                fullscreenControl: false
-            });
-            
-            infoWindow = new google.maps.InfoWindow();
-            placesService = new google.maps.places.PlacesService(map);
-            geocoder = new google.maps.Geocoder();
-            
-            const serviceParam = urlParams.get('service');
-            if (serviceParam && serviceParam !== 'bostader') {
-                activeServices = serviceParam.split(',').map(s => s.trim());
-            } else if (serviceParam === 'bostader') {
-                activeServices = [];
-            }
-            
-            if (currentCity && currentCity !== 'Stockholm') {
-                geocoder.geocode({ address: currentCity + ', Sverige' }, function(results, status) {
-                    if (status === 'OK' && results) {
-                        map.setCenter(results[0].geometry.location);
-                        map.setZoom(13);
-                        google.maps.event.addListenerOnce(map, 'idle', function() {
-                            mapReady = true;
-                            tryApplyFilter();
-                        });
-                    } else {
-                        google.maps.event.addListenerOnce(map, 'idle', function() {
-                            mapReady = true;
-                            tryApplyFilter();
-                        });
+<div id="map"></div>
+<div class="info-panel" id="infoPanel">Laddar bostäder…</div>
+
+<!-- LEGEND -->
+<div id="legend">
+    <div class="legend-title">Kartlegend</div>
+    <div class="legend-row">
+        <div class="legend-dot" style="background:#E8735A;box-shadow:0 1px 5px rgba(232,115,90,0.5)"></div>
+        <span class="legend-label">Bostäder</span>
+    </div>
+    <div class="legend-divider"></div>
+    <div id="legend-services"></div>
+</div>
+
+<script>
+/* ════════════════════════════════════════
+   KONFIG
+   ════════════════════════════════════════ */
+const API_KEY = "AIzaSyCdh424dxbddWDKWygYygc3s94jXYjl-5E";
+
+const config = {
+    gym:             { name: 'Gym',             gmColor: 'orange', dot: '#FF8C00' },
+    school:          { name: 'Skola',           gmColor: 'purple', dot: '#8E44AD' },
+    library:         { name: 'Bibliotek',       gmColor: 'blue',   dot: '#2980B9' },
+    supermarket:     { name: 'Matbutik',        gmColor: 'green',  dot: '#27AE60' },
+    transit_station: { name: 'Kollektivtrafik', gmColor: 'yellow', dot: '#D4AC0D' },
+    restaurant:      { name: 'Restaurang',      gmColor: 'red',    dot: '#E74C3C' }
+};
+
+const BASE         = "https://ux-de-25-project.github.io/UX25_DE25_Projekt_Group3/ETL_Pipline/";
+const urlParams    = new URLSearchParams(window.location.search);
+const currentCity  = urlParams.get('city')    || 'Stockholm';
+const serviceParam = urlParams.get('service') || '';
+
+let map, infoWindow, placesService, geocoder, distanceService;
+let bostadMarkers = [], placeMarkers = [], allBostader = [];
+let platserMap = {}, priserMap = {};
+let mapReady = false, dataReady = false;
+let aktivaPlatser = [];
+
+let activeServices = (serviceParam && serviceParam !== 'bostader')
+    ? serviceParam.split(',').map(s => s.trim()).filter(s => config[s]) : [];
+
+/* ════════════════════════════════════════
+   BILD – samma logik som kollegans DAX
+   SWITCH(MOD(id, 5), 0,1,2,3,4)
+   Samma bild till samma bostad i både
+   rapporten och kartan ✅
+   ════════════════════════════════════════ */
+function getBildUrl(id) {
+    const bilder = [
+        "https://www.bosthlm.se/image/resize/1920/0/images03/192/400128/1347761/highres/12305821.jpg",
+        "https://bilder.hemnet.se/images/7359dd1dfa9eaf1cf903b64e828e683bb8379ae1439e0a870fa09575f23ec8e9/5a/1e/5a1edfe1bcdc406b6d7a7e12289f63b6.jpg?quality=70&width=2048&name=web-prod",
+        "https://media.brunnbergoforshed.se/2008/02/Brunnberg-Forshed-Arkitektkontor-AB-Ugglan-12.jpg",
+        "https://files.boneo.se/target_styles/properties/sizex2/1650x1100/3550358-img-MEDCFB29B4EC0B24E5D85B11A8B7D822A5F.jpeg",
+        "https://mp1-s3.quedro.com/skm/P3dpZHRoPQ==8721a-5c695-57001-d76be-397fd-30813-ab426-bbba7.jpg"
+    ];
+    return bilder[parseInt(id) % 5];
+}
+
+/* ════════════════════════════════════════
+   POPUP
+   ════════════════════════════════════════ */
+function buildPopup(b, plats, pris) {
+    const prisText   = pris.pris
+        ? parseInt(pris.pris).toLocaleString('sv-SE') + ' kr' : 'Pris saknas';
+    const avgiftText = pris.avgift && parseInt(pris.avgift) > 0
+        ? parseInt(pris.avgift).toLocaleString('sv-SE') + ' kr/mån' : '';
+    const stadText   = plats.stad
+        ? plats.stad + (plats.område ? ' – ' + plats.område : '') : (b.stad || '');
+
+    /* Bild – kollegans MOD-logik */
+    const bildUrl = getBildUrl(b.id || 0);
+    const imgHtml = `<div class="rh-img-wrap">
+        <img src="${bildUrl}" alt="Bostadsbild"
+             onerror="this.src='https://media.brunnbergoforshed.se/2008/02/Brunnberg-Forshed-Arkitektkontor-AB-Ugglan-12.jpg'">
+    </div>`;
+
+    /* Taggar – samma stil som kollegans HTMLKort */
+    const tags = [];
+    if (b.rum)         tags.push(b.rum + ' rum');
+    if (b.boyta)       tags.push(b.boyta + ' ' + (b.boyta_enhet || 'm²'));
+    if (b.typ)         tags.push(b.typ);
+
+    const distHtml = activeServices.length > 0
+        ? `<div class="rh-distances">
+               <div class="rh-dist-title">Avstånd till närmaste</div>
+               <div id="rh-dist-content" class="rh-dist-loading">Beräknar avstånd…</div>
+           </div>` : '';
+
+    return `<div class="rh-popup">
+        ${imgHtml}
+        <div class="rh-body">
+            <div class="rh-pris">${prisText}</div>
+            ${avgiftText ? `<div class="rh-avgift">Avgift: ${avgiftText}</div>` : ''}
+            <div class="rh-adress" style="margin-top:6px">${b.adress || '–'}</div>
+            <div class="rh-stad">${stadText}</div>
+            ${tags.length ? `<div class="rh-tags">${tags.map(t => `<span class="rh-tag">${t}</span>`).join('')}</div>` : ''}
+            ${distHtml}
+        </div>
+    </div>`;
+}
+
+/* ════════════════════════════════════════
+   AVSTÅND – Distance Matrix API
+   Alla tre transportsätt
+   ════════════════════════════════════════ */
+function hamtaAvstand(bLat, bLng) {
+    if (!activeServices.length || !aktivaPlatser.length) return;
+
+    const origin = new google.maps.LatLng(bLat, bLng);
+
+    /* Närmaste plats per tjänst-typ */
+    const naermaste = {};
+    aktivaPlatser.forEach(({ place, type }) => {
+        if (!place.geometry) return;
+        const d = Math.sqrt(
+            Math.pow(place.geometry.location.lat() - bLat, 2) +
+            Math.pow(place.geometry.location.lng() - bLng, 2)
+        );
+        if (!naermaste[type] || d < naermaste[type].d) {
+            naermaste[type] = { place, d };
+        }
+    });
+
+    const destinations = Object.entries(naermaste).map(([type, { place }]) => ({
+        type, name: config[type]?.name || type, location: place.geometry.location
+    }));
+    if (!destinations.length) return;
+
+    const modes = [
+        { key: 'walking', icon: '🚶', travelMode: google.maps.TravelMode.WALKING },
+        { key: 'transit', icon: '🚌', travelMode: google.maps.TravelMode.TRANSIT },
+        { key: 'driving', icon: '🚗', travelMode: google.maps.TravelMode.DRIVING }
+    ];
+
+    const resultat = {};
+    let färdiga = 0;
+
+    modes.forEach(mode => {
+        distanceService.getDistanceMatrix({
+            origins: [origin],
+            destinations: destinations.map(d => d.location),
+            travelMode: mode.travelMode,
+            unitSystem: google.maps.UnitSystem.METRIC,
+            region: 'se'
+        }, (response, status) => {
+            if (status === 'OK' && response?.rows?.[0]?.elements) {
+                response.rows[0].elements.forEach((el, i) => {
+                    const type = destinations[i].type;
+                    if (!resultat[type]) resultat[type] = {};
+                    if (el.status === 'OK') {
+                        resultat[type][mode.key] = {
+                            dist: el.distance.text,
+                            tid:  el.duration.text,
+                            icon: mode.icon
+                        };
                     }
                 });
-            } else {
-                google.maps.event.addListenerOnce(map, 'idle', function() {
-                    mapReady = true;
-                    tryApplyFilter();
-                });
             }
-            
-            google.maps.event.addListenerOnce(map, 'idle', function() {
-                google.maps.event.trigger(map, 'resize');
-            });
-            
-            setupButtons();
-            loadData();
-        }
-        
-        function setupButtons() {
-            const buttons = document.querySelectorAll('#serviceButtons button');
-            buttons.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const service = this.dataset.service;
-                    if (service === 'all') {
-                        activeServices = Object.keys(config);
-                        updateButtonUI('all');
-                    } else {
-                        if (activeServices.includes(service)) {
-                            activeServices = activeServices.filter(s => s !== service);
-                        } else {
-                            activeServices.push(service);
-                        }
-                        updateButtonUI();
-                    }
-                    if (mapReady && dataReady) {
-                        applyServicesFilter(activeServices);
-                    }
-                });
-            });
-        }
-        
-        function updateButtonUI(activeAll = false) {
-            const buttons = document.querySelectorAll('#serviceButtons button');
-            buttons.forEach(btn => {
-                const service = btn.dataset.service;
-                if (activeAll === 'all' || (service === 'all' && activeAll === 'all')) {
-                    if (service === 'all') {
-                        btn.classList.add('active');
-                    } else {
-                        btn.classList.remove('active');
-                    }
-                } else if (service === 'all') {
-                    btn.classList.remove('active');
-                } else if (activeServices.includes(service)) {
-                    btn.classList.add('active');
-                } else {
-                    btn.classList.remove('active');
-                }
-            });
-        }
-        
-        function tryApplyFilter() {
-            if (!mapReady || !dataReady) return;
-            if (activeServices.length > 0) {
-                applyServicesFilter(activeServices);
+            färdiga++;
+            if (färdiga === modes.length) visaAvstand(resultat, destinations);
+        });
+    });
+}
+
+function visaAvstand(resultat, destinations) {
+    const container = document.getElementById('rh-dist-content');
+    if (!container) return;
+    let html = '';
+    destinations.forEach(({ type, name }) => {
+        const r = resultat[type];
+        if (!r || !Object.keys(r).length) return;
+        html += `<div class="rh-dist-service">📍 Närmaste ${name}</div>`;
+        ['walking', 'transit', 'driving'].forEach(key => {
+            const m = r[key]; if (!m) return;
+            html += `<div class="rh-dist-row">
+                <span class="rh-dist-icon">${m.icon}</span>
+                <span class="rh-dist-val">${m.tid}</span>
+                <span class="rh-dist-sub">(${m.dist})</span>
+            </div>`;
+        });
+    });
+    container.innerHTML = html || '<span style="color:#bbb;font-size:11px">Ingen data</span>';
+}
+
+/* ════════════════════════════════════════
+   LEGEND
+   ════════════════════════════════════════ */
+function buildLegend(services) {
+    const legend    = document.getElementById('legend');
+    const container = document.getElementById('legend-services');
+    container.innerHTML = '';
+    if (!services.length) { legend.classList.remove('visible'); return; }
+    services.forEach(svc => {
+        const cfg = config[svc]; if (!cfg) return;
+        const row = document.createElement('div');
+        row.className = 'legend-row';
+        row.innerHTML = `<div class="legend-dot" style="background:${cfg.dot}"></div>
+                         <span class="legend-label">${cfg.name}</span>`;
+        container.appendChild(row);
+    });
+    legend.classList.add('visible');
+}
+
+/* ════════════════════════════════════════
+   INIT MAP
+   ════════════════════════════════════════ */
+function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+        center: { lat: 59.3293, lng: 18.0686 }, zoom: 12,
+        streetViewControl: false, mapTypeControl: false, fullscreenControl: false,
+        styles: [{ featureType: 'poi', elementType: 'labels', stylers: [{ visibility: 'off' }] }]
+    });
+
+    infoWindow      = new google.maps.InfoWindow({ maxWidth: 270 });
+    placesService   = new google.maps.places.PlacesService(map);
+    geocoder        = new google.maps.Geocoder();
+    distanceService = new google.maps.DistanceMatrixService();
+
+    if (currentCity && currentCity !== 'Stockholm') {
+        geocoder.geocode({ address: currentCity + ', Sverige' }, (results, status) => {
+            if (status === 'OK' && results[0]) {
+                map.setCenter(results[0].geometry.location);
+                map.setZoom(13);
             }
-        }
-        
-        function loadData() {
-            let platserLoaded = false;
-            let priserLoaded = false;
-            let bostaderLoaded = false;
-            
-            function tryStart() {
-                if (!platserLoaded || !priserLoaded || !bostaderLoaded) return;
-                document.getElementById('infoPanel').innerHTML = allBostader.length + ' bostäder laddade';
-                addBostadMarkers(allBostader);
-                dataReady = true;
-                tryApplyFilter();
-            }
-            
-            Papa.parse(BASE + "platser.csv", {
-                download: true, header: true,
-                complete: function(results) {
-                    results.data.forEach(p => {
-                        if (p.plats_id) platserMap[p.plats_id] = { område: p.område, stad: p.stad };
-                    });
-                    platserLoaded = true; tryStart();
-                },
-                error: function() { platserLoaded = true; tryStart(); }
+            google.maps.event.addListenerOnce(map, 'idle', () => { mapReady = true; tryApplyServices(); });
+        });
+    } else {
+        google.maps.event.addListenerOnce(map, 'idle', () => { mapReady = true; tryApplyServices(); });
+    }
+
+    google.maps.event.addListenerOnce(map, 'idle', () => google.maps.event.trigger(map, 'resize'));
+    loadData();
+}
+
+/* ════════════════════════════════════════
+   DATA
+   ════════════════════════════════════════ */
+function loadData() {
+    let p1 = false, p2 = false, p3 = false;
+    function tryStart() {
+        if (!p1 || !p2 || !p3) return;
+        document.getElementById('infoPanel').textContent = allBostader.length + ' bostäder laddade';
+        addBostadMarkers(allBostader);
+        dataReady = true;
+        tryApplyServices();
+    }
+    Papa.parse(BASE + 'platser.csv', { download: true, header: true,
+        complete: r => {
+            r.data.forEach(p => { if (p.plats_id) platserMap[p.plats_id] = { område: p.område, stad: p.stad }; });
+            p1 = true; tryStart();
+        }, error: () => { p1 = true; tryStart(); }
+    });
+    Papa.parse(BASE + 'priser.csv', { download: true, header: true,
+        complete: r => {
+            r.data.forEach(p => { if (p.bostad_id) priserMap[p.bostad_id] = { pris: p.pris, avgift: p.avgift }; });
+            p2 = true; tryStart();
+        }, error: () => { p2 = true; tryStart(); }
+    });
+    Papa.parse(BASE + 'bostader.csv', { download: true, header: true,
+        complete: r => {
+            allBostader = r.data.filter(b => {
+                if (!b.adress || !b.lat || !b.lon) return false;
+                const lat = parseFloat(b.lat), lng = parseFloat(b.lon);
+                return !isNaN(lat) && !isNaN(lng) && lat !== 0;
             });
-            
-            Papa.parse(BASE + "priser.csv", {
-                download: true, header: true,
-                complete: function(results) {
-                    results.data.forEach(p => {
-                        if (p.bostad_id) priserMap[p.bostad_id] = { pris: p.pris, avgift: p.avgift };
-                    });
-                    priserLoaded = true; tryStart();
-                },
-                error: function() { priserLoaded = true; tryStart(); }
+            p3 = true; tryStart();
+        }, error: () => { p3 = true; tryStart(); }
+    });
+}
+
+/* ════════════════════════════════════════
+   MARKÖRER
+   ════════════════════════════════════════ */
+function addBostadMarkers(bostader) {
+    bostadMarkers.forEach(m => m.setMap(null)); bostadMarkers = [];
+    let lista = bostader;
+    if (currentCity && currentCity !== 'Stockholm') {
+        const cL = currentCity.toLowerCase();
+        const f = bostader.filter(b => {
+            const pl = platserMap[b.plats_id] || {};
+            return (pl.område && pl.område.toLowerCase().includes(cL)) ||
+                   (pl.stad  && pl.stad.toLowerCase().includes(cL))   ||
+                   (b.stad   && b.stad.toLowerCase().includes(cL));
+        });
+        if (f.length) lista = f;
+    }
+    lista.slice(0, 300).forEach(b => {
+        const lat = parseFloat(b.lat), lng = parseFloat(b.lon);
+        if (isNaN(lat) || isNaN(lng)) return;
+        const plats = platserMap[b.plats_id] || {};
+        const pris  = priserMap[b.id]        || {};
+        const marker = new google.maps.Marker({
+            position: { lat, lng }, map,
+            icon: { path: google.maps.SymbolPath.CIRCLE, scale: 8,
+                    fillColor: '#E8735A', fillOpacity: 0.92,
+                    strokeColor: '#fff', strokeWeight: 2 }
+        });
+        marker.addListener('click', () => {
+            infoWindow.setContent(buildPopup(b, plats, pris));
+            infoWindow.open(map, marker);
+            google.maps.event.addListenerOnce(infoWindow, 'domready', () => {
+                hamtaAvstand(lat, lng);
             });
-            
-            Papa.parse(BASE + "bostader.csv", {
-                download: true, header: true,
-                complete: function(results) {
-                    allBostader = results.data.filter(b => b.adress && b.lat && b.lon && parseFloat(b.lat) !== 0);
-                    bostaderLoaded = true; tryStart();
-                },
-                error: function() {
-                    document.getElementById('infoPanel').innerHTML = "Fel vid laddning av bostäder";
-                    bostaderLoaded = true; tryStart();
-                }
-            });
-        }
-        
-        function addBostadMarkers(bostader) {
-            bostadMarkers.forEach(m => m.setMap(null));
-            bostadMarkers = [];
-            
-            let filteredBostader = bostader;
-            if (currentCity && currentCity !== 'Stockholm') {
-                filteredBostader = bostader.filter(b => {
-                    let plats = platserMap[b.plats_id] || {};
-                    let cityLower = currentCity.toLowerCase();
-                    return (plats.område && plats.område.toLowerCase().includes(cityLower)) ||
-                           (plats.stad && plats.stad.toLowerCase().includes(cityLower)) ||
-                           (b.stad && b.stad.toLowerCase().includes(cityLower));
-                });
-                if (filteredBostader.length === 0) filteredBostader = bostader;
-            }
-            
-            filteredBostader.slice(0, 300).forEach(b => {
-                let lat = parseFloat(b.lat);
-                let lng = parseFloat(b.lon);
-                if (isNaN(lat) || isNaN(lng)) return;
-                
-                let plats = platserMap[b.plats_id] || {};
-                let pris  = priserMap[b.id] || {};
-                
-                let marker = new google.maps.Marker({
-                    position: { lat, lng },
-                    map: map,
-                    icon: {
-                        path: google.maps.SymbolPath.CIRCLE,
-                        scale: 8,
-                        fillColor: '#E8735A',
-                        fillOpacity: 0.9,
-                        strokeColor: '#fff',
-                        strokeWeight: 2
-                    }
-                });
-                
-                let prisText   = pris.pris ? parseInt(pris.pris).toLocaleString('sv-SE') + ' kr' : 'Pris saknas';
-                let avgiftText = pris.avgift && parseInt(pris.avgift) > 0
-                    ? '<br>Avgift: ' + parseInt(pris.avgift).toLocaleString('sv-SE') + ' kr/mån' : '';
-                let stadText   = plats.stad
-                    ? plats.stad + (plats.område ? ' – ' + plats.område : '') : (b.stad || '');
-                
-                let contentString = `<div style="padding:10px;min-width:180px;font-family:'Segoe UI',Arial,sans-serif">
-                        <strong>${b.adress}</strong><br>
-                        <span style="color:#555">${stadText}</span><br>
-                        <span style="color:#E8735A;font-weight:bold;font-size:15px">${prisText}</span>${avgiftText}
-                    </div>`;
-                
-                marker.addListener("click", () => {
-                    infoWindow.setContent(contentString);
-                    infoWindow.open(map, marker);
-                });
-                
-                bostadMarkers.push(marker);
-            });
-        }
-        
-        function clearPlaces() {
-            placeMarkers.forEach(m => m.setMap(null));
-            placeMarkers = [];
-        }
-        
-        function addPlaces(places, typeName, color) {
-            places.forEach(place => {
+        });
+        bostadMarkers.push(marker);
+    });
+}
+
+/* ════════════════════════════════════════
+   TJÄNSTER
+   ════════════════════════════════════════ */
+function clearPlaces() {
+    placeMarkers.forEach(m => m.setMap(null));
+    placeMarkers = [];
+    aktivaPlatser = [];
+}
+
+function applyServicesFilter(services) {
+    clearPlaces();
+    buildLegend(services);
+    if (!placesService || !services.length) return;
+    const bounds = map.getBounds(); if (!bounds) return;
+    services.forEach(type => {
+        const cfg = config[type]; if (!cfg) return;
+        placesService.nearbySearch({ bounds, type }, (results, status) => {
+            if (status !== 'OK' || !results.length) return;
+            results.forEach(place => {
                 if (!place.geometry) return;
-                let marker = new google.maps.Marker({
-                    position: place.geometry.location,
-                    map: map,
-                    icon: 'https://maps.google.com/mapfiles/ms/icons/' + color + '-dot.png'
+                aktivaPlatser.push({ place, type });
+                const m = new google.maps.Marker({
+                    position: place.geometry.location, map,
+                    icon: `https://maps.google.com/mapfiles/ms/icons/${cfg.gmColor}-dot.png`
                 });
-                
-                let contentString = `<div style="padding:10px;font-family:'Segoe UI',Arial,sans-serif">
-                        <strong>${place.name}</strong><br>
-                        <span style="color:#555">${place.vicinity || ''}</span><br>
-                        <span style="color:#E8735A">${typeName}</span>
-                    </div>`;
-                
-                marker.addListener("click", () => {
-                    infoWindow.setContent(contentString);
-                    infoWindow.open(map, marker);
+                m.addListener('click', () => {
+                    infoWindow.setContent(`
+                        <div style="font-family:'DM Sans',sans-serif;padding:10px;min-width:160px">
+                            <strong style="font-size:14px">${place.name}</strong><br>
+                            <span style="color:#888;font-size:12px">${place.vicinity || ''}</span><br>
+                            <span style="color:#E8735A;font-size:12px;font-weight:600">${cfg.name}</span>
+                        </div>`);
+                    infoWindow.open(map, m);
                 });
-                
-                placeMarkers.push(marker);
+                placeMarkers.push(m);
             });
-        }
-        
-        function applyServicesFilter(serviceTypes) {
-            clearPlaces();
-            if (!placesService || serviceTypes.length === 0) return;
-            let bounds = map.getBounds();
-            if (!bounds) return;
-            
-            serviceTypes.forEach(type => {
-                if (config[type]) {
-                    placesService.nearbySearch({ bounds, type: type }, (results, status) => {
-                        if (status === 'OK' && results.length) {
-                            addPlaces(results, config[type].name, config[type].color);
-                        }
-                    });
-                }
-            });
-        }
-        
-        window.initMap = initMap;
-    </script>
-    
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdh424dxbddWDKWygYygc3s94jXYjl-5E&libraries=places,geocoding&callback=initMap" async defer></script>
+        });
+    });
+}
+
+function tryApplyServices() {
+    if (mapReady && dataReady) applyServicesFilter(activeServices);
+}
+
+/* Power BI uppdaterar URL → kartan reagerar */
+let lastSvc = serviceParam;
+setInterval(() => {
+    const p = new URLSearchParams(window.location.search);
+    const cur = p.get('service') || '';
+    if (cur !== lastSvc) {
+        lastSvc = cur;
+        activeServices = (cur && cur !== 'bostader')
+            ? cur.split(',').map(s => s.trim()).filter(s => config[s]) : [];
+        if (mapReady && dataReady) applyServicesFilter(activeServices);
+    }
+}, 800);
+
+window.initMap = initMap;
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdh424dxbddWDKWygYygc3s94jXYjl-5E&libraries=places,geocoding&callback=initMap" async defer></script>
 </body>
 </html>
