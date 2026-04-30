@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RightHome</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F5F0E8;
+    --warm-white: #FDFAF5;
+    --coral: #E8735A;
+    --blue-dark: #1A2E4A;
+    --blue-accent: #4A7EC7;
+    --green-dot: #3DAA6B;
+    --gray-dot: #B0B8C5;
+    --text-dark: #1A1A1A;
+    --text-mid: #4A4A4A;
+    --text-light: #8A8A8A;
+    --border: #E0D8CC;
+    --shadow: rgba(26,46,74,0.08);
+    --card-bg: #FFFFFF;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    min-height: 100vh;
+    font-size: 14px;
+  }
+
+  .app-wrapper {
+    display: grid;
+    grid-template-columns: 260px 1fr 240px;
+    min-height: 100vh;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 16px;
+    gap: 16px;
+  }
+
+  .sidebar { display: flex; flex-direction: column; gap: 14px; }
+  .main-content { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+  .right-panel { display: flex; flex-direction: column; gap: 14px; }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 0 8px;
+  }
+
+  .logo-icon-box {
+    width: 36px;
+    height: 36px;
+    background: var(--blue-dark);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .logo-text {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    color: var(--blue-dark);
+  }
+
+  .logo-text span { color: var(--coral); }
+
+  .profile-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid var(--border);
+  }
+
+  .avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #E8C5B0, #D4A090);
+    margin: 0 auto 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+  }
+
+  .welcome-text { font-size: 12px; color: var(--text-light); margin-bottom: 2px; }
+  .user-name { font-family: 'DM Serif Display', serif; font-size: 22px; color: var(--blue-dark); }
+
+  .section-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 18px;
+    border: 1px solid var(--border);
+  }
+
+  .section-label { font-size: 13px; font-weight: 600; color: var(--text-mid); margin-bottom: 10px; }
+
+  .search-box {
+    display: flex;
+    align-items: center;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: 8px 12px;
+    gap: 8px;
+    background: var(--warm-white);
+  }
+
+  .search-box input {
+    border: none;
+    background: none;
+    outline: none;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    flex: 1;
+  }
+
+  .checkbox-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-top: 4px;
+  }
+
+  .checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    cursor: pointer;
+  }
+
+  .checkbox-item input {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+  }
+
+  .rooms-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .rooms-select {
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    padding: 6px 28px 6px 12px;
+    font-family: 'DM Sans', sans-serif;
+    background: var(--warm-white);
+    cursor: pointer;
+  }
+
+  .budget-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+  }
+
+  input[type="range"] {
+    width: 100%;
+    -webkit-appearance: none;
+    height: 4px;
+    background: var(--border);
+    border-radius: 2px;
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--coral);
+    cursor: pointer;
+  }
+
+  .logout-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--text-light);
+    cursor: pointer;
+    padding: 8px 4px;
+    background: none;
+    border: none;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .logout-btn:hover { color: var(--coral); }
+
+  .stats-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 28px;
+    color: var(--blue-dark);
+  }
+
+  .stats-legend {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin: 12px 0;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: var(--text-light);
+  }
+
+  .legend-dot { width: 8px; height: 8px; border-radius: 50%; }
+  .legend-pill {
+    background: var(--blue-dark);
+    color: white;
+    border-radius: 20px;
+    padding: 2px 10px;
+    font-size: 11px;
+  }
+
+  .chart-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 16px;
+    border: 1px solid var(--border);
+    position: relative;
+  }
+
+  .chart-badge {
+    position: absolute;
+    top: 14px;
+    right: 20px;
+    background: var(--blue-dark);
+    color: white;
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 13px;
+  }
+
+  .map-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+  }
+
+  .map-label { padding: 12px 16px 8px; font-weight: 600; }
+  .map-area { position: relative; height: 220px; background: #E8F0E0; overflow: hidden; }
+
+  .map-price-dot {
+    position: absolute;
+    background: var(--blue-accent);
+    color: white;
+    font-size: 10px;
+    padding: 3px 7px;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  .map-price-dot.green { background: var(--green-dot); }
+
+  .listings-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .property-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  .property-img {
+    width: 100%;
+    height: 110px;
+    background: linear-gradient(135deg, #C8D4BE, #A8B8A0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .property-info { padding: 10px 12px; }
+  .property-price { font-size: 15px; font-weight: 700; color: var(--coral); display: flex; justify-content: space-between; }
+  .property-meta { font-size: 11px; color: var(--text-light); }
+  .property-addr { font-size: 11px; color: var(--text-light); }
+  .heart-icon { cursor: pointer; }
+
+  .info-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+  }
+
+  .info-card-header {
+    background: var(--blue-dark);
+    color: white;
+    padding: 12px 16px;
+    font-weight: 600;
+  }
+
+  .info-card-body { padding: 12px; }
+
+  .avstand-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+  }
+
+  .avstand-item {
+    background: var(--card-bg);
+    padding: 12px 8px;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  .avstand-item:hover { background: var(--cream); }
+  .avstand-icon { font-size: 20px; display: block; margin-bottom: 4px; }
+  .avstand-name { font-size: 10px; color: var(--text-mid); }
+
+  .mini-map { width: 100%; height: 90px; background: linear-gradient(135deg, #C8D8E8, #A8C0D8); }
+  .kommande-img { width: 100%; height: 80px; background: linear-gradient(135deg, #C8B8A8, #A89888); margin-top: 8px; border-radius: 10px; }
+</style>
+</head>
+<body>
+
+<div class="app-wrapper">
+
+  <aside class="sidebar">
+    <div class="logo">
+      <div class="logo-icon-box">
+        <svg width="22" height="20" viewBox="0 0 22 20" fill="none">
+          <path d="M1 9L11 1L21 9" stroke="white" stroke-width="2"/>
+          <rect x="4" y="9" width="14" height="11" rx="1" stroke="white" stroke-width="2"/>
+          <rect x="8" y="13" width="6" height="7" rx="0.5" fill="white"/>
+        </svg>
+      </div>
+      <span class="logo-text">Right<span>Home</span></span>
+    </div>
+
+    <div class="profile-card">
+      <div class="avatar" id="avatar">A</div>
+      <div class="welcome-text">Välkommen tillbaka!</div>
+      <div class="user-name" id="userName">Anna N.</div>
+    </div>
+
+    <div class="section-card">
+      <div class="section-label">Välj ditt område</div>
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Sök område" />
+      </div>
+    </div>
+
+    <div class="section-card">
+      <div class="section-label">Vill du hyra eller köpa?</div>
+      <div class="checkbox-grid">
+        <label class="checkbox-item"><input type="checkbox" id="hyraCheck"> Hyra</label>
+        <label class="checkbox-item"><input type="checkbox" id="kopaCheck"> Köpa</label>
+        <label class="checkbox-item"><input type="checkbox" id="husCheck"> Hus</label>
+        <label class="checkbox-item"><input type="checkbox" id="lagenhetCheck"> Lägenhet</label>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <div class="rooms-row">
+        <span class="rooms-label">Boyta</span>
+        <select class="rooms-select" id="roomsSelect">
+          <option value="0">Alla rum</option>
+          <option value="1">1+ rum</option>
+          <option value="2">2+ rum</option>
+          <option value="3">3+ rum</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <div class="budget-header">
+        <span class="budget-label">Din budget</span>
+        <span class="budget-value" id="budgetValue">9.500 kr</span>
+      </div>
+      <input type="range" min="2000" max="30000" value="9500" id="budgetSlider">
+      <div class="budget-range"><span>2.000 kr</span><span>30.000 kr</span></div>
+    </div>
+
+    <button class="logout-btn" id="logoutBtn">Logga ut</button>
+  </aside>
+
+  <main class="main-content">
+    <div>
+      <h1 class="stats-title">Statistik</h1>
+      <div class="stats-legend">
+        <div class="legend-item"><div class="legend-dot" style="background:#B0B8C5"></div> Antal lediga bostäder</div>
+        <div class="legend-item"><span class="legend-pill" id="avgPricePill">Genomsnittspris</span></div>
+        <div class="legend-item" id="bostaderCount"><div class="legend-dot" style="background:#4A7EC7"></div> 6 bostäder</div>
+      </div>
+    </div>
+
+    <div class="chart-card">
+      <div class="chart-badge" id="chartBadge">+12%</div>
+      <svg width="100%" height="80" viewBox="0 0 500 80">
+        <path d="M0,60 Q50,50 100,55 T200,40 T300,35 T400,25 T500,20" fill="none" stroke="#4A7EC7" stroke-width="2"/>
+        <path d="M0,60 Q50,50 100,55 T200,40 T300,35 T400,25 T500,20 L500,80 L0,80Z" fill="#4A7EC7" fill-opacity="0.1"/>
+      </svg>
+    </div>
+
+    <div class="map-card">
+      <div class="map-label">Överblick med pris</div>
+      <div class="map-area">
+        <svg style="position:absolute;width:100%;height:100%;opacity:0.3" viewBox="0 0 500 220">
+          <line x1="0" y1="55" x2="500" y2="55" stroke="#C8D4BE" stroke-width="6"/>
+          <line x1="0" y1="110" x2="500" y2="110" stroke="#C8D4BE" stroke-width="6"/>
+          <line x1="80" y1="0" x2="80" y2="220" stroke="#C8D4BE" stroke-width="6"/>
+          <line x1="200" y1="0" x2="200" y2="220" stroke="#C8D4BE" stroke-width="6"/>
+          <line x1="320" y1="0" x2="320" y2="220" stroke="#C8D4BE" stroke-width="6"/>
+        </svg>
+        <div class="map-price-dot" style="top:20px;left:30px">6.000 kr</div>
+        <div class="map-price-dot green" style="top:30px;left:150px">7.500 kr</div>
+        <div class="map-price-dot" style="top:60px;left:100px">9.500 kr</div>
+        <div class="map-price-dot" style="top:100px;left:250px">4.000 kr</div>
+        <div class="map-price-dot green" style="top:140px;left:350px">25.000 kr</div>
+      </div>
+    </div>
+
+    <div class="listings-label">Bostadsförslag</div>
+    <div class="listings-grid" id="listingsGrid"></div>
+  </main>
+
+  <aside class="right-panel">
+    <div class="info-card">
+      <div class="info-card-header">Bra att veta</div>
+      <div class="info-card-body">
+        <div class="aktivitet-label">Aktuella aktiviteter:</div>
+        <div class="aktivitet-text">Studera i en rofylld och inspirerande miljö bland böcker och nya tankar.</div>
+      </div>
+    </div>
+
+    <div class="avstand-card">
+      <div class="avstand-header">Se avstånd till</div>
+      <div class="avstand-grid">
+        <div class="avstand-item" data-place="Gym"><span class="avstand-icon">🏋️</span><div class="avstand-name">Gym</div></div>
+        <div class="avstand-item" data-place="Skola"><span class="avstand-icon">🏫</span><div class="avstand-name">Skola</div></div>
+        <div class="avstand-item" data-place="Bibliotek"><span class="avstand-icon">📚</span><div class="avstand-name">Bibliotek</div></div>
+        <div class="avstand-item" data-place="Matbutik"><span class="avstand-icon">🛒</span><div class="avstand-name">Matbutik</div></div>
+        <div class="avstand-item" data-place="Kollektivtrafik"><span class="avstand-icon">🚌</span><div class="avstand-name">Kollektivtrafik</div></div>
+        <div class="avstand-item" data-place="Restaurang"><span class="avstand-icon">🍽️</span><div class="avstand-name">Restaurang</div></div>
+      </div>
+      <div class="mini-map"></div>
+      <div style="padding:12px">
+        <div class="aktivitet-label">Kommande aktiviteter:</div>
+        <div class="kommande-img"></div>
+        <div class="aktivitet-text" style="margin-top:8px">Njut av en livlig matfestival med smaker från hela världen.</div>
+      </div>
+    </div>
+  </aside>
+
+</div>
+
+<script>
+  // BOSTÄDER DATA
+  const properties = [
+    { price: 2500000, rooms: 2, area: 65, type: 'apartment', address: 'Götgatan 45, Stockholm', forSale: true, forRent: false },
+    { price: 3500000, rooms: 3, area: 85, type: 'apartment', address: 'Karlavägen 12, Stockholm', forSale: true, forRent: false },
+    { price: 12000, rooms: 1, area: 45, type: 'apartment', address: 'Odengatan 8, Stockholm', forSale: false, forRent: true },
+    { price: 18000, rooms: 2, area: 55, type: 'apartment', address: 'Fleminggatan 22, Stockholm', forSale: false, forRent: true },
+    { price: 4200000, rooms: 4, area: 95, type: 'house', address: 'Vendevägen 7, Djursholm', forSale: true, forRent: false },
+    { price: 2800000, rooms: 3, area: 78, type: 'apartment', address: 'Sankt Eriksgatan 55, Stockholm', forSale: true, forRent: false }
+  ];
+
+  let currentBudget = 9500;
+  let currentSearch = '';
+  let currentRooms = 0;
+  let filters = { hyra: false, kopa: false, hus: false, lagenhet: false };
+
+  function updateBudget(val) {
+    currentBudget = parseInt(val);
+    document.querySelector('.budget-value').textContent = currentBudget.toLocaleString('sv-SE') + ' kr';
+    const slider = document.getElementById('budgetSlider');
+    const pct = ((currentBudget - 2000) / 28000) * 100;
+    slider.style.background = `linear-gradient(to right, #E8735A ${pct}%, #E0D8CC ${pct}%)`;
+    filterProperties();
+  }
+
+  function filterProperties() {
+    let filtered = properties.filter(p => {
+      if (filters.hyra && !p.forRent) return false;
+      if (filters.kopa && !p.forSale) return false;
+      if (filters.hus && p.type !== 'house') return false;
+      if (filters.lagenhet && p.type !== 'apartment') return false;
+      if (currentRooms > 0 && p.rooms < currentRooms) return false;
+      if (currentSearch && !p.address.toLowerCase().includes(currentSearch.toLowerCase())) return false;
+      
+      let monthlyCost = p.forRent ? p.price : p.price * 0.0035;
+      if (monthlyCost > currentBudget) return false;
+      
+      return true;
+    });
+    
+    updateListings(filtered);
+    updateBostaderCount(filtered.length);
+  }
+
+  function updateListings(filtered) {
+    const grid = document.getElementById('listingsGrid');
+    if (filtered.length === 0) {
+      grid.innerHTML = '<div style="grid-column:span 2;text-align:center;padding:40px;">Inga bostäder matchar</div>';
+      return;
+    }
+    
+    grid.innerHTML = filtered.map(prop => `
+      <div class="property-card">
+        <div class="property-img">
+          <svg width="100%" height="110" viewBox="0 0 200 110">
+            <rect width="200" height="110" fill="#C8D8A8"/>
+            <rect x="0" y="0" width="200" height="55" fill="#B8D0E8"/>
+            <rect x="40" y="45" width="120" height="50" fill="#F0EAD8"/>
+            <polygon points="30,48 100,15 170,48" fill="#8A6040"/>
+            <rect x="72" y="68" width="20" height="27" fill="#8A6040"/>
+            <rect x="48" y="55" width="16" height="14" fill="#A8C8E8"/>
+            <rect x="136" y="55" width="16" height="14" fill="#A8C8E8"/>
+          </svg>
+        </div>
+        <div class="property-info">
+          <div class="property-price">${prop.price.toLocaleString('sv-SE')} kr <span class="heart-icon">⊕</span></div>
+          <div class="property-meta">${prop.rooms} rum | ${prop.area} m² | ${prop.forRent ? 'Hyresrätt' : 'Bostadsrätt'}</div>
+          <div class="property-addr">${prop.address}</div>
+        </div>
+      </div>
+    `).join('');
+    
+    attachHeartListeners();
+  }
+
+  function updateBostaderCount(count) {
+    document.getElementById('bostaderCount').innerHTML = `<div class="legend-dot" style="background:#4A7EC7"></div> ${count} bostäder`;
+    const avgPrice = properties.reduce((s,p) => s + p.price, 0) / properties.length;
+    document.getElementById('avgPricePill').textContent = Math.round(avgPrice).toLocaleString('sv-SE') + ' kr';
+  }
+
+  function attachHeartListeners() {
+    document.querySelectorAll('.heart-icon').forEach(heart => {
+      heart.onclick = (e) => {
+        e.stopPropagation();
+        heart.textContent = heart.textContent === '⊕' ? '❤️' : '⊕';
+        heart.style.color = heart.textContent === '❤️' ? '#E8735A' : '';
+      };
+    });
+  }
+
+  function setupEvents() {
+    document.getElementById('budgetSlider').oninput = (e) => updateBudget(e.target.value);
+    document.getElementById('searchInput').oninput = (e) => { currentSearch = e.target.value; filterProperties(); };
+    document.getElementById('roomsSelect').onchange = (e) => { currentRooms = parseInt(e.target.value); filterProperties(); };
+    document.getElementById('hyraCheck').onchange = (e) => { filters.hyra = e.target.checked; filterProperties(); };
+    document.getElementById('kopaCheck').onchange = (e) => { filters.kopa = e.target.checked; filterProperties(); };
+    document.getElementById('husCheck').onchange = (e) => { filters.hus = e.target.checked; filterProperties(); };
+    document.getElementById('lagenhetCheck').onchange = (e) => { filters.lagenhet = e.target.checked; filterProperties(); };
+    
+    document.getElementById('avatar').onclick = () => {
+      let newName = prompt('Ange ditt namn:', document.getElementById('userName').textContent);
+      if (newName) document.getElementById('userName').textContent = newName;
+    };
+    
+    document.getElementById('logoutBtn').onclick = () => {
+      if (confirm('Logga ut?')) alert('Du är utloggad');
+    };
+    
+    document.querySelectorAll('.avstand-item').forEach(item => {
+      item.onclick = () => alert(`Avstånd till ${item.dataset.place}: 5 min promenad`);
+    });
+    
+    document.querySelectorAll('.map-price-dot').forEach(dot => {
+      dot.onclick = () => alert(`Bostäder i området: ${dot.textContent}`);
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    setupEvents();
+    updateBudget(9500);
+    filterProperties();
+  });
+</script>
+
+</body>
+</html>
