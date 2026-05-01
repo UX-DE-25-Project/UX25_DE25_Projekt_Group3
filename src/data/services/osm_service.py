@@ -1,5 +1,6 @@
 import requests
 
+
 def get_nearby_places(lat, lon, radius=1500):
     """
     Hämtar närliggande platser från OpenStreetMap via Overpass API.
