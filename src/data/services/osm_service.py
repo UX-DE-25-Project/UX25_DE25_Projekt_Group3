@@ -1,11 +1,14 @@
 import requests
 
+HEADERS = {
+    "User-Agent": "RightHome/1.0 (student project; github.com/UX25_DE25_Projekt_Group3)"
+}
 
 def get_nearby_places(lat, lon, radius=1500):
     """
     Hämtar närliggande platser från OpenStreetMap via Overpass API.
     """
-    overpass_url = "http://overpass-api.de/api/interpreter"
+    overpass_url = "https://overpass-api.de/api/interpreter"
 
     # Områden av intresse: skolor, bibliotek, parker, kollektivtrafik osv.
 
@@ -22,7 +25,7 @@ def get_nearby_places(lat, lon, radius=1500):
     """
 
     try:
-        response = requests.get(overpass_url, params={'data': query}, timeout=15)
+        response = requests.get(overpass_url, params={'data': query}, headers=HEADERS, timeout=30)
         response.raise_for_status()
         data = response.json()
         
