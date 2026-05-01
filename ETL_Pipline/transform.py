@@ -107,9 +107,9 @@ def transform(df: pd.DataFrame, scb_stats=None, osm_data=None):
         "kvadratmeterpris", "pris_per_kvm", "valuta", "upplåtelseform"
     ]].rename(columns={"id": "bostad_id"}).copy()
 
-    # Beräkna manadskostnad — det Power BI-slidern ska jämföras mot
+    # Detta ska beräkna manadskostnad, något Power BI-slidern bör jämföras mot..
     # Hyra: pris är redan månadshyra
-    # Köpa: bolånekalkyl 85% belåning, 4.5% ränta, 50 år amort + månadsavgift
+    # Köpa: bolånekalkyl 85% belåning, 4.5% ränta, 50 år amort + månadsavgift. Exempel tagen från "normala" bostäder...
     BELANINGSGRAD  = 0.85
     ARLIG_RANTA    = 0.045
     AMORTERINGSTID = 50 * 12  # månader
