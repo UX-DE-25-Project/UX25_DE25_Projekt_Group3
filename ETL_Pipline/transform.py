@@ -104,8 +104,28 @@ def transform(df: pd.DataFrame, scb_stats=None, osm_data=None):
     # ── Tabell 3: priser ───────────────────────────────
     df_priser = df[[
         "id", "pris", "avgift",
-        "kvadratmeterpris", "pris_per_kvm", "valuta"
-    ]].rename(columns={"id": "bostad_id"})
+        "kvadratmeterpris", "pris_per_kvm", "valuta", "upplåtelseform"
+    ]].rename(columns={"id": "bostad_id"}).copy()
+
+    # Detta ska beräkna manadskostnad, något Power BI-slidern bör jämföras mot..
+    # Hyra: pris är redan månadshyra
+    # Köpa: bolånekalkyl 85% belåning, 4.5% ränta, 50 år amort + månadsavgift. Exempel tagen från "normala" bostäder...
+    BELANINGSGRAD  = 0.85
+    ARLIG_RANTA    = 0.045
+    AMORTERINGSTID = 50 * 12  # månader
+
+    def berakna_manadskostnad(row):
+        if row["upplåtelseform"] == "hyra":
+            return int(row["pris"])
+        else:
+            lan           = row["pris"] * BELANINGSGRAD
+            manadsranta   = lan * (ARLIG_RANTA / 12)
+            amortering    = lan / AMORTERINGSTID
+            avgift        = row["avgift"] if pd.notna(row["avgift"]) else 0
+            return int(manadsranta + amortering + avgift)
+
+    df_priser["manadskostnad"] = df_priser.apply(berakna_manadskostnad, axis=1)
+    df_priser = df_priser.drop(columns=["upplåtelseform"])
  
     # ── Tabell 4: visningar ────────────────────────────
     df_visningar = pd.DataFrame([

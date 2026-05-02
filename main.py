@@ -30,7 +30,7 @@ def main():
 
     # Transformera data
     print("Transformerar data (inklusive SCB och OSM)...")
-    df_bostader, df_priser, df_platser = transform(df_raw, scb_stats=scb_stats, osm_data=osm_data)
+    df_bostader, df_priser, df_platser, df_visningar = transform(df_raw, scb_stats=scb_stats, osm_data=osm_data)
 
     # Sparar filerna i ETL_Pipline mappen
     print("\n Sparar ren data som CSV-filer för Power BI...")
@@ -42,6 +42,7 @@ def main():
     df_bostader.to_csv(f"{output_path}bostader.csv", index=False)
     df_platser.to_csv(f"{output_path}platser.csv", index=False)
     df_priser.to_csv(f"{output_path}priser.csv", index=False)
+    df_visningar.to_csv(f"{output_path}visningar.csv", index=False)
 
     print(f"Klart! Filer sparade i {output_path}")
     print(f" - {len(df_bostader)} bostäder bearbetade")

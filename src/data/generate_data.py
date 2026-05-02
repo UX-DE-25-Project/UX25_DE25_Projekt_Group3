@@ -28,6 +28,36 @@ bas_pris_per_kvm = {
     "Malmö": 38000
 }
 
+# Områdesmultiplikatorer baserade på verkliga svenska marknadspriser 2024-2025
+# Källa: AI (test) genererade från Valueguard, Hemnet, Booli prisstatistik
+# Bör minimera de flesta offsets, men behöver inte garantera land 
+område_multiplikator = {
+    # Tidigare var det baserat pris per kvm
+    # NU. Stockholm – Östermalm dyrast, sedan Vasastan/Kungsholmen, Södermalm, ytterområden billigast
+    "Östermalm":   1.35,   # ~128k kr/kvm
+    "Vasastan":    1.10,   # ~105k kr/kvm
+    "Kungsholmen": 1.08,   # ~103k kr/kvm
+    "Södermalm":   1.00,   # ~95k kr/kvm  (basindex)
+    "Lidingö":     0.95,   # ~90k kr/kvm
+    "Bromma":      0.88,   # ~84k kr/kvm
+    "Nacka":       0.85,   # ~81k kr/kvm
+    "Solna":       0.82,   # ~78k kr/kvm
+    "Sundbyberg":  0.75,   # ~71k kr/kvm
+    "Hägersten":   0.72,   # ~68k kr/kvm
+    "Farsta":      0.58,   # ~55k kr/kvm
+    "Spånga":      0.52,   # ~49k kr/kvm
+    # Göteborg
+    "Linnéstaden": 1.12,   # ~62k kr/kvm
+    "Majorna":     1.08,   # ~59k kr/kvm
+    "Centrum":     1.00,   # ~55k kr/kvm
+    "Hisingen":    0.78,   # ~43k kr/kvm
+    # Malmö
+    "Västra Hamnen": 1.20, # ~46k kr/kvm
+    "Limhamn":     1.05,   # ~40k kr/kvm
+    "Hyllie":      0.88,   # ~33k kr/kvm
+    "Rosengård":   0.62,   # ~24k kr/kvm
+}
+
 gatunamn = [
     "Storgatan", "Parkvägen", "Björkgatan", "Lindvägen",
     "Skolvägen", "Kyrkogatan", "Strandvägen", "Bergsgatan",
@@ -81,13 +111,14 @@ def generera_bostad(id):
         pris = int((boyta * 150) * random.uniform(0.8, 1.2))
         avgift = 0
     else:
-        m2_pris = bas_pris_per_kvm[stad] * random.uniform(0.8, 1.4)
+        mult = område_multiplikator.get(område, 1.0)
+        m2_pris = bas_pris_per_kvm[stad] * mult * random.uniform(0.88, 1.12)
         pris = int(boyta * m2_pris)
         avgift = int((boyta * 60) * random.uniform(0.7, 1.3)) if typ == "lägenhet" else random.randint(1500, 4500)
 
     bas_koords = koordinater[område]
-    lat = round(bas_koords["lat"] + random.uniform(-0.01, 0.01), 5)
-    lon = round(bas_koords["lon"] + random.uniform(-0.01, 0.01), 5)
+    lat = round(bas_koords["lat"] + random.uniform(-0.004, 0.004), 5)
+    lon = round(bas_koords["lon"] + random.uniform(-0.004, 0.004), 5)
 
     gata = random.choice(gatunamn)
     nummer = random.randint(1, 120)
@@ -118,4 +149,4 @@ with open("src/data/bostader.json", "w", encoding="utf-8") as f:
     json.dump(bostäder, f, ensure_ascii=False, indent=2)
 
 print("1000 bostäder genererade och sparade i src/data/bostader.json")
-print(f"Data redo för Supabase, inkluderar 'avgift', 365 dagars historik mm.") 
+print(f"Data redo för Supabase, inkluderar 'avgift', 365 dagars historik mm.")
