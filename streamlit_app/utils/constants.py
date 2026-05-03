@@ -89,3 +89,24 @@ APP_TITLE           = "RightHome"
 APP_TAGLINE         = "Hitta rätt bostad, område"
 LOGO_PATH           = IMAGES_DIR / "logo.png"
  
+ # ── Kolumnnamn — priser.csv ───────────────────────────────────────────────────
+COL_BOSTAD_ID           = "bostad_id"
+COL_PRIS                = "pris"
+COL_AVGIFT              = "avgift"
+COL_KVADRATMETERPRIS    = "kvadratmeterpris"
+COL_PRIS_PER_KVM        = "pris_per_kvm"
+COL_VALUTA              = "valuta"
+COL_MANADSKOSTNAD       = "manadskostnad"
+ 
+# ── Kolumnnamn — platser.csv ──────────────────────────────────────────────────
+COL_OMRADE              = "område"
+COL_STAD                = "stad"
+COL_KOMMUN_BEFOLKNING   = "kommun_befolkning"
+ 
+# ── Kolumnnamn — visningar.csv ────────────────────────────────────────────────
+COL_VIS_BOSTAD_ID       = "bostad_id"
+COL_VIS_ADRESS          = "adress"
+COL_VIS_DATUM           = "visningsdatum"
+COL_VIS_START           = "starttid"
+COL_VIS_SLUT            = "sluttid"
+ 
