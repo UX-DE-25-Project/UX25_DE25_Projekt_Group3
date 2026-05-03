@@ -4,12 +4,27 @@
 
 import pandas as pd
 import streamlit as st
+from pathlib import Path
 from utils.constants import (
     CSV_BOSTADER, CSV_PRISER, CSV_PLATSER, CSV_VISNINGAR,
     COL_ID, COL_BOSTAD_ID, COL_PLATS_ID,
     COL_PRIS, COL_KVM, COL_PRIS_PER_KVM,
     COL_OMRADE, COL_KOMMUN_BEFOLKNING,
 )
+
+
+# ── Fil-läsning ───────────────────────────────────────────────────────────────
+
+def read_textfile(path: Path) -> str:
+    """Läser textfil och returnerar innehåll som sträng."""
+    with open(path, encoding="utf-8") as f:
+        return f.read()
+
+
+def read_css(path: Path) -> None:
+    """Laddar en CSS-fil och injicerar den i Streamlit via st.markdown."""
+    css = read_textfile(path)
+    st.markdown(f"<style>{css}</style>", unsafe_allow_html=True)
 
 
 # ── Data-laddning ─────────────────────────────────────────────────────────────
