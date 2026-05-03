@@ -87,6 +87,7 @@ POI_OPTIONS = {
 # ── Sidinformation ────────────────────────────────────────────────────────────
 APP_TITLE           = "RightHome"
 APP_TAGLINE         = "Hitta rätt bostad, område"
+APP_ICON            = "🏠"
 LOGO_PATH           = IMAGES_DIR / "logo.png"
  
  # ── Kolumnnamn — priser.csv ───────────────────────────────────────────────────
