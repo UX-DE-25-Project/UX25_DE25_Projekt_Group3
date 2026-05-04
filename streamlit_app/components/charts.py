@@ -75,3 +75,56 @@ def render_snittpris_per_typ(df: pd.DataFrame) -> None:
     )
     fig.update_layout(showlegend=False, margin=dict(t=0, b=0))
     st.plotly_chart(fig, use_container_width=True)
+
+
+def render_upplatelseform(df: pd.DataFrame) -> None:
+    """Pie chart: fördelning upplåtelseform."""
+    st.markdown("#### Fördelning upplåtelseform")
+
+    uppl_df = duckdb.sql("""
+        SELECT upplåtelseform, COUNT(*) AS antal
+        FROM df
+        GROUP BY upplåtelseform
+    """).df()
+
+    fig = px.pie(
+        uppl_df,
+        names="upplåtelseform",
+        values="antal",
+        color_discrete_sequence=[COLOR_CORAL, COLOR_SAND, COLOR_BROWN, COLOR_MUTED],
+        hole=0.4,
+    )
+    fig.update_layout(margin=dict(t=0, b=0))
+    st.plotly_chart(fig, use_container_width=True)
+
+
+def render_pris_per_kvm(df: pd.DataFrame) -> None:
+    """Linjediagram: snittpris per kvm för topp 15 områden."""
+    st.markdown("#### Snittpris per kvm - topp 15 områden")
+
+    kvm_df = duckdb.sql("""
+        SELECT
+            område,
+            ROUND(AVG(pris_per_kvm), 0)::INT AS snitt_kvm_pris
+        FROM df
+        WHERE pris_per_kvm IS NOT NULL
+        GROUP BY område
+        ORDER BY snitt_kvm_pris DESC
+        LIMIT 15
+    """).df()
+
+    fig = px.line(
+        kvm_df,
+        x="område",
+        y="snitt_kvm_pris",
+        markers=True,
+        color_discrete_sequence=[COLOR_BROWN],
+        labels={"område": "Område", "snitt_kvm_pris": "Pris/kvm (kr)"},
+    )
+    fig.update_layout(
+        xaxis_tickangle=-40,
+        height=350,
+        margin=dict(t=0, b=0),
+    )
+    fig.update_traces(line=dict(width=2.5), marker=dict(size=8))
+    st.plotly_chart(fig, use_container_width=True)
