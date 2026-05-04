@@ -128,3 +128,27 @@ def render_pris_per_kvm(df: pd.DataFrame) -> None:
     )
     fig.update_traces(line=dict(width=2.5), marker=dict(size=8))
     st.plotly_chart(fig, use_container_width=True)
+
+
+def render_rumsfordelning(df: pd.DataFrame) -> None:
+    """Bar chart: antal bostäder per rumsantal."""
+    st.markdown("#### Antal bostäder per rumsantal")
+
+    rum_df = duckdb.sql("""
+        SELECT rum::INT AS rum, COUNT(*) AS antal
+        FROM df
+        WHERE rum IS NOT NULL
+        GROUP BY rum
+        ORDER BY rum
+    """).df()
+
+    fig = px.bar(
+        rum_df,
+        x="rum",
+        y="antal",
+        text_auto=True,
+        color_discrete_sequence=[COLOR_CORAL],
+        labels={"rum": "Antal rum", "antal": "Antal bostäder"},
+    )
+    fig.update_layout(showlegend=False, margin=dict(t=0, b=0))
+    st.plotly_chart(fig, use_container_width=True)
