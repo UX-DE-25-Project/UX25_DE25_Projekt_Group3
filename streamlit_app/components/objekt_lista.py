@@ -54,7 +54,7 @@ def render_visningar() -> None:
 
             with col_info:
                 st.markdown(f"**{v['adress']}**")
-                st.caption(f"Kl {v['starttid']} – {v['sluttid']}")
+                st.caption(f"Kl {v['starttid']} - {v['sluttid']}")
 
 
 def render_rekommenderade(df: pd.DataFrame) -> None:
