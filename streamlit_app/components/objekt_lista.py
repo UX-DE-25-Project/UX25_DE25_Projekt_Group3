@@ -55,3 +55,37 @@ def render_visningar() -> None:
             with col_info:
                 st.markdown(f"**{v['adress']}**")
                 st.caption(f"Kl {v['starttid']} – {v['sluttid']}")
+
+
+def render_rekommenderade(df: pd.DataFrame) -> None:
+    """
+    Visar upp till 5 rekommenderade bostäder från det filtrerade DataFrame.
+
+    Sorterar, lägst pris per kvm, för "bäst värde".
+
+    Args:
+        df: Filtrerat merged DataFrame från load_all()
+    """
+    st.markdown("### Rekommenderade för dig")
+
+    if df.empty:
+        st.info("Inga bostäder matchar ditt filter.")
+        return
+
+    top = df.sort_values("pris_per_kvm").head(5)
+
+    for _, rad in top.iterrows():
+        with st.container(border=True):
+            col_info, col_pris = st.columns([3, 1])
+
+            with col_info:
+                st.markdown(f"**{rad['adress']}, {rad['område']}**")
+                c1, c2, c3 = st.columns(3)
+                c1.caption(f"Rum {int(rad['rum'])} rum")
+                c2.caption(f"Boyta {int(rad['boyta'])} m²")
+                c3.caption(str(rad["typ"]).capitalize())
+
+            with col_pris:
+                st.markdown(f"**{format_sek(rad['pris'])}**")
+                if rad.get("avgift") and rad["avgift"] > 0:
+                    st.caption(f"{int(rad['avgift']):,} kr/mån".replace(",", " "))
