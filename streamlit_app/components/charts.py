@@ -3,6 +3,10 @@
 # Importera från pages.
 
 import streamlit as st
+import plotly.express as px
 import duckdb
 import pandas as pd
 from utils.constants import COLOR_CORAL, COLOR_SAND, COLOR_BROWN, COLOR_MUTED
+
+
+# ── Karta-vy diagram ──────────────────────────────────────────────────────────
