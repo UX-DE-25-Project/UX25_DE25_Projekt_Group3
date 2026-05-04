@@ -47,3 +47,31 @@ def render_prisdiagram(df: pd.DataFrame) -> None:
     )
     fig.update_traces(textposition="outside")
     st.plotly_chart(fig, use_container_width=True)
+
+
+# ── Statistik-diagram ─────────────────────────────────────────────────────────
+
+def render_snittpris_per_typ(df: pd.DataFrame) -> None:
+    """Bar chart: snittpris per bostadstyp."""
+    st.markdown("#### Snittpris per bostadstyp")
+
+    typ_df = duckdb.sql("""
+        SELECT
+            typ,
+            ROUND(AVG(pris), -3)::BIGINT AS snittpris
+        FROM df
+        GROUP BY typ
+        ORDER BY snittpris DESC
+    """).df()
+
+    fig = px.bar(
+        typ_df,
+        x="typ",
+        y="snittpris",
+        text_auto=".2s",
+        color="typ",
+        color_discrete_sequence=[COLOR_CORAL, COLOR_BROWN, COLOR_SAND, COLOR_MUTED],
+        labels={"typ": "Bostadstyp", "snittpris": "Snittpris (kr)"},
+    )
+    fig.update_layout(showlegend=False, margin=dict(t=0, b=0))
+    st.plotly_chart(fig, use_container_width=True)
