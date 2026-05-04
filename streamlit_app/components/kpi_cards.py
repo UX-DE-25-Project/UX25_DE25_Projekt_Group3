@@ -17,3 +17,22 @@ def render_kpis(df: pd.DataFrame) -> None:
     if df.empty:
         st.info("Inga bostäder att visa KPI:er för.")
         return
+
+    # ── DuckDB beräkningar ────────────────────────────────────────────────
+    antal        = len(df)
+    snittpris    = duckdb.sql("SELECT ROUND(AVG(pris), -3)::BIGINT FROM df").fetchone()[0]
+    snitt_kvm    = duckdb.sql("SELECT ROUND(AVG(boyta), 0)::INT FROM df").fetchone()[0]
+    tillgangliga = duckdb.sql("SELECT COUNT(*) FROM df WHERE tillgänglig = true").fetchone()[0]
+
+    # ── Renderar kolumner ──────────────────────────────────────────────────────
+    cols = st.columns(4)
+    metrics = [
+        ("Antal bostäder",  f"{antal:,}".replace(",", " "),       None),
+        ("Snittpris",       format_sek(snittpris),                 None),
+        ("Snitt boyta",     f"{snitt_kvm} m²",                    None),
+        ("Tillgängliga",    f"{tillgangliga:,}".replace(",", " "), None),
+    ]
+
+    for col, (label, value, delta) in zip(cols, metrics):
+        with col:
+            st.metric(label=label, value=value, delta=delta)
