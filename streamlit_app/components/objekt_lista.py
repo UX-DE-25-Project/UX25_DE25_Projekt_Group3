@@ -30,3 +30,28 @@ def render_sparade() -> None:
             c1.caption(f"Rum {int(rad['rum'])} rum")
             c2.caption(f"Boyta {int(rad['boyta'])} m²")
             c3.caption(str(rad["typ"]).capitalize())
+
+
+def render_visningar() -> None:
+    """Visar kommande visningar från visningar.csv."""
+    vis = load_visningar()
+
+    st.markdown("### Kommande visningar")
+
+    if vis.empty:
+        st.caption("Inga visningar inbokade.")
+        return
+
+    for _, v in vis.iterrows():
+        with st.container(border=True):
+            col_datum, col_info = st.columns([1, 3])
+
+            with col_datum:
+                datum_str = str(v["visningsdatum"])       # "2026-04-24"
+                dag       = datum_str.split("-")[2]       # "24"
+                mnad_num  = int(datum_str.split("-")[1])  # 4
+                st.markdown(f"**{dag}**  \n{_MANAD[mnad_num]}")
+
+            with col_info:
+                st.markdown(f"**{v['adress']}**")
+                st.caption(f"Kl {v['starttid']} – {v['sluttid']}")
