@@ -2,8 +2,14 @@
 import json
 
 
-def build_map_html(df, api_key: str, poi_type: str = "") -> str:
-    """Bygger Google Maps som HTML-sträng med filtrerad data från Python."""
+def build_map_html(df, api_key: str, poi_types=None) -> str:
+    """Bygger Google Maps HTML. poi_types kan vara str eller lista."""
+
+    # Hantera både gammal (str) och ny (lista) input
+    if poi_types is None:
+        poi_types = []
+    elif isinstance(poi_types, str):
+        poi_types = [poi_types] if poi_types else []
 
     bostader = []
     for _, row in df.iterrows():
@@ -27,7 +33,7 @@ def build_map_html(df, api_key: str, poi_type: str = "") -> str:
             continue
 
     bostader_js = json.dumps(bostader, ensure_ascii=False)
-    poi_js = f'"{poi_type}"' if poi_type else '""'
+    poi_types_js = json.dumps(poi_types)
 
     html = f"""<!DOCTYPE html>
 <html>
@@ -35,7 +41,7 @@ def build_map_html(df, api_key: str, poi_type: str = "") -> str:
 <meta charset="UTF-8">
 <style>
     * {{ margin: 0; padding: 0; box-sizing: border-box; }}
-    html, body {{ width: 100%; height: 100%; font-family: 'DM Sans', sans-serif; background: #F5EDE0; }}
+    html, body {{ width: 100%; height: 100%; font-family: 'DM Sans', sans-serif; background: #FDFAF6; }}
     #map {{ width: 100%; height: 100vh; }}
     #infoPanel {{
         position: fixed; bottom: 20px; left: 20px;
@@ -63,9 +69,7 @@ def build_map_html(df, api_key: str, poi_type: str = "") -> str:
 <button id="clearRoute" onclick="rensaRutt()">✕ Rensa rutt</button>
 <script>
 const BOSTADER = {bostader_js};
-const POI_TYPE = {poi_js};
-let map, infoWindow, placesService, directionsRenderer;
-let bostadMarkers = [], placeMarkers = [], dashLine = null;
+const POI_TYPES = {poi_types_js};
 
 const POI_CONFIG = {{
     "library":         {{ name: "Bibliotek",       color: "#4A90D9" }},
@@ -75,6 +79,10 @@ const POI_CONFIG = {{
     "supermarket":     {{ name: "Matbutik",        color: "#16A085" }},
     "school":          {{ name: "Skola",           color: "#2980B9" }},
 }};
+
+let map, infoWindow, placesService, directionsRenderer;
+let bostadMarkers = [], placeMarkers = [], dashLine = null;
+let valdBostad = null;
 
 function initMap() {{
     map = new google.maps.Map(document.getElementById("map"), {{
@@ -90,17 +98,15 @@ function initMap() {{
 
     addBostadMarkers();
 
-    // Zooma till bostäderna
     if (BOSTADER.length > 0) {{
         const bounds = new google.maps.LatLngBounds();
         BOSTADER.forEach(b => bounds.extend({{ lat: b.lat, lng: b.lng }}));
         map.fitBounds(bounds);
     }}
 
-    // Visa POI direkt om valt — söker efter att kartan är klar
-    if (POI_TYPE) {{
+    if (POI_TYPES.length > 0) {{
         google.maps.event.addListenerOnce(map, 'idle', function() {{
-            visaPOI(POI_TYPE);
+            POI_TYPES.forEach(typ => visaPOI(typ));
         }});
     }}
 }}
@@ -121,12 +127,10 @@ function addBostadMarkers() {{
             }}
         }});
         marker.addListener("click", () => {{
+            valdBostad = {{ lat: b.lat, lng: b.lng }};
             rensaRutt();
             infoWindow.setContent(buildPopup(b));
             infoWindow.open(map, marker);
-            if (placeMarkers.length > 0) {{
-                ritaDashedLinje({{ lat: b.lat, lng: b.lng }}, placeMarkers[0].getPosition());
-            }}
         }});
         bostadMarkers.push(marker);
     }});
@@ -138,17 +142,16 @@ function formatPris(p) {{
 }}
 
 function buildPopup(b) {{
-    return `<div style="font-family:'DM Sans',sans-serif;width:240px;padding:12px 14px">
-        <div style="font-size:15px;font-weight:700;color:#1a1a1a">${{b.adress}}</div>
-        <div style="font-size:11px;color:#999;margin-bottom:8px">${{b.område}}</div>
-        <div style="font-size:18px;font-weight:700;color:#E8735A">${{formatPris(b.pris)}}</div>
-        ${{b.avgift ? `<div style="font-size:11px;color:#bbb">Avgift: ${{formatPris(b.avgift)}}/mån</div>` : ""}}
-        <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:8px">
-            <span style="background:#f0ece8;padding:3px 10px;border-radius:20px;font-size:12px">${{b.rum}} rum</span>
-            <span style="background:#f0ece8;padding:3px 10px;border-radius:20px;font-size:12px">${{b.boyta}} kvm</span>
-            <span style="background:#f0ece8;padding:3px 10px;border-radius:20px;font-size:12px">${{b.typ}}</span>
-        </div>
-    </div>`;
+    return '<div style="font-family:sans-serif;width:240px;padding:12px 14px">'
+        + '<div style="font-size:15px;font-weight:700;color:#1a1a1a">' + b.adress + '</div>'
+        + '<div style="font-size:11px;color:#999;margin-bottom:8px">' + b.område + '</div>'
+        + '<div style="font-size:18px;font-weight:700;color:#E8735A">' + formatPris(b.pris) + '</div>'
+        + (b.avgift ? '<div style="font-size:11px;color:#bbb">Avgift: ' + formatPris(b.avgift) + '/mån</div>' : '')
+        + '<div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:8px">'
+        + '<span style="background:#f0ece8;padding:3px 10px;border-radius:20px;font-size:12px">' + b.rum + ' rum</span>'
+        + '<span style="background:#f0ece8;padding:3px 10px;border-radius:20px;font-size:12px">' + b.boyta + ' kvm</span>'
+        + '<span style="background:#f0ece8;padding:3px 10px;border-radius:20px;font-size:12px">' + b.typ + '</span>'
+        + '</div></div>';
 }}
 
 function ritaDashedLinje(fran, till) {{
@@ -177,16 +180,11 @@ function rensaRutt() {{
 }}
 
 function visaPOI(type) {{
-    placeMarkers.forEach(m => m.setMap(null));
-    placeMarkers = [];
     const cfg = POI_CONFIG[type];
     if (!cfg) return;
 
-    // Använd kartans synliga bounds-center istället för fast Stockholm-punkt
     const bounds = map.getBounds();
     const center = bounds ? bounds.getCenter() : map.getCenter();
-
-    // Beräkna radius från kartans synliga area
     let radius = 5000;
     if (bounds) {{
         const ne = bounds.getNorthEast();
@@ -215,11 +213,17 @@ function visaPOI(type) {{
                     title: place.name
                 }});
                 m.addListener("click", () => {{
-                    infoWindow.setContent(`<div style="font-family:'DM Sans',sans-serif;padding:10px">
-                        <strong>${{place.name}}</strong><br>
-                        <span style="color:#888;font-size:12px">${{place.vicinity || ""}}</span><br>
-                        <span style="color:${{cfg.color}};font-size:12px;font-weight:600">${{cfg.name}}</span>
-                    </div>`);
+                    // Rita linje från vald bostad till denna POI
+                    if (valdBostad) {{
+                        ritaDashedLinje(valdBostad, place.geometry.location);
+                    }}
+                    infoWindow.setContent(
+                        '<div style="font-family:sans-serif;padding:10px">'
+                        + '<strong>' + place.name + '</strong><br>'
+                        + '<span style="color:#888;font-size:12px">' + (place.vicinity || '') + '</span><br>'
+                        + '<span style="color:' + cfg.color + ';font-size:12px;font-weight:600">' + cfg.name + '</span>'
+                        + '</div>'
+                    );
                     infoWindow.open(map, m);
                 }});
                 placeMarkers.push(m);
