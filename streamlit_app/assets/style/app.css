@@ -1,0 +1,16 @@
+/* style/app.css - referens stil, kan ändras på förfrågan */
+
+/* KPI-kort: beige bakgrund med brun kantlinje */
+[data-testid="stMetric"] {
+    background-color: #F5EDE0;
+    border-radius: 14px;
+    padding: 1rem 1.2rem;
+    border: 1px solid #E8D5BB;
+}
+
+/* Rubriker: mörk brun / mellanbrun */
+h1, h2 { color: #2C1A0E; }
+h3, h4 { color: #6B4C3B; }
+
+/* Divider: samma kantlinje som KPI-korten */
+hr { border-color: #E8D5BB; }
