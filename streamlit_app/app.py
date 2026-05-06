@@ -16,7 +16,7 @@ if "sida" not in st.session_state:
 
 st.markdown("""
 <style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600&display=swap');
+@import url('https://googleapis.com');
 
 html, body, [class*="css"] {
     font-family: 'DM Sans', sans-serif;
@@ -128,13 +128,26 @@ section[data-testid="stSidebar"] img {
     background-color: #F5EDE0 !important;
 }
 
-/* Fix knappar i POI — ta bort svart bakgrund */
-section.main .stButton button[kind="secondary"] {
-    background: white !important;
-    color: #6B4C3B !important;
-    border: 1px solid #E8D5BB !important;
-    border-radius: 0 0 10px 10px !important;
-}            
+/* --- FIX FÖR POI-KNAPPAR (IKONERNA) --- */
+/* --- ULTIMATA FIXEN: OSYNLIGA KNAPPAR --- */
+
+
+/* 2. Tvinga behållaren som Streamlit skapar att kollapsa helt */
+section.main div[data-testid="column"] > div > div > div > div:has(button) {
+    display: none !important;
+    height: 0px !important;
+    min-height: 0px !important;
+    margin: 0px !important;
+    padding: 0px !important;
+}
+
+/* 3. Se till att ikonerna (dina iframes) har kvar sina klick-funktioner */
+iframe {
+    display: block !important;
+    margin-bottom: 10px !important;
+    border: none !important;
+}
+
 
 </style>
 """, unsafe_allow_html=True)
