@@ -1,11 +1,21 @@
 [project]
 name = "ux25-de25-projekt-group3"
 version = "0.1.0"
-description = "Add your description here"
+description = "RightHome – Streamlit-dashboard för bostadsdata"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
-    "jupyter>=1.1.1",
+    "streamlit>=1.43.0",
     "pandas>=3.0.2",
     "plotly>=6.6.0",
+    "duckdb>=1.2.0",
+    "python-dotenv>=1.1.0",
+    "jupyter>=1.1.1",
 ]
+
+[project.scripts]
+righthome = "streamlit_app.app:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
